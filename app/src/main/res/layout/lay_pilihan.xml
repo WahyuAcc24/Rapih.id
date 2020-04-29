@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundpilihan"
+
+    >
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:src="@drawable/rapih_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat datang diaplikasi Rapih.id \n Silahkan mulai dengan pencarian anda"
+        android:textSize="20sp"
+        android:textColor="#ede740"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txtinfo1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apakah anda Konsumen atau Mitra ?"
+        android:textSize="20sp"
+        android:layout_below="@+id/txtinfo1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="#ede740"
+        android:textAlignment="center"
+        android:id="@+id/txtinfo2"
+        />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/txtinfo2"
+    android:gravity="center_horizontal"
+    >
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imgkonsumen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+
+        android:src="@drawable/iconkonsumenn"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/imgmitra"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="50dp"
+        android:src="@drawable/iconmitraa"
+
+        />
+
+</LinearLayout>
+</RelativeLayout>
