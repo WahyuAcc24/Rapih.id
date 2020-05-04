@@ -47,6 +47,7 @@ public class PathUtil {
                 final String[] split = docId.split(":");
                 final String type = split[0];
 
+
                 if ("primary".equalsIgnoreCase(type)) {
                     return Environment.getExternalStorageDirectory() + "/" + split[1];
                 }

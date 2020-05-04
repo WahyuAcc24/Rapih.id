@@ -21,7 +21,7 @@ class MenuPilihanActivity : AppCompatActivity(){
         }
 
         imgmitra.setOnClickListener {
-            startActivity(Intent(this, LoginMitraActivity::class.java))
+            startActivity(Intent(this, MenuPilihanMitraActivity::class.java))
         }
 
     }

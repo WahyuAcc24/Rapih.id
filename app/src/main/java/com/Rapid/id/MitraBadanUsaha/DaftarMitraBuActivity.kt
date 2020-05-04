@@ -1,4 +1,4 @@
-package com.Rapid.id.Mitra
+package com.Rapid.id.MitraBadanUsaha
 
 import android.app.Activity
 import android.app.ProgressDialog
@@ -12,13 +12,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
-import android.text.InputType.TYPE_NULL
+import android.text.InputType
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapid.id.AppController
+import com.Rapid.id.Mitra.LoginMitraActivity
 import com.Rapid.id.Model.DataPart
 import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.R
@@ -33,9 +34,8 @@ import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.lay_daftar_konsumen.*
-import kotlinx.android.synthetic.main.lay_daftar_mitra.*
 import kotlinx.android.synthetic.main.lay_daftar_mitra.view.*
-import kotlinx.android.synthetic.main.lay_daftar_mitra.view.txtMasukmitra
+import kotlinx.android.synthetic.main.lay_daftar_mitra_kontraktor.*
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import org.json.JSONException
@@ -45,12 +45,12 @@ import retrofit2.Callback
 import java.io.*
 import java.util.HashMap
 
-class DaftarMitraActivity : AppCompatActivity() {
-
+class DaftarMitraBuActivity : AppCompatActivity() {
 
     lateinit var edt_ktp: EditText
-    lateinit var edt_kk: EditText
-    lateinit var edt_skd: EditText
+    lateinit var edt_siup: EditText
+    lateinit var edt_tdp: EditText
+    lateinit var edt_npwp: EditText
 
 
     lateinit var edt_email: EditText
@@ -77,26 +77,25 @@ class DaftarMitraActivity : AppCompatActivity() {
 
 
     lateinit var certificateFile: File
-
     lateinit var bitmapktp: Bitmap
-    lateinit var bitmapkk: Bitmap
-    lateinit var bitmapskd: Bitmap
+    lateinit var bitmaptdp: Bitmap
+    lateinit var bitmapnpwp: Bitmap
+    lateinit var bitmapsiup: Bitmap
 
     lateinit var decoded:Bitmap
 
-    val URL_reg = "http://rapih.id/api/regismitra.php"
-
+    val URL_reg = "http://rapih.id/api/regismitrabu.php"
 
     var filepathktp: Uri? = null
-
-    var filepathkk: Uri? = null
-    var filepathskd: Uri? = null
+    var filepathsiup: Uri? = null
+    var filepathtdp: Uri? = null
+    var filepathnpwp: Uri? = null
 
     lateinit var btn_daftar: Button
 
     lateinit var pDialog: ProgressDialog
 
-    private val TAG = DaftarMitraActivity::class.java!!.getSimpleName()
+    private val TAG = DaftarMitraBuActivity::class.java!!.getSimpleName()
 
     var tag_json_obj : String = "json_obj_req"
 
@@ -105,35 +104,33 @@ class DaftarMitraActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_daftar_mitra)
+        setContentView(R.layout.lay_daftar_mitra_kontraktor)
 
         Rak.initialize(this)
 
         var requestQueue = Volley.newRequestQueue(this)
 
 
-        txtMasukmitra.setOnClickListener {
+        txtMasukbu.setOnClickListener {
             startActivity(Intent(this, LoginMitraActivity::class.java))
         }
 
-        edt_email = findViewById(R.id.edtemailregmitra)
-        edt_pwd = findViewById(R.id.edtPasswordMitraReg)
-        edt_ulangi_pwd = findViewById(R.id.edtPasswordmitraRegUlang)
-        edt_nama = findViewById(R.id.edtnamaRegmitra)
+        edt_email = findViewById(R.id.edtemailbu)
+        edt_pwd = findViewById(R.id.edtPasswordbu)
+        edt_ulangi_pwd = findViewById(R.id.edtPasswordbuUlang)
+        edt_nama = findViewById(R.id.edtnamabu)
 
-        edt_ktp = findViewById(R.id.edtktpmitra)
-        edt_skd = findViewById(R.id.edtskd)
-        edt_kk = findViewById(R.id.edtkk)
+        edt_ktp = findViewById(R.id.edtktpbu)
+        edt_tdp = findViewById(R.id.edttdp)
+        edt_siup = findViewById(R.id.edtsiup)
+        edt_npwp = findViewById(R.id.edtnpwp)
 
         edt_ktp.isFocusable = false
-        edt_skd.isFocusable = false
-        edt_kk.isFocusable = false
+        edt_tdp.isFocusable = false
+        edt_siup.isFocusable = false
+        edt_npwp.isFocusable = false
 
-//        edt_skd.isFocusableInTouchMode = false
-//        edt_kk.inputType = TYPE_NULL
-
-
-        btn_daftar = findViewById(R.id.btnDaftarmitra)
+        btn_daftar = findViewById(R.id.btnDaftarBu)
 
 
         conMgr = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -156,15 +153,19 @@ class DaftarMitraActivity : AppCompatActivity() {
 
         }
 
-        edt_kk.setOnClickListener {
 
-            openGalery(select_file2)
+        edt_npwp.setOnClickListener {
+            openGalery(select_file3)
+        }
+
+        edt_siup.setOnClickListener {
+
+            openGalery(select_file4)
 
         }
 
-        edt_skd.setOnClickListener {
-            openGalery(select_file6)
-
+        edt_tdp.setOnClickListener {
+            openGalery(select_file5)
         }
 
 
@@ -181,9 +182,9 @@ class DaftarMitraActivity : AppCompatActivity() {
             val nama = edt_nama.text.toString()
             val ulangipassword = edt_ulangi_pwd.text.toString()
 
-
 //            val stringRequest = object :StringRequest(Request.Method.POST, URL_reg,
 //                Response.Listener<String> { response ->
+
             val req = object : VolleyMultipartRequest(Request.Method.POST,
                 URL_reg,
                 object : Response.Listener<NetworkResponse> {
@@ -196,18 +197,11 @@ class DaftarMitraActivity : AppCompatActivity() {
                             Rak.entry("nama", nama)
 
 
-
-//                            val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
-//                            if (res.isStatus()) {
-
-
-//                        val obj = JSONObject(response)
-
                             edt_email.setText("")
                             edt_nama.setText("")
                             edt_pwd.setText("")
                             edt_ulangi_pwd.setText("")
-//                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
+
                             Log.d("TAG", response.toString())
                             loading.dismiss()
                             Toast.makeText(
@@ -216,7 +210,7 @@ class DaftarMitraActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
 
-                           val i = Intent (this@DaftarMitraActivity,LoginMitraActivity::class.java)
+                           val i = Intent (this@DaftarMitraBuActivity,LoginMitraActivity::class.java)
                             startActivity(i)
 
                             finish()
@@ -251,8 +245,9 @@ class DaftarMitraActivity : AppCompatActivity() {
                     val imagename = System.currentTimeMillis()
 
                         params.put("ktp", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapktp)))
-                        params.put("kk", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapkk)))
-                        params.put("skd", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapskd)))
+                        params.put("siup", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapsiup)))
+                        params.put("tdp", DataPart("${imagename}.png", getFileDataFromDrawable(bitmaptdp)))
+                        params.put("npwp", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapnpwp)))
 
                     return params
                 }
@@ -267,7 +262,6 @@ class DaftarMitraActivity : AppCompatActivity() {
         bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream)
         return byteArrayOutputStream.toByteArray()
     }
-
 
     fun openGalery(req_code: Int) {
 
@@ -304,44 +298,47 @@ class DaftarMitraActivity : AppCompatActivity() {
             return stringBuilder.toString()
         }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
 
         if (resultCode == Activity.RESULT_OK ) {
             resultData?.data?.also { uri ->
 
-
                 filepathktp = resultData?.data!!
-                filepathkk = resultData?.data!!
-                filepathskd = resultData?.data!!
+                filepathsiup = resultData?.data!!
+                filepathtdp = resultData?.data!!
+                filepathnpwp = resultData?.data!!
 
                 getBitmapFromUri(uri)
                 readTextFromUri(uri)
 
                 if (requestCode == select_file1) {
 
-                    bitmapktp = MediaStore.Images.Media.getBitmap(this@DaftarMitraActivity.getContentResolver(), filepathktp)
-
+                    bitmapktp = MediaStore.Images.Media.getBitmap(this@DaftarMitraBuActivity.getContentResolver(), filepathktp)
                     edt_ktp.setText(PathUtil.getFileName(this, filepathktp))
                 }
 
-                if (requestCode == select_file2) {
-                    bitmapkk = MediaStore.Images.Media.getBitmap(this@DaftarMitraActivity.getContentResolver(), filepathkk)
+                if (requestCode == select_file3) {
+                    bitmapnpwp = MediaStore.Images.Media.getBitmap(this@DaftarMitraBuActivity.getContentResolver(), filepathnpwp)
 
-                    edt_kk.setText(PathUtil.getFileName(this, filepathkk))
+                    edt_npwp.setText(PathUtil.getFileName(this, filepathnpwp))
                 }
-                if (requestCode == select_file6) {
-                    bitmapskd = MediaStore.Images.Media.getBitmap(this@DaftarMitraActivity.getContentResolver(), filepathskd)
+                if (requestCode == select_file4) {
+                    bitmapsiup = MediaStore.Images.Media.getBitmap(this@DaftarMitraBuActivity.getContentResolver(), filepathsiup)
 
-                    edt_skd.setText(PathUtil.getFileName(this, filepathskd))
+                    edt_siup.setText(PathUtil.getFileName(this, filepathsiup))
+                }
+                if (requestCode == select_file5) {
+                    bitmaptdp = MediaStore.Images.Media.getBitmap(this@DaftarMitraBuActivity.getContentResolver(), filepathtdp)
+
+                    edt_tdp.setText(PathUtil.getFileName(this, filepathtdp))
                 }
 
             }
             super.onActivityResult(requestCode, resultCode, resultData)
-
     }
 
   }
+
 
     private fun showDialog() {
         if (!pDialog.isShowing)
@@ -363,6 +360,4 @@ class DaftarMitraActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-
 }
-
