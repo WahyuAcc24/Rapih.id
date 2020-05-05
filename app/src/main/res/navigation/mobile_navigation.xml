@@ -40,4 +40,39 @@
         android:name="com.Rapid.id.Konsumen.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+
+
+
+<!--    Bottom Nav-->
+
+
+    <fragment
+        android:id="@+id/home_bot"
+        android:name="com.Rapid.id.Konsumen.BottomNav.FragmentNavHome"
+        android:label="@string/beranda"
+        tools:layout="@layout/fragment_home_bottom"
+        />
+
+    <fragment
+        android:id="@+id/bantuan_bot"
+        android:name="com.Rapid.id.Konsumen.BottomNav.FragmentNavBantuan"
+        android:label="@string/bantuan"
+        tools:layout="@layout/fragment_bantuan_bottom"
+        />
+
+    <fragment
+        android:id="@+id/pesanan_bot"
+        android:name="com.Rapid.id.Konsumen.BottomNav.FragmentNavPesanan"
+        android:label="@string/pesanan"
+        tools:layout="@layout/fragment_pesanan_bottom"
+        />
+
+    <fragment
+        android:id="@+id/keluar_bot"
+        android:name="com.Rapid.id.Konsumen.BottomNav.FragmentNavKeluar"
+        android:label="@string/keluar"
+        tools:layout="@layout/fragment_keluar_bottom"
+        />
+
+
 </navigation>

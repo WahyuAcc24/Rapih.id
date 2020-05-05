@@ -14,4 +14,10 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    
+    
+    <string name="beranda">Beranda</string>
+    <string name="bantuan">Bantuan</string>
+    <string name="pesanan">Pesanan</string>
+    <string name="keluar">Keluar</string>
 </resources>

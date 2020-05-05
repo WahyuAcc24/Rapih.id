@@ -12,4 +12,6 @@
     <color name="Putih">#fff</color>
     <color name="Hijau">#72f29b</color>
 
+    <color name="colorNavigationIcon">#dae9f6</color>
+    <color name="colorNavigationText">#ffffff</color>
 </resources>

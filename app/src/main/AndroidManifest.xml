@@ -43,8 +43,7 @@
         <activity android:name=".Mitra.LoginMitraActivity" />
         <activity android:name=".Mitra.DaftarMitraActivity" />
         <activity android:name=".Mitra.HomeMitraActivity" />
-        <activity android:name=".Konsumen.Home"
-            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name=".MenuPilihanMitraActivity"/>
         <activity android:name=".MitraBadanUsaha.DaftarMitraBuActivity"/>
 

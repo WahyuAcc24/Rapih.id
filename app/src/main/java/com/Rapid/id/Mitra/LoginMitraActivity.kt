@@ -3,6 +3,7 @@ package com.Rapid.id.Mitra
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,6 +45,15 @@ class LoginMitraActivity : AppCompatActivity() {
 
     internal lateinit var conMgr: ConnectivityManager
 
+    var session: Boolean? = false
+    var id: String? = null
+    var pass : String? = null
+
+    val my_shared_preferences = "my_shared_preferences"
+    val session_status = "session_status"
+
+
+    var sharedPreferences: SharedPreferences? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,6 +91,8 @@ class LoginMitraActivity : AppCompatActivity() {
         }
 
         btn_login.setOnClickListener {
+
+
 
             val email = edt_emaillogin.text.toString()
             val password = edt_passwordlogin.text.toString()

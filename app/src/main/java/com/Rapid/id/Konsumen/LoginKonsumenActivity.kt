@@ -3,6 +3,7 @@ package com.Rapid.id.Konsumen
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,6 +45,20 @@ class LoginKonsumenActivity : AppCompatActivity() {
 
     internal lateinit var conMgr: ConnectivityManager
 
+    var session: Boolean? = false
+    var email: String? = null
+    var pass : String? = null
+
+    val my_shared_preferences = "my_shared_preferences"
+    val session_status = "session_status"
+
+    val TAG_EMAIL = "email"
+    val TAG_PASS = "password"
+
+    private var PRIVATE_MODE = 0
+    private val PREF_NAME = "mindorks-welcome"
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +95,32 @@ class LoginKonsumenActivity : AppCompatActivity() {
             }
         }
 
+        val sharedPreferences : SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
+
+        session = sharedPreferences.getBoolean(session_status, false)
+        email = sharedPreferences.getString(TAG_EMAIL, null)
+        pass = sharedPreferences.getString(TAG_PASS, null)
+
+
+        if (Rak.isExist("login")) {
+            if (Rak.grab("login")) {
+                startActivity(Intent(this, HomeKonsumenActivity::class.java))
+                finish()
+            }
+        }
+
+
+        if (sharedPreferences.getBoolean(PREF_NAME, false)) {
+            val intent = Intent(this, HomeKonsumenActivity::class.java)
+            intent.putExtra(TAG_EMAIL, email)
+            intent.putExtra(TAG_PASS, pass)
+            startActivity(intent)
+            finish()
+        }
+
+
         btn_login.setOnClickListener {
+
 
             val email = edt_emaillogin.text.toString()
             val password = edt_passwordlogin.text.toString()
@@ -104,6 +144,7 @@ class LoginKonsumenActivity : AppCompatActivity() {
         }
         }
 
+
     private fun ceklogin(email: String, password: String) {
 
         val loading = ProgressDialog(this)
@@ -122,11 +163,14 @@ class LoginKonsumenActivity : AppCompatActivity() {
                     Rak.entry("email", email)
                     Rak.entry("password", password)
 
+
                     val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
 
                     if (res.isStatus()) {
 
                         loading.dismiss()
+
+                        Rak.entry("login", true)
 
 //                        val obj = JSONObject(response)
 
@@ -134,7 +178,7 @@ class LoginKonsumenActivity : AppCompatActivity() {
                         edt_passwordlogin.setText("")
  //                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
                         Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, Home::class.java))
+                        startActivity(Intent(this, HomeKonsumenActivity::class.java))
 
                     }else{
                         loading.dismiss()
