@@ -1,27 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:background="@drawable/backgroundkonsumen"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_home">
+    >
 
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
+<!--    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:orientation="vertical" android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent"-->
+<!--        android:fillViewport="false"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        >-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            >-->
+<!--        <include-->
+<!--            layout="@layout/lay_jumbotron"-->
+<!--            android:id= "@+id/baner"-->
+
+<!--            />-->
+
+<!--    <LinearLayout-->
+<!--         android:layout_width="match_parent"-->
+<!--         android:layout_height="wrap_content"-->
+<!--         android:orientation="horizontal"-->
+<!--        android:layout_below="@+id/baner"-->
+<!--        android:id="@+id/lnpesan"-->
+<!--    >-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:id="@+id/imgPesan"-->
+<!--            android:src="@drawable/iconpesan"-->
+<!--            />-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical"-->
+<!--    >-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Pesan Masuk"-->
+<!--        android:textColor="#fff"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_weight="5"-->
+<!--        android:layout_below="@+id/baner"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:id="@+id/txtpesan"-->
+<!--        />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/txtinfopesan"-->
+<!--            android:text="infopesan"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="20sp"-->
+<!--            />-->
+<!--</LinearLayout>-->
+<!--  </LinearLayout>-->
+
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="selamat datang"-->
+<!--        android:textColor="#fff"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_below="@+id/lnpesan"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:id="@+id/txtwelcome"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="namaku"-->
+<!--        android:textColor="#fff"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_below="@+id/txtwelcome"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:id="@+id/txtnamakonsumen"/>-->
 
 
 
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:id="@+id/taglinehub"-->
+<!--        android:src="@drawable/taglinehub"-->
+<!--        android:layout_below="@+id/txtnamakonsumen"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="20dp"-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--        />-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:baselineAligned="false"-->
+<!--        android:layout_below="@+id/taglinehub"-->
+<!--        android:layout_marginTop="10dp"-->
+
+
+<!--        >-->
+<!--        <ImageView-->
+<!--            android:id="@+id/imgob"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:src="@drawable/iconob"-->
+
+
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgrenov"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:src="@drawable/iconrenov"-->
+
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgac"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:src="@drawable/iconac"-->
+
+<!--            />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgrumah"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:src="@drawable/iconhome"-->
+
+<!--            />-->
+<!--    </LinearLayout>-->
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_host_fragment"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:navGraph="@navigation/mobile_navigation" />-->
+
+
+
+<!--        </RelativeLayout>-->
+<!--    </ScrollView>-->
+</RelativeLayout>
+

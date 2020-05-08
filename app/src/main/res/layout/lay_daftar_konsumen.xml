@@ -21,6 +21,33 @@
 
         />
 
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/TextLabel"
+        android:id="@+id/namakonsumen"
+        android:textColorHint="#fff"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/floating_hint_margin"
+        android:layout_gravity="center_vertical|center_horizontal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="#fff"
+            android:layout_marginTop="@dimen/floating_hint_margin"
+            android:hint="Nama"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/edtnamaregkonsumen"
+            android:layout_gravity="center_vertical|center_horizontal"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -30,6 +57,7 @@
         android:id="@+id/email"
         android:textColorHint="#fff"
         android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="@dimen/floating_hint_margin"
         android:layout_gravity="center_vertical|center_horizontal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

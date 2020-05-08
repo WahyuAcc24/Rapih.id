@@ -102,8 +102,8 @@ class LoginKonsumenActivity : AppCompatActivity() {
         pass = sharedPreferences.getString(TAG_PASS, null)
 
 
-        if (Rak.isExist("login")) {
-            if (Rak.grab("login")) {
+        if (Rak.isExist("loginkonsumen")) {
+            if (Rak.grab("loginkonsumen")) {
                 startActivity(Intent(this, HomeKonsumenActivity::class.java))
                 finish()
             }
@@ -160,17 +160,21 @@ class LoginKonsumenActivity : AppCompatActivity() {
 
                 try {
 
-                    Rak.entry("email", email)
-                    Rak.entry("password", password)
+                    Rak.entry("emailkonsumen", email)
+                    Rak.entry("passwordkonsumen", password)
 
 
                     val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
 
                     if (res.isStatus()) {
 
-                        loading.dismiss()
 
-                        Rak.entry("login", true)
+                        loading.dismiss()
+                        if (res.getId() != null)Rak.entry("id", res.getId())
+                        if (res.getEmail() != null)Rak.entry("emailkonsumen", res.getEmail())
+                        if (res.getNama() != null)Rak.entry("namakonsumen", res.getNama())
+
+                        Rak.entry("loginkonsumen", true)
 
 //                        val obj = JSONObject(response)
 

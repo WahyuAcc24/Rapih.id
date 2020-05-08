@@ -46,6 +46,7 @@
 
         <activity android:name=".MenuPilihanMitraActivity"/>
         <activity android:name=".MitraBadanUsaha.DaftarMitraBuActivity"/>
+        <activity android:name=".Konsumen.RenovKonsumenActivity"/>
 
 
     </application>

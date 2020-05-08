@@ -28,6 +28,7 @@ class DaftarKonsumenActivity : AppCompatActivity() {
 
 
     lateinit var edt_email: EditText
+    lateinit var edt_nama: EditText
     lateinit var edt_pwd: EditText
     lateinit var edt_ulangi_pwd: EditText
 
@@ -60,6 +61,7 @@ class DaftarKonsumenActivity : AppCompatActivity() {
         edt_email = findViewById(R.id.edtemailReg)
         edt_pwd = findViewById(R.id.edtPasswordReg)
         edt_ulangi_pwd = findViewById(R.id.edtPasswordRegUlang)
+        edt_nama = findViewById(R.id.edtnamaregkonsumen)
 
         btn_daftar = findViewById(R.id.btnDaftarKonsumen)
 
@@ -87,6 +89,7 @@ class DaftarKonsumenActivity : AppCompatActivity() {
             loading.setMessage("Menambahkan data...")
             loading.show()
 
+            val nama = edt_nama.text.toString()
             val email = edt_email.text.toString()
             val password = edt_pwd.text.toString()
             val ulangipassword = edt_ulangi_pwd.text.toString()
@@ -99,8 +102,9 @@ class DaftarKonsumenActivity : AppCompatActivity() {
 
                 try {
 
-                    Rak.entry("email", email)
-                    Rak.entry("password", password)
+                    Rak.entry("emailkonsumen", email)
+                    Rak.entry("passwordkonsumen", password)
+                    Rak.entry("namakonsumen", nama)
 
 
                     val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
@@ -138,6 +142,7 @@ class DaftarKonsumenActivity : AppCompatActivity() {
             @Throws(AuthFailureError::class)
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
+                params.put("nama", nama)
                 params.put("email", email)
                 params.put("password", password)
                 params.put("ulangipassword",password)

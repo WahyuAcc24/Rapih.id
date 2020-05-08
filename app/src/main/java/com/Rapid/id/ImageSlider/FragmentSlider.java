@@ -1,5 +1,6 @@
 package com.Rapid.id.ImageSlider;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,6 @@ public class FragmentSlider extends Fragment {
 
     private String imageUrls;
 
-    public FragmentSlider() {
-    }
 
     public static FragmentSlider newInstance(String params) {
         FragmentSlider fragment = new FragmentSlider();
@@ -31,13 +30,23 @@ public class FragmentSlider extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         imageUrls = getArguments().getString(ARG_PARAM1);
+
         View view = inflater.inflate(R.layout.fragment_slider_item, container, false);
         ImageView img = (ImageView) view.findViewById(R.id.img);
+
+
         Glide.with(getActivity())
                 .load(imageUrls)
                 .placeholder(R.drawable.backgroundkonsumen)
                 .into(img);
         return view;
-    }
 
+    }
 }
+//        Glide.with(getActivity())
+//                .load(R.drawable.banersatu)
+//                .load(R.drawable.banerdua)
+//                .into(img);
+//                return view;
+//
+//                }

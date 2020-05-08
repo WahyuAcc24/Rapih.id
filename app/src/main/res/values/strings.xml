@@ -20,4 +20,18 @@
     <string name="bantuan">Bantuan</string>
     <string name="pesanan">Pesanan</string>
     <string name="keluar">Keluar</string>
+
+<!--    spinner-->
+
+    <string-array name="properti">
+
+        <item>Pilih Properti</item>
+        <item>Rumah</item>
+        <item>Kost/Kontrakan</item>
+        <item>Ruko</item>
+        <item>Apartement</item>
+
+
+    </string-array>
+
 </resources>
