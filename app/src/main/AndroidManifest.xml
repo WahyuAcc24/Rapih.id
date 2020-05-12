@@ -10,6 +10,10 @@
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
 
     <supports-screens
         android:largeScreens="true"
@@ -27,8 +31,18 @@
         android:roundIcon="@mipmap/ic_launcher_rapih_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+
+
         <activity android:name=".SplashscreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,6 +61,7 @@
         <activity android:name=".MenuPilihanMitraActivity"/>
         <activity android:name=".MitraBadanUsaha.DaftarMitraBuActivity"/>
         <activity android:name=".Konsumen.RenovKonsumenActivity"/>
+        <activity android:name=".Konsumen.MapsActivity"/>
 
 
     </application>

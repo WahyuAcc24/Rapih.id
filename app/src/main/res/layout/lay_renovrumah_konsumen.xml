@@ -123,6 +123,68 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/edtuang"
+            android:textColorHint="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:id="@+id/edtuangproyek"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:maxLength="17"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Estimasi Anggaran Proyek"
+                android:textColor="#fff"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/maps"
+            android:textColorHint="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:id="@+id/edtmaps"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Pilih Lokasi Proyek"
+                android:textColor="#fff"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
 
     </LinearLayout>
 </ScrollView>
