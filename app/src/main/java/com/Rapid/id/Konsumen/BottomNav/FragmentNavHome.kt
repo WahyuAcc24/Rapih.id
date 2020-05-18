@@ -58,18 +58,18 @@ class FragmentNavHome : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         carouselView = getView()?.findViewById(R.id.carouselView) as CarouselView
+        carouselView.setImageListener(imageListener)
         carouselView.pageCount = gambarSlide.size
 
-        carouselView.setImageListener(imageListener)
 
         Rak.initialize(context)
 
 
         txtemailkonsumen = getView()?.findViewById(R.id.txtemailkonsumen) as TextView
-        txtemailkonsumen.setText(Rak.grab("emailkonsumen") as String)
+        txtemailkonsumen.setText(Rak.grab("emailkonsumen") as? String)
 
         txtnamakonsumen = getView()?.findViewById(R.id.txtnamakonsumen) as TextView
-        txtnamakonsumen.setText(Rak.grab("namakonsumen")as String)
+        txtnamakonsumen.setText(Rak.grab("namakonsumen")as? String)
 
 
         img_bangunrumah = getView()?.findViewById(R.id.imgrenov) as ImageView

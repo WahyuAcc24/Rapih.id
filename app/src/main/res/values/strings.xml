@@ -31,7 +31,18 @@
         <item>Ruko</item>
         <item>Apartement</item>
 
+    </string-array>
+
+    <string-array name="domisili">
+
+    <item>Pilih Domisili</item>
+    <item>Jakarta</item>
+    <item>Bogor</item>
+    <item>Depok</item>
+    <item>Tangerang</item>
+    <item>Bekasi</item>
 
     </string-array>
+
 
 </resources>

@@ -122,7 +122,11 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
 
+    >
         <com.google.android.material.textfield.TextInputLayout
 
             android:layout_width="match_parent"
@@ -152,8 +156,13 @@
                 android:textColor="#fff"
 
                 />
+
+
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
+</RelativeLayout>
 
         <com.google.android.material.textfield.TextInputLayout
 
@@ -184,7 +193,57 @@
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinLokasi"
+            android:layout_margin="20dp"
+            android:entries="@array/domisili"
+            android:outlineAmbientShadowColor="#fff"
+            android:outlineSpotShadowColor="#fff"
 
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/deslokasi"
+            android:textColorHint="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:id="@+id/edtdeskripsilokasi"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Deskripsi alamat"
+                android:textColor="#fff"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnlanjut"
+            android:background="@drawable/button_login"
+            android:layout_marginTop="30dp"
+            android:textColor="#fff"
+            android:text="Lanjut"
+            android:layout_gravity="center"
+
+            />
 
     </LinearLayout>
 </ScrollView>

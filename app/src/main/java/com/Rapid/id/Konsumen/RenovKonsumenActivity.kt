@@ -1,5 +1,6 @@
 package com.Rapid.id.Konsumen
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,10 +18,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.text.toHtml
 import com.Rapid.id.Model.NumberTextWatcher
+import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
 import com.ngopidev.project.ngopihelpers.NgopiHelpers
+import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.fragment_slider_item.*
 import kotlinx.android.synthetic.main.lay_renovrumah_konsumen.*
+import java.math.BigDecimal
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -29,16 +33,20 @@ import java.util.jar.Manifest
 
 class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
 
+    companion object {
+        const val USER_MAP = 123
+        const val KEY_MAP = "lokasi_user"
+    }
 
     lateinit var edt_tgl: EditText
     lateinit var edt_deskripsi : EditText
     lateinit var edt_anggaran: EditText
     lateinit var edt_maps : EditText
+    lateinit var edt_deskripsi_alamat : EditText
+    lateinit var btn_lanjut : Button
+    lateinit var txt_email : TextView
 
-
-
-
-    private val current = ""
+    private var current = ""
 
     lateinit var imgback : ImageView
 
@@ -46,20 +54,31 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
 
     var cal = Calendar.getInstance()
 
-    lateinit var spinner: Spinner
+    lateinit var sp_properti: Spinner
+
+    lateinit var sp_domisili: Spinner
+
+    private var userLocation: UserLocation? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lay_renovrumah_konsumen)
 
+        Rak.initialize(this)
+
 //        val ngopiHelpers = NgopiHelpers(this)
 
-//        val hasilkonversi = ngopiHelpers.setCurrency(edt_anggaran.text.toString().toInt().toLong())
+//       val hasilkonversi = ngopiHelpers.setCurrency(edt_anggaran.text.toString().toInt().toLong())
 
 
         // Here, thisActivity is the current activity
 
+        txt_email = findViewById(R.id.txtemailkonsumenrenov)
 
+        txt_email.setText((Rak.grab("emailkonsumen")) as String)
+
+        edt_deskripsi = findViewById(R.id.edtdeskripsikerjaan)
+        edt_deskripsi_alamat = findViewById(R.id.edtdeskripsilokasi)
 
 
         edt_maps = findViewById(R.id.edtmaps)
@@ -75,18 +94,20 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
         edt_anggaran.addTextChangedListener(NumberTextWatcher(edt_anggaran))
 
 
-
-
         edt_maps.isFocusable = false
 
         edt_maps.setOnClickListener {
-            val m = Intent(this,MapsActivity::class.java)
-            startActivity(m)
-
+            val intent = Intent(this, MapsActivity::class.java)
+            userLocation?.let {
+                intent.putExtra("lat", it.latLong["lat"])
+                intent.putExtra("lon", it.latLong["lon"])
+                intent.putExtra("address", it.address)
+            }
+            startActivityForResult(intent, USER_MAP)
         }
 
         imgback.setOnClickListener {
-            startActivity(Intent(this,HomeKonsumenActivity::class.java))
+            startActivity(Intent(this, HomeKonsumenActivity::class.java))
             finish()
         }
 
@@ -121,7 +142,9 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
         dateFormatter = SimpleDateFormat("dd-MM-yyyy", Locale.US)
 
 
-        spinner = findViewById(R.id.spinRenov)
+        sp_properti = findViewById(R.id.spinRenov)
+        sp_domisili = findViewById(R.id.spinLokasi)
+
 
         val adapter = ArrayAdapter.createFromResource(
             this,
@@ -129,19 +152,69 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
             R.layout.select_item_spin
         )
         adapter.setDropDownViewResource(R.layout.item_spin_properti)
-        spinner.setAdapter(adapter)
-        spinner.setOnItemSelectedListener(this)
-        spinner.getBackground().setColorFilter(getResources().getColor(R.color.Putih), PorterDuff.Mode.SRC_ATOP);
+        sp_properti.setAdapter(adapter)
+        sp_properti.setOnItemSelectedListener(this)
+        sp_properti.getBackground()
+            .setColorFilter(getResources().getColor(R.color.Putih), PorterDuff.Mode.SRC_ATOP)
+
+
+        val adapterdomisili = ArrayAdapter.createFromResource(
+            this,
+            R.array.domisili,
+            R.layout.select_item_spin_domisili
+        )
+        adapterdomisili.setDropDownViewResource(R.layout.item_spin_domisili)
+        sp_domisili.setAdapter(adapterdomisili)
+        sp_domisili.setOnItemSelectedListener(this)
+        sp_domisili.getBackground()
+            .setColorFilter(getResources().getColor(R.color.Putih), PorterDuff.Mode.SRC_ATOP)
+
+
+        val desc_pekerjaan = edt_deskripsi.text.toString()
+        val tgl_proyek = edt_tgl.text.toString()
+        val anggaran = edt_anggaran.text.toString()
+        val des_alamat = edt_deskripsi_alamat.text.toString()
+        val properti = sp_properti.selectedItem.toString()
+        val domisili = sp_domisili.selectedItem.toString()
+
+        btn_lanjut = findViewById(R.id.btnlanjut)
+        btn_lanjut.setOnClickListener {
+
+            val intent = Intent(this, OrderRenovActivity::class.java)
+            intent.putExtra("deskripsi", edt_deskripsi.text.toString())
+            intent.putExtra("tgl_proyek", edt_tgl.text.toString())
+            intent.putExtra("anggaran", edt_anggaran.text.toString())
+            intent.putExtra("des_alamat", edt_deskripsi_alamat.text.toString())
+            intent.putExtra("properti", sp_properti.selectedItem.toString())
+            intent.putExtra("domisili", sp_domisili.selectedItem.toString())
+            intent.putExtra("user_location", userLocation)
+            startActivity(intent)
+
+
+//            Rak.entry("desc_pekerjaan", desc_pekerjaan)
+//            Rak.entry("tgl_proyek", tgl_proyek)
+//            Rak.entry("anggaran", anggaran)
+//            Rak.entry("des_alamat", des_alamat)
+//            Rak.entry("properti", properti)
+//            Rak.entry("domisili", domisili)
+
+        }
 
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == USER_MAP && resultCode == Activity.RESULT_OK) {
+            userLocation = data?.getSerializableExtra(KEY_MAP) as UserLocation
+            edt_maps.setText(userLocation?.address)
+        }
+    }
 
     override fun onItemSelected(arg0: AdapterView<*>, arg1: View, position: Int, id: Long) {
 
     }
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     private fun updateDateInView() {

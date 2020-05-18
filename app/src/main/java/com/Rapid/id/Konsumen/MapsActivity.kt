@@ -9,15 +9,17 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.ResultReceiver
 import android.view.View
-import android.widget.EditText
-import android.widget.Toast
+import android.view.ViewGroup
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
+import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
+import com.Rapid.id.util.Constants
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
@@ -25,7 +27,6 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.location.places.AutocompleteFilter
-import com.google.android.gms.location.places.Place
 import com.google.android.gms.location.places.Places
 import com.google.android.gms.location.places.ui.PlaceAutocomplete
 import com.google.android.gms.location.places.ui.PlacePicker
@@ -33,27 +34,31 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.android.synthetic.main.activity_maps.*
 import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener {
 
+    override fun onMarkerClick(p0: Marker?): Boolean {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     private lateinit var mMap: GoogleMap
     private lateinit var lastLocation: Location
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     lateinit var search: EditText
+    lateinit var img_search : ImageView
+    lateinit var btn_pilih_lokasi : Button
+
+//    lateinit var imglokasi : ImageView
 
     private lateinit var locationCallback: LocationCallback
     private var locationUpdateState = false
 
     private lateinit var locationRequest: LocationRequest
-
 
     //tutorial search manual
     internal lateinit var mLastLocation: Location
@@ -61,10 +66,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
     internal var mGoogleApiClient: GoogleApiClient? = null
     internal lateinit var mLocationRequest: LocationRequest
 
+    private lateinit var mapResult: UserLocation
+
     var PICK_UP : Int  = 0
     var DEST_LOC : Int = 1
     var REQUEST_CODE : Int = 0
-
 
     companion object {
         private const val PLACE_PICKER_REQUEST = 3
@@ -72,16 +78,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         private const val REQUEST_CHECK_SETTINGS = 2
     }
 
+   private var mapview: View? = null
+   private var selectedMap: Marker? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
-//        com.google.android.libraries.places.api.Places.initialize(getApplicationContext(), "AIzaSyA8mw3g4BfKr7mV419V8mOg7xYKIhDnIvo")
+        buildGoogleApiClient()
 
         createLocationRequest()
-
-
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -89,21 +95,64 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        mapview = mapFragment.view!!
+
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
-
                 lastLocation = p0.lastLocation
                 placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
             }
         }
 
-        search = findViewById(R.id.edtSearch)
-//        search.isFocusable = false
-        search.setOnClickListener {
-//            loadPlacePicker()
+
+        btn_pilih_lokasi = findViewById(R.id.btnGunakanLokasi)
+
+        btn_pilih_lokasi.setOnClickListener {
+            val intent = Intent()
+            intent.putExtra(RenovKonsumenActivity.KEY_MAP, mapResult)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
         }
 
+        img_search = findViewById(R.id.imgSearch)
+
+        img_search.setOnClickListener {
+            lateinit var location: String
+            location = search.text.toString()
+            var addressList: List<Address>? = null
+
+            if (location == null || location == "") {
+                Toast.makeText(applicationContext,"provide location",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val geoCoder = Geocoder(this)
+                try {
+                    addressList = geoCoder.getFromLocationName(location, 1)
+
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+                val address = addressList!![0]
+                val latLng = LatLng(address.latitude, address.longitude)
+                mMap!!.animateCamera(CameraUpdateFactory.newLatLng(latLng))
+                Toast.makeText(applicationContext, address.latitude.toString() + " " + address.longitude, Toast.LENGTH_LONG).show()
+            }
+        }
+
+        search = findViewById(R.id.edtSearch)
+        search.setOnClickListener {
+        }
+
+
+
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        var zoomlevel: Float = 16.0f
+
+        mMap = googleMap
+        mMap.isMyLocationEnabled = true
 
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -136,31 +185,104 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
             Toast.makeText(this, "Izin Lokasi diberikan", Toast.LENGTH_SHORT).show();
         }
 
+        if(mMap != null) {
 
-    }
+            if (intent.hasExtra("lat")) {
+                val address = intent.getStringExtra("address")
+                val latLng = LatLng(
+                    intent.getDoubleExtra("lat", 0.0),
+                    intent.getDoubleExtra("lon", 0.0)
+                )
+                selectedMap = mMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng)
+                        .title(address)
+                )
+            }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        var zoomlevel: Float = 16.0f
+            mMap.setOnMapLongClickListener(object : GoogleMap.OnMapLongClickListener {
+                override fun onMapLongClick(latLng: LatLng) {
 
-        mMap = googleMap
+                    var geocoder = Geocoder(this@MapsActivity)
+                    var list: List<Address>? = null
 
+                    try {
+                        list = geocoder.getFromLocation(
+                            latLng.latitude,
+                            latLng.longitude,1
+                        )
+
+                    } catch (e: IOException) {
+                        return
+                    }
+                    val address = list.get(0)
+                    if (mCurrLocationMarker != null) {
+
+                        mCurrLocationMarker!!.remove()
+
+                    }
+                    selectedMap?.remove()
+
+                    val options = MarkerOptions()
+                        .title(address.getAddressLine(0))
+                        .position(
+                            LatLng(
+                                latLng.latitude,
+                                latLng.longitude
+
+                            )
+                        )
+
+                    // set data nya buat di kasih ke activity sebelumnya
+                    mapResult = UserLocation(
+                        mapOf(
+                            "lat" to latLng.latitude,
+                            "lon" to latLng.longitude
+                        ),
+                        options.title
+                    )
+
+                    mCurrLocationMarker = mMap.addMarker(options)
+                    search.setText(options.title)
+                }
+            })
+
+            mMap.setOnMarkerClickListener(object : GoogleMap.OnMarkerClickListener{
+                override fun onMarkerClick(marker: Marker): Boolean {
+                    return false
+
+                }
+
+            })
+
+            mMap.setOnMapClickListener(object : GoogleMap.OnMapClickListener{
+                override fun onMapClick(latLng: LatLng) {
+                    mCurrLocationMarker = null
+
+                }
+
+            })
+        }
+
+
+        val locationButton : View = (mapview?.findViewById<View>(Integer.parseInt("1"))?.parent as View).findViewById<View>(Integer.parseInt("2"))
+        val rlp=locationButton.layoutParams as (RelativeLayout.LayoutParams)
+        // position on right bottom
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_TOP,0)
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM,RelativeLayout.TRUE)
+        rlp.setMargins(0,0,30,250)
         mMap.uiSettings.isZoomControlsEnabled = true
-        mMap.setOnMarkerClickListener(this)
 
-        // Add a marker in Sydney and move the camera
-//        val bekasi = LatLng(-6.2347825,106.9882915)
-//        mMap.setMyLocationEnabled(true)
-//        mMap.addMarker(MarkerOptions().position(bekasi).title("Marker in Sydney"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bekasi,zoomlevel))
 
         setUpMap()
+
     }
+
 
     private fun placeMarkerOnMap(location: LatLng) {
         // 1
         val markerOptions = MarkerOptions().position(location)
         // 2
-        mMap.addMarker(markerOptions)
     }
 
     private fun loadPlacePicker() {
@@ -219,9 +341,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
 
     }
 
-
+    private fun setRootView(activity: Activity) {
+        val rootView =
+            (activity.findViewById(android.R.id.content) as ViewGroup).getChildAt(0) as? ViewGroup
+        if (rootView != null) {
+            rootView.fitsSystemWindows = true
+            rootView.clipToPadding = true
+        }
+    }
     private fun setUpMap() {
-        mMap.isMyLocationEnabled = true
+//        mMap.isMyLocationEnabled = true
 
 
         fusedLocationClient.lastLocation.addOnSuccessListener(this) { location ->
@@ -229,7 +358,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
-                placeMarkerOnMap(currentLatLng)
+//                placeMarkerOnMap(currentLatLng)
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 16f))
             }
         }
@@ -241,9 +370,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         // 1
         locationRequest = LocationRequest()
         // 2
-        locationRequest.interval = 10000
+        locationRequest.interval = 1000
         // 3
-        locationRequest.fastestInterval = 5000
+        locationRequest.fastestInterval = 1000
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 
         val builder = LocationSettingsRequest.Builder()
@@ -278,59 +407,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
     }
 
 
-    override fun onMarkerClick(p0: Marker?) = false
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
 
-//            if(resultCode == Activity.RESULT_OK){
-//               val placeData : Place = PlaceAutocomplete.getPlace(this,data)
-//                if (placeData.isDataValid()){
-//                    Log.d("autoCompletePlace Data", placeData.toString())
-//
-//                  val placeAddress : String  = placeData.getAddress().toString()
-//                 val placeLatLng : LatLng = placeData.getLatLng()
-//                 val placeName : String = placeData.getName().toString()
-//
-//                    when (REQUEST_CODE) {
-//                        PICK_UP -> {
-                            // Set ke widget lokasi asal
-//                            edtSearch.setText(placeAddress)
-//                            tvPickUpAddr.setText("Location Address : " + placeAddress)
-//                            tvPickUpLatLng.setText("LatLang : " + placeLatLng.toString())
-//                            tvPickUpName.setText("Place Name : " + placeName)
-//                        }
-//                        DEST_LOC -> {
-//                            // Set ke widget lokasi tujuan
-//                            tvDestLocation.setText(placeAddress)
-//                            tvDestLocAddr.setText("Destination Address : " + placeAddress)
-//                            tvDestLocLatLng.setText("LatLang : " + placeLatLng.toString())
-//                            tvDestLocName.setText("Place Name : " + placeName)
-//                        }
-//                }else{
-//                    Toast.makeText(this, "Invalid Place !", Toast.LENGTH_SHORT).show()
-//                }
-//
-//            }
-
-        //raydenwich
-            if (requestCode == REQUEST_CHECK_SETTINGS) {
-                if (resultCode == Activity.RESULT_OK) {
-                    locationUpdateState = true
-                    startLocationUpdates()
-                }
-            }
-            if (requestCode == PLACE_PICKER_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                val place = PlacePicker.getPlace(this, data)
-                var addressText = place.name.toString()
-                addressText += "\n" + place.address.toString()
-
-                placeMarkerOnMap(place.latLng)
-            }
-
-        }
     }
 
     // 2
@@ -347,6 +428,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         }
 
     }
+
+
+
     private fun showPlaceAutoComplete(typeLocation: Int){
 
         REQUEST_CODE = typeLocation
@@ -369,10 +453,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
 
     @Synchronized
     protected fun buildGoogleApiClient() {
-        mGoogleApiClient = GoogleApiClient.Builder(this)
+        mGoogleApiClient = GoogleApiClient
+            .Builder(this)
+            .addApi(Places.GEO_DATA_API)
+            .addApi(Places.PLACE_DETECTION_API)
             .addConnectionCallbacks(this)
             .addOnConnectionFailedListener(this)
-            .addApi(LocationServices.API).build()
+            .addApi(LocationServices.API)
+            .build()
         mGoogleApiClient!!.connect()
     }
 
@@ -400,11 +488,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         }
         //Place current location marker
         val latLng = LatLng(location.latitude, location.longitude)
-        val markerOptions = MarkerOptions()
-        markerOptions.position(latLng)
-        markerOptions.title("Current Position")
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-        mCurrLocationMarker = mMap!!.addMarker(markerOptions)
+//        val markerOptions = MarkerOptions()
+//        markerOptions.position(latLng)
+//        markerOptions.title("Current Position")
+//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+//        mCurrLocationMarker = mMap!!.addMarker(markerOptions)
 
         //move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
@@ -423,27 +511,60 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
 
     fun searchLocation(view: View) {
 //        val locationSearch:EditText = findViewById<EditText>(R.id.)
-        lateinit var location: String
-        location = search.text.toString()
-        var addressList: List<Address>? = null
 
-        if (location == null || location == "") {
-            Toast.makeText(applicationContext,"provide location",Toast.LENGTH_SHORT).show()
-        }
-        else{
-            val geoCoder = Geocoder(this)
-            try {
-                addressList = geoCoder.getFromLocationName(location, 1)
-
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-            val address = addressList!![0]
-            val latLng = LatLng(address.latitude, address.longitude)
-            mMap!!.addMarker(MarkerOptions().position(latLng).title(location))
-            mMap!!.animateCamera(CameraUpdateFactory.newLatLng(latLng))
-            Toast.makeText(applicationContext, address.latitude.toString() + " " + address.longitude, Toast.LENGTH_LONG).show()
-        }
     }
 
+
 }
+//onActivityResult
+
+////            if(resultCode == Activity.RESULT_OK){
+////               val placeData : Place = PlaceAutocomplete.getPlace(this,data)
+////                if (placeData.isDataValid()){
+////                    Log.d("autoCompletePlace Data", placeData.toString())
+////
+////                  val placeAddress : String  = placeData.getAddress().toString()
+////                 val placeLatLng : LatLng = placeData.getLatLng()
+////                 val placeName : String = placeData.getName().toString()
+//
+////
+////                    when (REQUEST_CODE) {
+////                        PICK_UP -> {
+//                            // Set ke widget lokasi asal
+////                            edtSearch.setText(placeAddress)
+////                            tvPickUpAddr.setText("Location Address : " + placeAddress)
+////                            tvPickUpLatLng.setText("LatLang : " + placeLatLng.toString())
+////                            tvPickUpName.setText("Place Name : " + placeName)
+////                        }
+////                        DEST_LOC -> {
+////                            // Set ke widget lokasi tujuan
+////                            tvDestLocation.setText(placeAddress)
+////                            tvDestLocAddr.setText("Destination Address : " + placeAddress)
+////                            tvDestLocLatLng.setText("LatLang : " + placeLatLng.toString())
+////                            tvDestLocName.setText("Place Name : " + placeName)
+////                        }
+////                }else{
+////                    Toast.makeText(this, "Invalid Place !", Toast.LENGTH_SHORT).show()
+////                }
+////
+////            }
+//
+//        //raydenwich
+//            if (requestCode == REQUEST_CHECK_SETTINGS) {
+//                if (resultCode == Activity.RESULT_OK) {
+//                    locationUpdateState = true
+//                    startLocationUpdates()
+//                }
+//            }
+//            if (requestCode == PLACE_PICKER_REQUEST) {
+//            if (resultCode == RESULT_OK) {
+//                val place = PlacePicker.getPlace(this, data)
+//                var addressText = place.name.toString()
+//                addressText += "\n" + place.address.toString()
+//
+//                placeMarkerOnMap(place.latLng)
+//            }
+//
+//        }
+
+

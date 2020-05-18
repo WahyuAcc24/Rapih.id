@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
->
+    tools:context="com.Rapid.id.Konsumen.MapsActivity"
+    >
+
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -13,33 +16,49 @@
         android:layout_height="match_parent"
         tools:context=".Konsumen.MapsActivity" />
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+
         >
 
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/edtSearch"
+            android:layout_margin="6dp"
+            android:hint="Cari Lokasi"
+            android:maxLines="1"
+            android:paddingLeft="2dp"
+            android:imeOptions="actionDone"
 
-    <EditText
+            />
+    </RelativeLayout>
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/edtSearch"
-        android:hint="Cari Lokasi"
-        android:layout_weight="0.5"
-        android:drawableLeft="@drawable/ic_search"
+        android:id="@+id/imgSearch"
+        android:src="@drawable/ic_search"
+        android:layout_gravity="right"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/tombol"
+        android:id="@+id/btnGunakanLokasi"
+        android:textColor="#fff"
+        android:text="Gunakan Lokasi ini"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="top"
 
         />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:onClick="searchLocation"
-            android:text="Search" />
-
-    </LinearLayout>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

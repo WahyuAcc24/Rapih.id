@@ -160,8 +160,8 @@ class LoginKonsumenActivity : AppCompatActivity() {
 
                 try {
 
-                    Rak.entry("emailkonsumen", email)
-                    Rak.entry("passwordkonsumen", password)
+//                    Rak.entry("emailkonsumen", email)
+//                    Rak.entry("passwordkonsumen", password)
 
 
                     val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
