@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/backgroundmitra"
+    android:background="@drawable/backgroundmitraa"
     >
 <LinearLayout
     android:orientation="vertical"
@@ -16,7 +16,7 @@
         android:layout_width="200dp"
         android:layout_marginTop="30dp"
         android:layout_height="200dp"
-        android:src="@drawable/logorapihputih"
+        android:src="@drawable/logorapihbiru"
         android:layout_gravity="center_horizontal"
 
         />
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         app:hintTextAppearance="@style/TextLabel"
         android:id="@+id/email"
-        android:textColorHint="#fff"
+        android:textColorHint="#1d26d4"
         android:layout_centerVertical="true"
         android:layout_marginBottom="@dimen/floating_hint_margin"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -39,7 +39,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:textColor="#fff"
+            android:textColor="#1d26d4"
             android:layout_marginTop="@dimen/floating_hint_margin"
             android:inputType="textEmailAddress"
             android:hint="Email"
@@ -58,7 +58,7 @@
         app:hintTextAppearance="@style/TextLabel"
         android:layout_marginTop="20dp"
         android:id="@+id/namamitra"
-        android:textColorHint="#fff"
+        android:textColorHint="#1d26d4"
         android:layout_centerVertical="true"
         android:layout_marginBottom="@dimen/floating_hint_margin"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -69,7 +69,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:textColor="#fff"
+            android:textColor="#1d26d4"
             android:layout_marginTop="@dimen/floating_hint_margin"
             android:hint="Nama Lengkap"
             android:layout_centerHorizontal="true"
@@ -87,9 +87,9 @@
         android:layout_height="wrap_content"
         app:hintTextAppearance="@style/TextLabel"
         android:id="@+id/password"
-        android:textColorHint="#fff"
+        android:textColorHint="#1d26d4"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="#fff"
+        app:passwordToggleTint="#1d26d4"
         android:layout_below="@+id/email"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_vertical|center_horizontal"
@@ -104,7 +104,7 @@
             android:layout_marginTop="@dimen/floating_hint_margin"
             android:top="50dp"
             android:inputType="textPassword"
-            android:textColor="#fff"
+            android:textColor="#1d26d4"
             android:hint="Password"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_centerHorizontal="true"
@@ -119,10 +119,10 @@
     <com.google.android.material.textfield.TextInputLayout
 
         android:layout_width="match_parent"
-        android:textColorHint="#fff"
+        android:textColorHint="#1d26d4"
         android:layout_height="wrap_content"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="#fff"
+        app:passwordToggleTint="#1d26d4"
         app:hintTextAppearance="@style/TextLabel"
         android:id="@+id/ulangipassword"
         android:layout_below="@+id/email"
@@ -139,7 +139,7 @@
             android:layout_marginTop="@dimen/floating_hint_margin"
             android:top="50dp"
             android:inputType="textPassword"
-            android:textColor="#fff"
+            android:textColor="#1d26d4"
             android:hint="Ulangi Password"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_centerHorizontal="true"
@@ -155,7 +155,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="* Kartu Tanda Penduduk"
-        android:textColor="#fff"
+        android:textColor="#1d26d4"
         android:editable="false"
         android:layout_marginTop="40dp"
         />
@@ -166,7 +166,7 @@
         android:drawableRight="@drawable/ic_file_upload_white_24dp"
         android:layout_marginTop="5dp"
         android:hint="KTP"
-        android:textColorHint="#fff"
+        android:textColorHint="#1d26d4"
         android:id="@+id/edtktpmitra"
         />
 
@@ -174,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="* Kartu Keluarga"
-        android:textColor="#fff"
+        android:textColor="#1d26d4"
         android:layout_marginTop="20dp"
         />
     <EditText
@@ -183,7 +183,7 @@
         android:drawableRight="@drawable/ic_file_upload_white_24dp"
         android:layout_marginTop="5dp"
         android:hint="Lampiran KK"
-        android:textColorHint="#fff"
+        android:textColorHint="#1d26d4"
         android:id="@+id/edtkk"
         />
 
@@ -191,7 +191,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="* Surat Keterangan Domisili"
-        android:textColor="#fff"
+        android:textColor="#1d26d4"
         android:layout_marginTop="20dp"
         />
     <EditText
@@ -200,7 +200,7 @@
         android:layout_marginTop="5dp"
         android:drawableRight="@drawable/ic_file_upload_white_24dp"
         android:hint="Lampiran SKD"
-        android:textColorHint="#fff"
+        android:textColorHint="#1d26d4"
         android:id="@+id/edtskd"
         />
 
@@ -230,7 +230,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sudah punya akun? "
-        android:textColor="#fff"
+        android:textColor="#1d26d4"
         android:textSize="20sp"
         android:id="@+id/txtinfo"
         android:layout_gravity="center_vertical|center_horizontal"

@@ -5,7 +5,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Tes select"
-        android:textColor="#fff"
+        android:textColor="#1d26d4"
         android:textSize="20sp"
 
     />

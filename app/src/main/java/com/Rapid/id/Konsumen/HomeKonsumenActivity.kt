@@ -34,6 +34,8 @@ import com.Rapid.id.ImageSlider.FragmentSlider
 import com.Rapid.id.ImageSlider.SliderView
 import com.Rapid.id.ImageSlider.SliderIndicator
 import com.Rapid.id.ImageSlider.SliderPagerAdapter
+import com.Rapid.id.Model.Konsumen
+import com.google.gson.Gson
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
 
@@ -44,102 +46,24 @@ class HomeKonsumenActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-//    private lateinit var mToggle : ActionBarDrawerToggle
-
-//    private var mAdapter: SliderPagerAdapter? = null
-//    private var mIndicator: SliderIndicator? = null
-//
-//    private val sliderView: SliderView? = null
-//    private val mLinearLayout: LinearLayout? = null
-
-//    lateinit var carouselView: CarouselView
-//    internal var gambarSlide = intArrayOf(R.drawable.banersatu, R.drawable.banerdua)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-//        val toolbar: Toolbar = findViewById(R.id.toolbar)
-//        setSupportActionBar(toolbar)
-//        supportActionBar?.setHomeButtonEnabled(true)
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-//        carouselView = findViewById(R.id.carouselView) as CarouselView
-//        carouselView.pageCount = gambarSlide.size
-
-//        carouselView.setImageListener(imageListener)
-
-//        carouselView.setOnClickListener {
-
-
-
-
-//        setupSlider()
-
-//        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-//        val navView: NavigationView = findViewById(R.id.nav_view)
-//        val navController = findNavController(R.id.nav_host_fragment)
-
-//        drawerLayout.closeDrawers()
-
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-//                R.id.nav_tools, R.id.nav_share, R.id.nav_send
-//            ), drawerLayout
-//        )
-
-//        var home = navView.getMenu()
-//        home.findItem(R.id.nav_home).setVisible(false)
-
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
-//
-//        navView.menu.getItem(0).setChecked(false)
-
 
         bn_main.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         val fragment = FragmentNavHome.newInstance()
         addFragment(fragment)
+
+
+
+
     }
- //    private fun setupSlider() {
-//
-//        sliderView?.setDurationScroll(800)
-//        val fragments = ArrayList<Fragment>()
-//        fragments.add(FragmentSlider.newInstance(R.drawable.banersatu.toString()))
-//        fragments.add(FragmentSlider.newInstance(R.drawable.banerdua.toString()))
-//
-//        mAdapter =  SliderPagerAdapter(getSupportFragmentManager(), fragments)
-//        sliderView?.setAdapter(mAdapter);
-//        mIndicator = sliderView?.let {
-//            mLinearLayout?.let { it1 ->
-//                SliderIndicator(this, it1,
-//                    it, R.drawable.indicator_circle)
-//            }
-//        }
-//        mIndicator!!.setPageCount(fragments.size)
-//        mIndicator!!.show()
-//    }
 
-//    internal var imageListener: ImageListener =
-//        ImageListener { position, imageView -> imageView.setImageResource(gambarSlide[position])
-//        }
 
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.home, menu)
-//        return true
-//    }
-//
-//    override fun onSupportNavigateUp(): Boolean {
-//
-//        val navController = findNavController(R.id.nav_host_fragment)
-//        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-//    }
-//
+
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
 
             when (item.itemId) {
@@ -169,9 +93,9 @@ class HomeKonsumenActivity : AppCompatActivity() {
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(i)
                 Rak.entry("loginkonsumen", false)
                 Rak.removeAll(applicationContext)
+                startActivity(i)
                 finishAffinity()
             }
 
@@ -181,6 +105,20 @@ class HomeKonsumenActivity : AppCompatActivity() {
     }
 
     private fun addFragment(fragment: Fragment) {
+
+//        val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
+
+
+//        val json = ""
+//        val res = Gson().fromJson<Konsumen>(json,Konsumen::class.java)
+
+        val value = getIntent().getExtras()
+        val email = value?.getString("emailkons")
+        val nama = value?.getString("namakons")
+
+        value?.putString("emailkons",email)
+        value?.putString("namakons",nama)
+        fragment.setArguments(value)
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(
@@ -191,13 +129,6 @@ class HomeKonsumenActivity : AppCompatActivity() {
             .commit()
     }
 
-//    override fun onBackPressed() {
-//
-//        if(drawer_layout.isDrawerOpen(GravityCompat.START)){
-//            drawer_layout.closeDrawer(GravityCompat.START)
-//        }else{
-//            super.onBackPressed()
-//        }
 
     }
 

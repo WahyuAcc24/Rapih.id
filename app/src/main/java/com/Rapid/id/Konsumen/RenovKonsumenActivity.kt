@@ -17,9 +17,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.text.toHtml
+import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.Model.NumberTextWatcher
 import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
+import com.google.gson.Gson
 import com.ngopidev.project.ngopihelpers.NgopiHelpers
 import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.fragment_slider_item.*
@@ -75,7 +77,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
 
         txt_email = findViewById(R.id.txtemailkonsumenrenov)
 
-        txt_email.setText((Rak.grab("emailkonsumen")) as String)
+        txt_email.setText(Rak.grab("emailkonsumen") as String)
 
         edt_deskripsi = findViewById(R.id.edtdeskripsikerjaan)
         edt_deskripsi_alamat = findViewById(R.id.edtdeskripsilokasi)
@@ -155,7 +157,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
         sp_properti.setAdapter(adapter)
         sp_properti.setOnItemSelectedListener(this)
         sp_properti.getBackground()
-            .setColorFilter(getResources().getColor(R.color.Putih), PorterDuff.Mode.SRC_ATOP)
+            .setColorFilter(getResources().getColor(R.color.birulain), PorterDuff.Mode.SRC_ATOP)
 
 
         val adapterdomisili = ArrayAdapter.createFromResource(
@@ -167,7 +169,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
         sp_domisili.setAdapter(adapterdomisili)
         sp_domisili.setOnItemSelectedListener(this)
         sp_domisili.getBackground()
-            .setColorFilter(getResources().getColor(R.color.Putih), PorterDuff.Mode.SRC_ATOP)
+            .setColorFilter(getResources().getColor(R.color.birulain), PorterDuff.Mode.SRC_ATOP)
 
 
         val desc_pekerjaan = edt_deskripsi.text.toString()
@@ -191,12 +193,6 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
             startActivity(intent)
 
 
-//            Rak.entry("desc_pekerjaan", desc_pekerjaan)
-//            Rak.entry("tgl_proyek", tgl_proyek)
-//            Rak.entry("anggaran", anggaran)
-//            Rak.entry("des_alamat", des_alamat)
-//            Rak.entry("properti", properti)
-//            Rak.entry("domisili", domisili)
 
         }
 
@@ -224,68 +220,3 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
     }
 
 }
-//        val format = NumberFormat.getCurrencyInstance(Locale.ENGLISH)
-
-//        val localeID = Locale("in", "ID")
-
-//        edt_anggaran.addTextChangedListener( object : TextWatcher {
-//
-//
-//            private var current : String = ""
-//         override fun afterTextChanged(s : Editable){
-//
-//             var initial: String = s.toString()
-//
-//             if (edt_anggaran == null) return
-//
-//             if(initial.isEmpty())return
-//
-//             var cleanString : String = initial.replace(".","")
-//
-//             var localeID = Locale("in", "ID")
-//
-//
-//             val nf = NumberFormat.getCurrencyInstance(Locale.ENGLISH)
-//
-//             nf.isGroupingUsed
-//
-//             val myNumber : Double = Double(cleanString)
-//             current = nf.format(myNumber)
-//
-//
-//
-//
-//            }
-//         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after:Int){
-//
-//            }
-//
-//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-//                if (!s.toString().equals(current)){
-//                    edt_anggaran.removeTextChangedListener(this)
-//
-//                    var localeID = Locale("in", "ID")
-//
-//                    val replaceable : String = String.format(
-//                        "[%s,.\\s]",
-//                        NumberFormat.getCurrencyInstance(localeID).currency!!.symbol)
-//
-//                    var cleanString : String = s.toString().replace(replaceable, "")
-//                    val parsed: Double
-//
-//                    parsed = java.lang.Double.parseDouble(cleanString)
-//
-//                    val formatter = NumberFormat.getCurrencyInstance(localeID)
-//                    formatter.maximumFractionDigits = 1000
-//                    val formatted = formatter.format(parsed)
-//
-//                    current = formatted
-//                    edt_anggaran.setText(formatted)
-//                    edt_anggaran.setSelection(formatted.length)
-//                    edt_anggaran.addTextChangedListener(this)
-
-
-//                }
-//                }
-//            })
-

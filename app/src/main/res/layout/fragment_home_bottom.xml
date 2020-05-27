@@ -4,8 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/backgroundkonsumen"
+    android:background="@drawable/backgroundkonsumenn"
     android:layout_height="match_parent"
+    android:id="@+id/frame"
 
     >
 <RelativeLayout
@@ -28,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="email"
-                android:textColor="#fff"
+                android:textColor="#1d26d4"
                 android:id="@+id/txtemailkonsumen"
 
                 />
@@ -73,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pesan Masuk"
-                        android:textColor="#fff"
+                        android:textColor="#1d26d4"
                         android:textSize="20sp"
                         android:layout_weight="5"
                         android:layout_below="@+id/baner"
@@ -86,7 +87,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/txtinfopesan"
                         android:text="infopesan"
-                        android:textColor="#fff"
+                        android:textColor="#1d26d4"
                         android:textSize="20sp"
                         />
                 </LinearLayout>
@@ -97,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="selamat datang"
-                android:textColor="#fff"
+                android:textColor="#1d26d4"
                 android:textSize="20sp"
                 android:layout_marginTop="50dp"
                 android:layout_below="@+id/lnpesan"
@@ -109,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="namaku"
-                android:textColor="#fff"
+                android:textColor="#1d26d4"
                 android:textSize="20sp"
                 android:layout_marginTop="5dp"
                 android:layout_below="@+id/txtwelcome"

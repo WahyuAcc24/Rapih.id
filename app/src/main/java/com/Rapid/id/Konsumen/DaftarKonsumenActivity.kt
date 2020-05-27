@@ -106,10 +106,6 @@ class DaftarKonsumenActivity : AppCompatActivity() {
                     Rak.entry("passwordkonsumen", password)
                     Rak.entry("namakonsumen", nama)
 
-
-                    val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
-                    if (res.isStatus()) {
-
                         loading.dismiss()
 
 //                        val obj = JSONObject(response)
@@ -121,11 +117,6 @@ class DaftarKonsumenActivity : AppCompatActivity() {
                         Toast.makeText(getApplicationContext(), "Berhasil Mendaftar", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this,LoginKonsumenActivity::class.java))
 
-
-                    }else{
-                        loading.dismiss()
-                        Toast.makeText(getApplicationContext(), "Email sudah Terdaftar", Toast.LENGTH_SHORT).show()
-                    }
 
 
                 } catch (e: JSONException) {

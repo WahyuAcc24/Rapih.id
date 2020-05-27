@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundpilihan"
+    android:background="@drawable/backgroundmitraa"
 
     >
 
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="Selamat datang diaplikasi Rapih.id \n Silahkan mulai dengan pencarian anda"
         android:textSize="20sp"
-        android:textColor="#ede740"
+        android:textColor="#1d26d4"
         android:textAlignment="center"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
@@ -34,7 +34,7 @@
         android:layout_below="@+id/txtinfo1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textColor="#ede740"
+        android:textColor="#1d26d4"
         android:textAlignment="center"
         android:id="@+id/txtinfo2"
         />

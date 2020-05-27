@@ -141,8 +141,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         }
 
         search = findViewById(R.id.edtSearch)
-        search.setOnClickListener {
-        }
+
 
 
 
@@ -488,11 +487,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         }
         //Place current location marker
         val latLng = LatLng(location.latitude, location.longitude)
-//        val markerOptions = MarkerOptions()
-//        markerOptions.position(latLng)
-//        markerOptions.title("Current Position")
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-//        mCurrLocationMarker = mMap!!.addMarker(markerOptions)
 
         //move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
@@ -510,61 +504,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
     }
 
     fun searchLocation(view: View) {
-//        val locationSearch:EditText = findViewById<EditText>(R.id.)
 
     }
 
 
 }
-//onActivityResult
-
-////            if(resultCode == Activity.RESULT_OK){
-////               val placeData : Place = PlaceAutocomplete.getPlace(this,data)
-////                if (placeData.isDataValid()){
-////                    Log.d("autoCompletePlace Data", placeData.toString())
-////
-////                  val placeAddress : String  = placeData.getAddress().toString()
-////                 val placeLatLng : LatLng = placeData.getLatLng()
-////                 val placeName : String = placeData.getName().toString()
-//
-////
-////                    when (REQUEST_CODE) {
-////                        PICK_UP -> {
-//                            // Set ke widget lokasi asal
-////                            edtSearch.setText(placeAddress)
-////                            tvPickUpAddr.setText("Location Address : " + placeAddress)
-////                            tvPickUpLatLng.setText("LatLang : " + placeLatLng.toString())
-////                            tvPickUpName.setText("Place Name : " + placeName)
-////                        }
-////                        DEST_LOC -> {
-////                            // Set ke widget lokasi tujuan
-////                            tvDestLocation.setText(placeAddress)
-////                            tvDestLocAddr.setText("Destination Address : " + placeAddress)
-////                            tvDestLocLatLng.setText("LatLang : " + placeLatLng.toString())
-////                            tvDestLocName.setText("Place Name : " + placeName)
-////                        }
-////                }else{
-////                    Toast.makeText(this, "Invalid Place !", Toast.LENGTH_SHORT).show()
-////                }
-////
-////            }
-//
-//        //raydenwich
-//            if (requestCode == REQUEST_CHECK_SETTINGS) {
-//                if (resultCode == Activity.RESULT_OK) {
-//                    locationUpdateState = true
-//                    startLocationUpdates()
-//                }
-//            }
-//            if (requestCode == PLACE_PICKER_REQUEST) {
-//            if (resultCode == RESULT_OK) {
-//                val place = PlacePicker.getPlace(this, data)
-//                var addressText = place.name.toString()
-//                addressText += "\n" + place.address.toString()
-//
-//                placeMarkerOnMap(place.latLng)
-//            }
-//
-//        }
-
-

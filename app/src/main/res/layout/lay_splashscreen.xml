@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundmitra"
+    android:background="@drawable/backgroundmitraa"
 
     >
 
@@ -12,7 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/splash"
-        android:src="@drawable/logorapihputih"
+        android:src="@drawable/logorapihbiru"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="110dp"
 

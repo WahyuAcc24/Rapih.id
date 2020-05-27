@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="birurapih">#004f82</color>
+    <color name="birulain">#1d26d4</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#58a2ed</color>
 <!--    <item name="colorControlNormal">#2196F3</item>-->
 

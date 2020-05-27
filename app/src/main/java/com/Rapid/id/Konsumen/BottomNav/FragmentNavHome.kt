@@ -1,6 +1,7 @@
 package com.Rapid.id.Konsumen.BottomNav
 
 import android.content.Intent
+import android.content.Intent.getIntent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.Rapid.id.ImageSlider.SliderView
 import com.Rapid.id.Konsumen.LoginKonsumenActivity
@@ -37,9 +39,6 @@ class FragmentNavHome : Fragment() {
     lateinit var img_clean : ImageView
 
 
-//    private val sliderView: SliderView? = null
-//    private val mLinearLayout: LinearLayout? = null
-
     lateinit var carouselView: CarouselView
     internal var gambarSlide = intArrayOf(R.drawable.banersatu, R.drawable.banerdua)
 
@@ -64,12 +63,17 @@ class FragmentNavHome : Fragment() {
 
         Rak.initialize(context)
 
+        var bundle: Bundle? = this.arguments
 
+
+
+//        txtemailkonsumen.setText(Rak.grab("emailkonsumen") as? String)
         txtemailkonsumen = getView()?.findViewById(R.id.txtemailkonsumen) as TextView
-        txtemailkonsumen.setText(Rak.grab("emailkonsumen") as? String)
+        txtemailkonsumen.setText(arguments?.getString("emailkons"))
 
         txtnamakonsumen = getView()?.findViewById(R.id.txtnamakonsumen) as TextView
-        txtnamakonsumen.setText(Rak.grab("namakonsumen")as? String)
+        txtnamakonsumen.setText(arguments?.getString("namakons"))
+//        txtnamakonsumen.setText(Rak.grab("namakonsumen")as? String)
 
 
         img_bangunrumah = getView()?.findViewById(R.id.imgrenov) as ImageView
@@ -91,6 +95,7 @@ class FragmentNavHome : Fragment() {
             val fragment = FragmentNavHome()
             val args = Bundle()
             fragment.arguments = args
+
             return fragment
         }
     }

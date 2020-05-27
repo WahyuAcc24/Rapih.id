@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.Rapid.id.AppController
+import com.Rapid.id.Konsumen.BottomNav.FragmentNavHome
 import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.R
 import com.android.volley.AuthFailureError
@@ -168,22 +169,34 @@ class LoginKonsumenActivity : AppCompatActivity() {
 
                     if (res.isStatus()) {
 
-
-                        loading.dismiss()
-                        if (res.getId() != null)Rak.entry("id", res.getId())
+                        if (res.getId() != null)Rak.entry("id_kons", res.getId())
                         if (res.getEmail() != null)Rak.entry("emailkonsumen", res.getEmail())
                         if (res.getNama() != null)Rak.entry("namakonsumen", res.getNama())
 
+                        var bundle : Bundle = Bundle()
+
+                        bundle.putString("idkons", res.getId())
+                        bundle.putString("emailkons", res.getEmail())
+                        bundle.putString("namakons",res.getNama())
                         Rak.entry("loginkonsumen", true)
 
 //                        val obj = JSONObject(response)
-
+                        loading.dismiss()
                         edt_emaillogin.setText("")
                         edt_passwordlogin.setText("")
- //                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
-                        Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, HomeKonsumenActivity::class.java))
 
+
+
+
+                        //                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@LoginKonsumenActivity,HomeKonsumenActivity::class.java)
+                        intent.putExtras(bundle)
+
+//                        intent.putExtra("idkonsumen", res.getId_konsumen())
+//                        intent.putExtra("email", res.getEmail())
+//                        intent.putExtra("nama", res.getNama())
+                        startActivity(intent)
                     }else{
                         loading.dismiss()
                         Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show()
