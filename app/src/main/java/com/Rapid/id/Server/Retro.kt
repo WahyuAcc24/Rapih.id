@@ -5,7 +5,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClient {
+object Retro {
 
     private val AUTH = "Basic "+ Base64.encodeToString("WR15".toByteArray(), Base64.NO_WRAP)
     val BASE_URL = "http://rapih.id/api/"

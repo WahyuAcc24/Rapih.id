@@ -11,7 +11,7 @@ class Konsumen {
     private val data_konsumen: Datakonsumen? = null
 
     @SerializedName("id")
-    private val id: String? = null
+    private val id: Int? = null
     @SerializedName("email")
     private val email: String? = null
     @SerializedName("nama")
@@ -35,7 +35,7 @@ class Konsumen {
     }
 
 
-    fun getId() : String?{
+    fun getId() : Int?{
         return id
     }
 

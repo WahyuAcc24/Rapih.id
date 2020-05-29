@@ -15,6 +15,7 @@ import com.Rapid.id.AppController
 import com.Rapid.id.Konsumen.BottomNav.FragmentNavHome
 import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.R
+import com.Rapid.id.util.Preferences
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -24,6 +25,7 @@ import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.lay_login_konsumen.*
 import org.json.JSONException
+import org.json.JSONObject
 import java.util.HashMap
 
 class LoginKonsumenActivity : AppCompatActivity() {
@@ -46,18 +48,11 @@ class LoginKonsumenActivity : AppCompatActivity() {
 
     internal lateinit var conMgr: ConnectivityManager
 
-    var session: Boolean? = false
-    var email: String? = null
-    var pass : String? = null
 
-    val my_shared_preferences = "my_shared_preferences"
-    val session_status = "session_status"
+    var TAG_ID : String? = null
+    var id : String? = null
 
-    val TAG_EMAIL = "email"
-    val TAG_PASS = "password"
 
-    private var PRIVATE_MODE = 0
-    private val PREF_NAME = "mindorks-welcome"
 
 
 
@@ -96,26 +91,11 @@ class LoginKonsumenActivity : AppCompatActivity() {
             }
         }
 
-        val sharedPreferences : SharedPreferences = getSharedPreferences(PREF_NAME, PRIVATE_MODE)
-
-        session = sharedPreferences.getBoolean(session_status, false)
-        email = sharedPreferences.getString(TAG_EMAIL, null)
-        pass = sharedPreferences.getString(TAG_PASS, null)
 
 
-        if (Rak.isExist("loginkonsumen")) {
-            if (Rak.grab("loginkonsumen")) {
-                startActivity(Intent(this, HomeKonsumenActivity::class.java))
-                finish()
-            }
-        }
+        if (Preferences.getLoggedInStatus(baseContext)) {
 
-
-        if (sharedPreferences.getBoolean(PREF_NAME, false)) {
-            val intent = Intent(this, HomeKonsumenActivity::class.java)
-            intent.putExtra(TAG_EMAIL, email)
-            intent.putExtra(TAG_PASS, pass)
-            startActivity(intent)
+            startActivity(Intent(baseContext,HomeKonsumenActivity::class.java))
             finish()
         }
 
@@ -158,44 +138,31 @@ class LoginKonsumenActivity : AppCompatActivity() {
             Response.Listener<String> { response ->
 
                 Log.e(TAG, "Login Response: $response")
+                val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
 
                 try {
 
-//                    Rak.entry("emailkonsumen", email)
-//                    Rak.entry("passwordkonsumen", password)
-
-
-                    val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
+//                    var job : JSONObject = JSONObject(response)
 
                     if (res.isStatus()) {
 
-                        if (res.getId() != null)Rak.entry("id_kons", res.getId())
-                        if (res.getEmail() != null)Rak.entry("emailkonsumen", res.getEmail())
-                        if (res.getNama() != null)Rak.entry("namakonsumen", res.getNama())
+//                        id = job.getString(TAG_ID)
 
-                        var bundle : Bundle = Bundle()
-
-                        bundle.putString("idkons", res.getId())
-                        bundle.putString("emailkons", res.getEmail())
-                        bundle.putString("namakons",res.getNama())
-                        Rak.entry("loginkonsumen", true)
-
-//                        val obj = JSONObject(response)
                         loading.dismiss()
                         edt_emaillogin.setText("")
                         edt_passwordlogin.setText("")
 
 
-
-
-                        //                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
                         Toast.makeText(getApplicationContext(), "Login berhasil", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@LoginKonsumenActivity,HomeKonsumenActivity::class.java)
-                        intent.putExtras(bundle)
 
-//                        intent.putExtra("idkonsumen", res.getId_konsumen())
-//                        intent.putExtra("email", res.getEmail())
-//                        intent.putExtra("nama", res.getNama())
+
+                        Preferences.setLoggedInNama(baseContext,Preferences.getRegisteredNama(baseContext))
+                        Preferences.setLoggedInEmail(baseContext,Preferences.getRegisteredEmail(baseContext))
+                        Preferences.setLoggedInId(baseContext,Preferences.getRegisteredId(baseContext))
+                        Preferences.setLoggedInStatus(baseContext,true)
+                        val intent = Intent(this@LoginKonsumenActivity,HomeKonsumenActivity::class.java)
+//                        intent.putExtras(bundle)
                         startActivity(intent)
                     }else{
                         loading.dismiss()

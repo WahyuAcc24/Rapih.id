@@ -18,18 +18,25 @@ import com.Rapid.id.AppController
 import com.Rapid.id.Model.DataPart
 import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
+import com.Rapid.id.retrofitimage.ApiConfig
+import com.Rapid.id.retrofitimage.AppConfig
 import com.Rapid.id.util.PathUtil
 import com.Rapid.id.util.Preferences
 import com.Rapid.id.util.VolleyMultipartRequest
 import com.android.volley.*
 import com.android.volley.toolbox.Volley
+
 import okhttp3.MultipartBody
+import okhttp3.ResponseBody
 import org.json.JSONException
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
 import java.io.*
 import java.util.*
 
 
-class OrderRenovActivity :AppCompatActivity() {
+class OrderRenovRetroActivity :AppCompatActivity() {
 
     companion object {
         const val USER_MAP = 123
@@ -54,6 +61,11 @@ class OrderRenovActivity :AppCompatActivity() {
 
     var tag_json_obj : String = "json_obj_req"
 
+    var progressDialog : ProgressDialog? = null
+
+    var context : Context? = null
+
+
 
 
     private val TAKE_PHOTO = 1
@@ -62,7 +74,7 @@ class OrderRenovActivity :AppCompatActivity() {
     private val READ_REQUEST_CODE: Int = 42
     private val REQUEST_TAKE_PHOTO: Int = 1
 
-    private val TAG = OrderRenovActivity::class.java.getSimpleName()
+    private val TAG = OrderRenovRetroActivity::class.java.getSimpleName()
 
 
     internal lateinit var conMgr: ConnectivityManager
@@ -71,6 +83,8 @@ class OrderRenovActivity :AppCompatActivity() {
     var filebluprint: Uri? = null
 
     var harga : Int = 0
+
+    var mApi : ApiConfig? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,6 +104,11 @@ class OrderRenovActivity :AppCompatActivity() {
         txt_da = findViewById(R.id.txtdetailalamat)
         edt_maps_komf = findViewById(R.id.edtmapslokasi)
 
+        mApi = AppConfig.getAPIService()
+
+        context = this
+
+
 
 
         img_back.setOnClickListener {
@@ -106,13 +125,7 @@ class OrderRenovActivity :AppCompatActivity() {
         txt_lokasi.setText(intent.getStringExtra("domisili"))
         txt_da.setText(intent.getStringExtra("des_alamat"))
 
-        txt_jp.text.toString()
-        txt_wp.text.toString()
-        txt_dp.text.toString()
-        txt_uang.text.toString()
-        txt_email.text.toString()
-        txt_lokasi.text.toString()
-        txt_da.text.toString()
+
 
         val userLocation = intent.getSerializableExtra("user_location") as? UserLocation
         edt_maps_komf.setText(userLocation?.address)
@@ -150,91 +163,73 @@ class OrderRenovActivity :AppCompatActivity() {
         }
 
         btn_ap.setOnClickListener {
+            progressDialog = ProgressDialog.show(context, null, "Harap Tunggu...", true, false)
+            regisform()
 
-            val loading = ProgressDialog(this)
-            loading.setCancelable(false)
-            loading.setMessage("Menambahkan Order...")
-            loading.show()
-
-
-            val jp : String = txt_jp.text.toString()
-            val wp : String = txt_wp.text.toString()
-            val domisili: String = txt_lokasi.text.toString()
-            val lp: String = txt_da.text.toString()
-            val dp: String = txt_dp.text.toString()
-            val ap: String = txt_uang.text.toString()
-            val map: String = edt_maps_komf.toString()
-            val email_kons: String = Preferences.getLoggedInEmail(baseContext)
-
-
-            val orderreq = object : VolleyMultipartRequest(Request.Method.POST,
-                URL_order,
-                object : Response.Listener<NetworkResponse> {
-                    override fun onResponse(response: NetworkResponse) {
-                        Log.e(TAG, "Order Response: ${response.toString()}")
-
-                        try {
-
-                            Log.d(TAG, response.toString())
-                            Log.d("TAG", response.toString())
-
-                            loading.dismiss()
-
-                            Toast.makeText(
-                                getApplicationContext(),
-                                "Berhasil Order",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                            val i = Intent (this@OrderRenovActivity,HomeKonsumenActivity::class.java)
-                            startActivity(i)
-
-                            finish()
-
-                        } catch (e: JSONException) {
-                            Log.e("haha", e.message)
-                            e.printStackTrace()
-                        }
-                    }
-                }, object : Response.ErrorListener {
-                    override fun onErrorResponse(volleyError: VolleyError) {
-                        loading.dismiss()
-
-                        Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG)
-                            .show()
-                    }
-                }) {
-
-                @Throws(AuthFailureError::class)
-                override fun getParams(): Map<String, String> {
-                    val params = HashMap<String, String>()
-                    params.put("email_konsumen", email_kons)
-                    params.put("jenis_properti", jp)
-                    params.put("waktu_pengerjaan", wp)
-                    params.put("domisili_proyek", domisili)
-                    params.put("lokasi_proyek", map)
-                    params.put("alamat_lengkap", lp)
-                    params.put("detail_pekerjaan", dp)
-                    params.put("anggaran_proyek", ap)
-                    return params
-                }
-
-                @Throws(AuthFailureError::class)
-                override fun getByteData(): Map<String, DataPart> {
-                    val params = HashMap<String, DataPart>()
-                    val imagename = System.currentTimeMillis()
-
-                    params.put("gambar_properti", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapbluprint)))
-
-                    return params
-                }
-            }
-
-            AppController.getInstance().addToRequestQueue(orderreq, tag_json_obj)
         }
 
+    }
+
+    fun regisform(){
+
+
+        mApi?.orderReq(txt_email.getText().toString(),
+            txt_jp.getText().toString(),
+            txt_wp.getText().toString(),
+            txt_lokasi.getText().toString(),
+            edt_maps_komf.getText().toString(),
+            txt_da.getText().toString(),
+            txt_dp.getText().toString(),
+            txt_uang.getText().toString())
+        ?.enqueue (object : Callback<ResponseBody>{
+            override fun onResponse(
+                call: Call<ResponseBody>?,
+                response: retrofit2.Response<ResponseBody>?) {
+
+                    if (response?.isSuccessful!!){
+                        Log.i("DEBUG", "onResponse : Berhasil")
+                        progressDialog?.dismiss()
+
+                        try {
+                            val jsonRESULT: JSONObject = JSONObject(response.body().string())
+
+                            if (jsonRESULT.getString("error").equals("false")) {
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Berhasil Order",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                val i = Intent(
+                                        this@OrderRenovRetroActivity,
+                                    HomeKonsumenActivity::class.java
+                                )
+                                startActivity(i)
+
+                            } else {
+                                val error_message: String = jsonRESULT.getString("error_msg")
+                                Toast.makeText(applicationContext,error_message, Toast.LENGTH_SHORT).show()
+                            }
+                        }catch (e : JSONException){
+                            e.printStackTrace()
+                        }catch (e : IOException){
+                            e.printStackTrace()
+                        }
+                    }else {
+                        Log.i("debug", "onResponse : Tidak Berhasil")
+                        progressDialog?.dismiss()
+                    }
+
+            }
+
+            override fun onFailure(call: Call<ResponseBody>?, t: Throwable?) {
+                Log.e("debug", "onFailure: ERROR > " + t?.message)
+                Toast.makeText(applicationContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show()
+            }
+
+        })
 
     }
+
     override fun onBackPressed() {
         val intent = Intent(this, RenovKonsumenActivity::class.java)
         startActivity(intent)
@@ -299,7 +294,7 @@ class OrderRenovActivity :AppCompatActivity() {
                 getBitmapFromUri(uri)
                 readTextFromUri(uri)
 
-                    bitmapbluprint = MediaStore.Images.Media.getBitmap(this@OrderRenovActivity.getContentResolver(), filebluprint)
+                    bitmapbluprint = MediaStore.Images.Media.getBitmap(this@OrderRenovRetroActivity.getContentResolver(), filebluprint)
                     edt_gambar.setText(PathUtil.getFileName(this, filebluprint))
 
 

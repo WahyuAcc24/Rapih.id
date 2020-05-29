@@ -1,8 +1,12 @@
 package com.Rapid.id.Konsumen
 
 import android.app.FragmentTransaction
+import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
@@ -30,11 +34,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.activity_home.*
 import android.widget.LinearLayout
+import androidx.fragment.app.FragmentManager
 import com.Rapid.id.ImageSlider.FragmentSlider
 import com.Rapid.id.ImageSlider.SliderView
 import com.Rapid.id.ImageSlider.SliderIndicator
 import com.Rapid.id.ImageSlider.SliderPagerAdapter
 import com.Rapid.id.Model.Konsumen
+import com.Rapid.id.util.Preferences
 import com.google.gson.Gson
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
@@ -45,6 +51,17 @@ class HomeKonsumenActivity : AppCompatActivity() {
     private var content: FrameLayout? = null
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    var emails: String? = null
+    var names:String? = null
+    var id:String? = null
+
+    var TAG_EMAIL : String? = "email"
+    var TAG_NAMA : String? = "nama"
+    var TAG_ID : String? = "id"
+
+
+    var sharedPreferences : SharedPreferences? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,12 +106,19 @@ class HomeKonsumenActivity : AppCompatActivity() {
 
             }
             R.id.exit_menu -> {
+                replaceFragment()
+                Preferences.clearLoggedInNama(baseContext)
+                Preferences.clearLoggedInEmail(baseContext)
+                Preferences.clearLoggedInId(baseContext)
                 val i = Intent(this, LoginKonsumenActivity::class.java)
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                Rak.entry("loginkonsumen", false)
-                Rak.removeAll(applicationContext)
+                Preferences.clearLoggedInNama(baseContext)
+                Preferences.clearLoggedInEmail(baseContext)
+                Preferences.clearLoggedInId(baseContext)
+                Preferences.setLoggedInStatus(baseContext,false)
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                Preferences.setLoggedInStatus(baseContext,false)
                 startActivity(i)
                 finishAffinity()
             }
@@ -106,19 +130,19 @@ class HomeKonsumenActivity : AppCompatActivity() {
 
     private fun addFragment(fragment: Fragment) {
 
-//        val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
-
 
 //        val json = ""
 //        val res = Gson().fromJson<Konsumen>(json,Konsumen::class.java)
 
-        val value = getIntent().getExtras()
-        val email = value?.getString("emailkons")
-        val nama = value?.getString("namakons")
+//        var sharedPreferences  = getSharedPreferences("pref", Context.MODE_PRIVATE)
 
-        value?.putString("emailkons",email)
-        value?.putString("namakons",nama)
-        fragment.setArguments(value)
+//        id = getIntent().getStringExtra(TAG_ID)
+
+
+        Preferences.getLoggedInEmail(baseContext)
+        Preferences.getLoggedInId(baseContext)
+        Preferences.getLoggedInNama(baseContext)
+
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(
@@ -129,6 +153,17 @@ class HomeKonsumenActivity : AppCompatActivity() {
             .commit()
     }
 
+    private fun replaceFragment(){
+
+        Preferences.clearLoggedInNama(baseContext)
+        Preferences.clearLoggedInId(baseContext)
+        Preferences.clearLoggedInEmail(baseContext)
+        Preferences.setLoggedInStatus(baseContext,false)
+        supportFragmentManager
+            .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
+
+    }
 
     }
 

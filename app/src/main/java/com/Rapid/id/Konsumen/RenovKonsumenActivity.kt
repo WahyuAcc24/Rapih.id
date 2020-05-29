@@ -21,6 +21,7 @@ import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.Model.NumberTextWatcher
 import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
+import com.Rapid.id.util.Preferences
 import com.google.gson.Gson
 import com.ngopidev.project.ngopihelpers.NgopiHelpers
 import io.isfaaghyth.rak.Rak
@@ -77,7 +78,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
 
         txt_email = findViewById(R.id.txtemailkonsumenrenov)
 
-        txt_email.setText(Rak.grab("emailkonsumen") as String)
+        txt_email.setText(Preferences.getLoggedInEmail(baseContext))
 
         edt_deskripsi = findViewById(R.id.edtdeskripsikerjaan)
         edt_deskripsi_alamat = findViewById(R.id.edtdeskripsilokasi)
@@ -182,7 +183,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
         btn_lanjut = findViewById(R.id.btnlanjut)
         btn_lanjut.setOnClickListener {
 
-            val intent = Intent(this, OrderRenovActivity::class.java)
+            val intent = Intent(this, OrderRenovRetroActivity::class.java)
             intent.putExtra("deskripsi", edt_deskripsi.text.toString())
             intent.putExtra("tgl_proyek", edt_tgl.text.toString())
             intent.putExtra("anggaran", edt_anggaran.text.toString())

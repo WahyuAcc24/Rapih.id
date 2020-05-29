@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.Rapid.id.AppController
 import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.R
+import com.Rapid.id.util.Preferences
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -92,16 +93,18 @@ class DaftarKonsumenActivity : AppCompatActivity() {
             val nama = edt_nama.text.toString()
             val email = edt_email.text.toString()
             val password = edt_pwd.text.toString()
-            val ulangipassword = edt_ulangi_pwd.text.toString()
 
+            val ulangipassword = edt_ulangi_pwd.text.toString()
 
 
         val stringRequest = object : StringRequest(Request.Method.POST, URL_reg,
             Response.Listener<String> { response ->
 
-
                 try {
 
+                    val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
+
+                    val id = res.getId()
                     Rak.entry("emailkonsumen", email)
                     Rak.entry("passwordkonsumen", password)
                     Rak.entry("namakonsumen", nama)
@@ -113,7 +116,12 @@ class DaftarKonsumenActivity : AppCompatActivity() {
                         edt_email.setText("")
                         edt_pwd.setText("")
                         edt_ulangi_pwd.setText("")
+
+
 //                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
+                    Preferences.setRegisteredEmail(baseContext,email)
+                    Preferences.setRegisteredNama(baseContext,nama)
+                    Preferences.setRegisteredId(baseContext, id.toString())
                         Toast.makeText(getApplicationContext(), "Berhasil Mendaftar", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this,LoginKonsumenActivity::class.java))
 

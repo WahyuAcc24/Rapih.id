@@ -196,18 +196,12 @@ class DaftarMitraActivity : AppCompatActivity() {
                             Rak.entry("nama", nama)
 
 
-
-//                            val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
-//                            if (res.isStatus()) {
-
-
 //                        val obj = JSONObject(response)
 
                             edt_email.setText("")
                             edt_nama.setText("")
                             edt_pwd.setText("")
                             edt_ulangi_pwd.setText("")
-//                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
                             Log.d("TAG", response.toString())
                             loading.dismiss()
                             Toast.makeText(
