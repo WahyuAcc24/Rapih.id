@@ -142,7 +142,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
             }
         })
 
-        dateFormatter = SimpleDateFormat("dd-MM-yyyy", Locale.US)
+        dateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
 
 
         sp_properti = findViewById(R.id.spinRenov)
@@ -215,7 +215,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
     }
 
     private fun updateDateInView() {
-        val myFormat = "MM/dd/yyyy" // mention the format you need
+        val myFormat = "dd-MM-yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
         edt_tgl.setText(dateFormatter?.format(cal.getTime()))
     }

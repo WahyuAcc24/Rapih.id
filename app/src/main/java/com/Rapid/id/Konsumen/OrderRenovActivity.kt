@@ -113,6 +113,7 @@ class OrderRenovActivity :AppCompatActivity() {
         txt_email.text.toString()
         txt_lokasi.text.toString()
         txt_da.text.toString()
+        edt_maps_komf.text.toString()
 
         val userLocation = intent.getSerializableExtra("user_location") as? UserLocation
         edt_maps_komf.setText(userLocation?.address)
@@ -171,7 +172,7 @@ class OrderRenovActivity :AppCompatActivity() {
                 URL_order,
                 object : Response.Listener<NetworkResponse> {
                     override fun onResponse(response: NetworkResponse) {
-                        Log.e(TAG, "Order Response: ${response.toString()}")
+                        Log.e(TAG, "Order Response: ${response}")
 
                         try {
 

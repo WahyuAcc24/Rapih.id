@@ -14,6 +14,8 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat.startActivity
 import com.Rapid.id.AppController
 import com.Rapid.id.Model.DataPart
 import com.Rapid.id.Model.UserLocation
@@ -180,30 +182,29 @@ class OrderRenovRetroActivity :AppCompatActivity() {
             edt_maps_komf.getText().toString(),
             txt_da.getText().toString(),
             txt_dp.getText().toString(),
-            txt_uang.getText().toString())
+            txt_uang.getText().toString()
+
+        )
         ?.enqueue (object : Callback<ResponseBody>{
             override fun onResponse(
                 call: Call<ResponseBody>?,
                 response: retrofit2.Response<ResponseBody>?) {
 
                     if (response?.isSuccessful!!){
+
                         Log.i("DEBUG", "onResponse : Berhasil")
+                        Toast.makeText(applicationContext,"Berhasil Order",Toast.LENGTH_SHORT).show()
+
                         progressDialog?.dismiss()
+                        val i = Intent(this@OrderRenovRetroActivity,HomeKonsumenActivity::class.java)
+                        startActivity(i)
+                        finish()
 
                         try {
                             val jsonRESULT: JSONObject = JSONObject(response.body().string())
 
                             if (jsonRESULT.getString("error").equals("false")) {
-                                Toast.makeText(
-                                    applicationContext,
-                                    "Berhasil Order",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                val i = Intent(
-                                        this@OrderRenovRetroActivity,
-                                    HomeKonsumenActivity::class.java
-                                )
-                                startActivity(i)
+                                Toast.makeText(applicationContext,"Berhasil Order",Toast.LENGTH_SHORT).show()
 
                             } else {
                                 val error_message: String = jsonRESULT.getString("error_msg")
@@ -224,6 +225,7 @@ class OrderRenovRetroActivity :AppCompatActivity() {
             override fun onFailure(call: Call<ResponseBody>?, t: Throwable?) {
                 Log.e("debug", "onFailure: ERROR > " + t?.message)
                 Toast.makeText(applicationContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show()
+                progressDialog?.dismiss()
             }
 
         })
