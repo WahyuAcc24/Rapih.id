@@ -3,7 +3,6 @@ package com.Rapid.id.Konsumen
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,7 +11,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.Rapid.id.AppController
-import com.Rapid.id.Konsumen.BottomNav.FragmentNavHome
 import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.R
 import com.Rapid.id.util.Preferences
@@ -24,8 +22,6 @@ import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.lay_login_konsumen.*
-import org.json.JSONException
-import org.json.JSONObject
 import java.util.HashMap
 
 class LoginKonsumenActivity : AppCompatActivity() {
@@ -42,7 +38,7 @@ class LoginKonsumenActivity : AppCompatActivity() {
 
     lateinit var pDialog: ProgressDialog
 
-    private val TAG = LoginKonsumenActivity::class.java!!.getSimpleName()
+    private val TAG = LoginKonsumenActivity::class.java.getSimpleName()
 
     internal var tag_json_obj = "json_obj_req"
 
@@ -92,6 +88,13 @@ class LoginKonsumenActivity : AppCompatActivity() {
         }
 
 
+        if (Rak.isExist("login")) {
+            if (Rak.grab("login")) {
+                startActivity(Intent(this, HomeKonsumenActivity::class.java))
+                finish()
+            }
+        }
+
 
         if (Preferences.getLoggedInStatus(baseContext)) {
 
@@ -134,17 +137,25 @@ class LoginKonsumenActivity : AppCompatActivity() {
         loading.show()
 
         val stringRequest = object : StringRequest(
-            Request.Method.POST, URL_login,
+            Request.Method.POST, URL_login+"?email="+email+"&password="+password,
             Response.Listener<String> { response ->
 
                 Log.e(TAG, "Login Response: $response")
-                val res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
 
-                try {
+
+                    var res = Gson().fromJson(response.toString(), Konsumen::class.java!!)
 
 //                    var job : JSONObject = JSONObject(response)
 
                     if (res.isStatus()) {
+
+
+                        if(res.getData_kons()?.getId() != null) Rak.entry("idkonsumen", res.getData_kons()?.getId())
+                        if (res.getData_kons()?.getNama() != null) Rak.entry("namakonsumen",res.getData_kons()?.getNama())
+                        if (res.getData_kons()?.getEmail() != null) Rak.entry("emailkonsumen", res.getData_kons()?.getEmail())
+                        Rak.entry("login", true)
+
+
 
 //                        id = job.getString(TAG_ID)
 
@@ -169,11 +180,6 @@ class LoginKonsumenActivity : AppCompatActivity() {
                         Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show()
                     }
 
-
-                } catch (e: JSONException) {
-                    Log.e("haha", e.message)
-                    e.printStackTrace()
-                }
             },
             object : Response.ErrorListener {
                 override fun onErrorResponse(volleyError: VolleyError) {

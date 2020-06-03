@@ -27,6 +27,7 @@ import com.Rapid.id.util.Preferences
 import com.Rapid.id.util.VolleyMultipartRequest
 import com.android.volley.*
 import com.android.volley.toolbox.Volley
+import io.isfaaghyth.rak.Rak
 
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody
@@ -94,6 +95,8 @@ class OrderRenovRetroActivity :AppCompatActivity() {
 
         var requestQueue = Volley.newRequestQueue(this)
 
+        Rak.initialize(this)
+
         img_back = findViewById(R.id.imgbackorder)
         txt_email = findViewById(R.id.txtemailkonsumenrenovOrder)
         txt_jp = findViewById(R.id.txtjenisproyek)
@@ -123,7 +126,9 @@ class OrderRenovRetroActivity :AppCompatActivity() {
         txt_wp.setText(intent.getStringExtra("tgl_proyek"))
         txt_dp.setText(intent.getStringExtra("deskripsi"))
         txt_uang.setText("Rp." + intent.getStringExtra("anggaran"))
-        txt_email.setText(Preferences.getLoggedInEmail(baseContext))
+//        txt_email.setText(Preferences.getLoggedInEmail(baseContext))
+        txt_email.setText(Rak.grab("emailkonsumen") as? String)
+
         txt_lokasi.setText(intent.getStringExtra("domisili"))
         txt_da.setText(intent.getStringExtra("des_alamat"))
 

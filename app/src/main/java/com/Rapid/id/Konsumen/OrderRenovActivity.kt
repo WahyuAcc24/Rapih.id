@@ -25,6 +25,7 @@ import com.android.volley.*
 import com.android.volley.toolbox.Volley
 import okhttp3.MultipartBody
 import org.json.JSONException
+import org.json.JSONObject
 import java.io.*
 import java.util.*
 
@@ -113,7 +114,6 @@ class OrderRenovActivity :AppCompatActivity() {
         txt_email.text.toString()
         txt_lokasi.text.toString()
         txt_da.text.toString()
-        edt_maps_komf.text.toString()
 
         val userLocation = intent.getSerializableExtra("user_location") as? UserLocation
         edt_maps_komf.setText(userLocation?.address)
@@ -164,7 +164,7 @@ class OrderRenovActivity :AppCompatActivity() {
             val lp: String = txt_da.text.toString()
             val dp: String = txt_dp.text.toString()
             val ap: String = txt_uang.text.toString()
-            val map: String = edt_maps_komf.toString()
+            val map: String = edt_maps_komf.getText().toString()
             val email_kons: String = Preferences.getLoggedInEmail(baseContext)
 
 
@@ -172,14 +172,16 @@ class OrderRenovActivity :AppCompatActivity() {
                 URL_order,
                 object : Response.Listener<NetworkResponse> {
                     override fun onResponse(response: NetworkResponse) {
-                        Log.e(TAG, "Order Response: ${response}")
+                        Log.e(TAG, "Order Response: $response")
 
                         try {
 
                             Log.d(TAG, response.toString())
-                            Log.d("TAG", response.toString())
-
                             loading.dismiss()
+
+
+                            val  obj : JSONObject = JSONObject (String (response.data))
+                            Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
 
                             Toast.makeText(
                                 getApplicationContext(),
@@ -187,6 +189,7 @@ class OrderRenovActivity :AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
 
+                            Log.d("TAG", response.toString())
                             val i = Intent (this@OrderRenovActivity,HomeKonsumenActivity::class.java)
                             startActivity(i)
 
@@ -200,7 +203,7 @@ class OrderRenovActivity :AppCompatActivity() {
                 }, object : Response.ErrorListener {
                     override fun onErrorResponse(volleyError: VolleyError) {
                         loading.dismiss()
-
+                        Log.e("ada error",""+volleyError.message)
                         Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG)
                             .show()
                     }

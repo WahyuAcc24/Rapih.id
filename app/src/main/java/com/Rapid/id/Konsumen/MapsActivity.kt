@@ -153,6 +153,38 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         mMap = googleMap
         mMap.isMyLocationEnabled = true
 
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            // Permission is not granted
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            ) {
+                Toast.makeText(this, "Membutuhkan Izin Lokasi", Toast.LENGTH_SHORT).show();
+            } else {
+
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf<String>(
+                        android.Manifest.permission.ACCESS_FINE_LOCATION,
+                        android.Manifest.permission.ACCESS_COARSE_LOCATION
+                    ),
+                    1
+                )
+            }
+        } else {
+            // Permission has already been granted
+            Toast.makeText(this, "Izin Lokasi diberikan", Toast.LENGTH_SHORT).show();
+        }
+
+
 
 
         if(mMap != null) {
@@ -270,7 +302,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
     }
 
     private fun startLocationUpdates() {
-
         if (ContextCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -284,7 +315,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
                     android.Manifest.permission.ACCESS_FINE_LOCATION
                 )
             ) {
-                Toast.makeText(this, "Membutuhkan Izin Lokasi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Membutuhkan Izin Lokasi", Toast.LENGTH_SHORT).show()
             } else {
 
                 // No explanation needed; request the permission
@@ -301,7 +332,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
             // Permission has already been granted
             Toast.makeText(this, "Izin Lokasi diberikan", Toast.LENGTH_SHORT).show();
         }
-
 
         fusedLocationClient.requestLocationUpdates(
             locationRequest,

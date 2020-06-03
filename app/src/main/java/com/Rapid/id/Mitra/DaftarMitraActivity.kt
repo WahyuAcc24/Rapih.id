@@ -7,12 +7,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
-import android.net.Network
 import android.net.Uri
 import android.os.Bundle
 import android.os.ParcelFileDescriptor
 import android.provider.MediaStore
-import android.text.InputType.TYPE_NULL
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -20,28 +18,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapid.id.AppController
 import com.Rapid.id.Model.DataPart
-import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.R
-import com.Rapid.id.retrofitimage.ApiConfig
-import com.Rapid.id.retrofitimage.AppConfig
-import com.Rapid.id.retrofitimage.ServerResponse
 import com.Rapid.id.util.PathUtil
 import com.Rapid.id.util.VolleyMultipartRequest
 import com.android.volley.*
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
-import kotlinx.android.synthetic.main.lay_daftar_konsumen.*
 import kotlinx.android.synthetic.main.lay_daftar_mitra.*
-import kotlinx.android.synthetic.main.lay_daftar_mitra.view.*
-import kotlinx.android.synthetic.main.lay_daftar_mitra.view.txtMasukmitra
-import okhttp3.MediaType
-import okhttp3.RequestBody
 import org.json.JSONException
-import retrofit2.Call
 
-import retrofit2.Callback
 import java.io.*
 import java.util.HashMap
 

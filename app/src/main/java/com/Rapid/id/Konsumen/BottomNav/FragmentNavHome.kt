@@ -89,16 +89,16 @@ class FragmentNavHome : Fragment() {
 //        id = activity?.intent?.getStringExtra(TAG_ID)
 
 
-//        txtemailkonsumen.setText(Rak.grab("emailkonsumen") as? String)
         txtemailkonsumen = getView()?.findViewById(com.Rapid.id.R.id.txtemailkonsumen) as TextView
+        txtemailkonsumen.setText(Rak.grab("emailkonsumen") as? String)
 //        txtemailkonsumen.setText(arguments?.getString("emailkons"))
 //        txtemailkonsumen.setText(sharedPreferences?.getString(TAG_EMAIL,emails))
-        txtemailkonsumen.setText(Preferences.getLoggedInEmail(context))
+//        txtemailkonsumen.setText(Preferences.getLoggedInEmail(context))
 
         txtnamakonsumen = getView()?.findViewById(com.Rapid.id.R.id.txtnamakonsumen) as TextView
 //        txtnamakonsumen.setText(arguments?.getString("namakons"))
-//        txtnamakonsumen.setText(Rak.grab("namakonsumen")as? String)
-        txtnamakonsumen.setText(Preferences.getLoggedInNama(context))
+        txtnamakonsumen.setText(Rak.grab("namakonsumen")as? String)
+//        txtnamakonsumen.setText(Preferences.getLoggedInNama(context))
 //        txtnamakonsumen.setText(id)
 
 

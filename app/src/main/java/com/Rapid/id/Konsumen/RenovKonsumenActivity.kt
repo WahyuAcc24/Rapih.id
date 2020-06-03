@@ -3,35 +3,19 @@ package com.Rapid.id.Konsumen
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.text.Editable
 import android.widget.EditText
 
-import android.text.Selection.setSelection
-import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.text.toHtml
-import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.Model.NumberTextWatcher
 import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
-import com.Rapid.id.util.Preferences
-import com.google.gson.Gson
-import com.ngopidev.project.ngopihelpers.NgopiHelpers
 import io.isfaaghyth.rak.Rak
-import kotlinx.android.synthetic.main.fragment_slider_item.*
-import kotlinx.android.synthetic.main.lay_renovrumah_konsumen.*
-import java.math.BigDecimal
-import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.jar.Manifest
 
 
 class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
@@ -78,7 +62,9 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
 
         txt_email = findViewById(R.id.txtemailkonsumenrenov)
 
-        txt_email.setText(Preferences.getLoggedInEmail(baseContext))
+//        txt_email.setText(Preferences.getLoggedInEmail(baseContext))
+
+        txt_email.setText(Rak.grab("emailkonsumen") as? String)
 
         edt_deskripsi = findViewById(R.id.edtdeskripsikerjaan)
         edt_deskripsi_alamat = findViewById(R.id.edtdeskripsilokasi)
@@ -183,7 +169,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
         btn_lanjut = findViewById(R.id.btnlanjut)
         btn_lanjut.setOnClickListener {
 
-            val intent = Intent(this, OrderRenovRetroActivity::class.java)
+            val intent = Intent(this, OrderRenovActivity::class.java)
             intent.putExtra("deskripsi", edt_deskripsi.text.toString())
             intent.putExtra("tgl_proyek", edt_tgl.text.toString())
             intent.putExtra("anggaran", edt_anggaran.text.toString())

@@ -1,49 +1,21 @@
 package com.Rapid.id.Konsumen
 
-import android.app.FragmentTransaction
-import android.app.PendingIntent.getActivity
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.ImageView
-import androidx.core.view.GravityCompat
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.Rapid.id.Konsumen.BottomNav.FragmentNavBantuan
 import com.Rapid.id.Konsumen.BottomNav.FragmentNavHome
-import com.Rapid.id.Konsumen.BottomNav.FragmentNavKeluar
 import com.Rapid.id.Konsumen.BottomNav.FragmentNavPesanan
 import com.Rapid.id.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.activity_home.*
-import android.widget.LinearLayout
 import androidx.fragment.app.FragmentManager
-import com.Rapid.id.ImageSlider.FragmentSlider
-import com.Rapid.id.ImageSlider.SliderView
-import com.Rapid.id.ImageSlider.SliderIndicator
-import com.Rapid.id.ImageSlider.SliderPagerAdapter
-import com.Rapid.id.Model.Konsumen
 import com.Rapid.id.util.Preferences
-import com.google.gson.Gson
-import com.synnapps.carouselview.CarouselView
-import com.synnapps.carouselview.ImageListener
 
 
 class HomeKonsumenActivity : AppCompatActivity() {
@@ -120,6 +92,8 @@ class HomeKonsumenActivity : AppCompatActivity() {
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 Preferences.setLoggedInStatus(baseContext,false)
                 startActivity(i)
+                Rak.entry("login", false)
+                Rak.removeAll(baseContext)
                 finishAffinity()
             }
 
@@ -159,6 +133,8 @@ class HomeKonsumenActivity : AppCompatActivity() {
         Preferences.clearLoggedInId(baseContext)
         Preferences.clearLoggedInEmail(baseContext)
         Preferences.setLoggedInStatus(baseContext,false)
+        Rak.entry("login",false)
+        Rak.removeAll(baseContext)
         supportFragmentManager
             .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
 

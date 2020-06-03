@@ -149,11 +149,97 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:textColorHint="#1d26d4"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/TextLabel"
+        android:id="@+id/alamatrumah"
+        android:layout_below="@+id/ulangipassword"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        >
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/floating_hint_margin"
+            android:top="50dp"
+            android:inputType="text"
+            android:textColor="#1d26d4"
+            android:hint="Alamat Rumah"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/edtalamat_rumah"
+
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:textColorHint="#1d26d4"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/TextLabel"
+        android:id="@+id/no_hp"
+        android:layout_below="@+id/alamatrumah"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        >
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/floating_hint_margin"
+            android:top="50dp"
+            android:inputType="text"
+            android:textColor="#1d26d4"
+            android:hint="No Hp/Whatsapp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/edtnohp"
+
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/imgUser"
+        android:src="@drawable/logorapihbiru"
+        android:background="#ffff"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal" />
+
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_login"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:text="Pilih Foto"
+        android:id="@+id/btnPilihfoto"
+        android:textColor="#fff"
+
+        />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/button_login"
         android:layout_gravity="center_vertical|center_horizontal"
         android:text="Daftar"
