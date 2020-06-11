@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/lntop"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:id="@+id/imgbackac"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email"
+                android:layout_gravity="bottom"
+                android:id="@+id/txtemailkonsumenac"
+                android:textColor="#1d26d4"
+                android:layout_marginStart="10dp"
+                android:layout_weight="10"
+                />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Properti"
+            android:textColor="#1d26d4"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinProAc"
+            android:layout_margin="20dp"
+            android:entries="@array/properti"
+            android:outlineAmbientShadowColor="#1d26d4"
+            android:outlineSpotShadowColor="#1d26d4"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perbaikan AC"
+            android:textColor="#1d26d4"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinServisAc"
+            android:layout_margin="20dp"
+            android:entries="@array/perbaikan_ac"
+            android:outlineAmbientShadowColor="#1d26d4"
+            android:outlineSpotShadowColor="#1d26d4"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bongkar / Pasang AC"
+            android:textColor="#1d26d4"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinBongkarAc"
+            android:layout_margin="20dp"
+            android:entries="@array/bongkar_ac"
+            android:outlineAmbientShadowColor="#1d26d4"
+            android:outlineSpotShadowColor="#1d26d4"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cuci AC"
+            android:textColor="#1d26d4"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinCuciAc"
+            android:layout_margin="20dp"
+            android:entries="@array/cuci_ac"
+            android:outlineAmbientShadowColor="#1d26d4"
+            android:outlineSpotShadowColor="#1d26d4"
+
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/edttgl"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Tanggal Pengerjaan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edttglac"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/edtdesac"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Deskripsi Pekerjaan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtdescac"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/edtjmlac"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Jumlah AC"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtjumlahac"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/maps"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:id="@+id/edtmapsac"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Pilih Lokasi"
+                android:textColor="#1d26d4"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Harga "
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Rp."
+                android:id="@+id/txthargaac"
+                android:textColor="@color/merah"
+                android:layout_weight="1"
+
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnlanjutac"
+            android:background="@drawable/button_login"
+            android:layout_marginTop="30dp"
+            android:textColor="#fff"
+            android:text="Lanjut"
+            android:layout_gravity="center"
+
+            />
+    </LinearLayout>
+</ScrollView>

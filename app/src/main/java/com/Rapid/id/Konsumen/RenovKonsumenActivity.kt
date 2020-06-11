@@ -138,7 +138,7 @@ class RenovKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedList
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.properti,
-            R.layout.select_item_spin
+            R.layout.select_item_spin_jp
         )
         adapter.setDropDownViewResource(R.layout.item_spin_properti)
         sp_properti.setAdapter(adapter)

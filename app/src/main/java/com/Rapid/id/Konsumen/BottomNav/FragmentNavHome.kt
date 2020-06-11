@@ -25,8 +25,14 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home_bottom.*
 import kotlinx.android.synthetic.main.lay_jumbotron.*
 import android.content.SharedPreferences
-import android.R
 import android.content.Context
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.Rapid.id.Adapter.BannerAdapter
+import com.Rapid.id.Adapter.HistoryAdapter
+import com.Rapid.id.Konsumen.AcKonsumenActivity
+import com.Rapid.id.Model.Banner
+import com.Rapid.id.R
 import com.Rapid.id.util.Preferences
 
 
@@ -52,15 +58,18 @@ class FragmentNavHome : Fragment() {
 
     var sharedpreferences: SharedPreferences? = null
 
+    private lateinit var lstBanner : RecyclerView
+    var adapterbaner : BannerAdapter? = null
+    var data : List<Banner>? = null
+
+
+
 
     lateinit var carouselView: CarouselView
-    internal var gambarSlide = intArrayOf(com.Rapid.id.R.drawable.banersatu, com.Rapid.id.R.drawable.banerdua)
+    internal var gambarSlide = intArrayOf(com.Rapid.id.R.drawable.iklanbiru, com.Rapid.id.R.drawable.iklanoren)
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(com.Rapid.id.R.layout.fragment_home_bottom, container, false)
 //        bn_main.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -70,7 +79,7 @@ class FragmentNavHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,savedInstanceState)
 
-        carouselView = getView()?.findViewById(com.Rapid.id.R.id.carouselView) as CarouselView
+        carouselView = getView()?.findViewById(R.id.carouselView) as CarouselView
         carouselView.setImageListener(imageListener)
         carouselView.pageCount = gambarSlide.size
 
@@ -78,6 +87,23 @@ class FragmentNavHome : Fragment() {
         Rak.initialize(context)
 
 //        var bundle: Bundle? = this.arguments
+
+
+        lstBanner =  getView()?.findViewById(R.id.rvbanerbawah) as RecyclerView
+        lstBanner.setHasFixedSize(true)
+        var data : ArrayList<Banner> = ArrayList()
+
+        data.add(Banner(R.drawable.bannerbawah))
+        data.add(Banner(R.drawable.bannerbawahdua))
+        data.add(Banner(R.drawable.bannerbawahtiga))
+        data.add(Banner(R.drawable.bannerbawahempat))
+        data.add(Banner(R.drawable.bannerbawahlima))
+        data.add(Banner(R.drawable.bannerbawahenam))
+
+        var lm : LinearLayoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+        lstBanner.setLayoutManager(lm)
+        adapterbaner = BannerAdapter(activity,data)
+        lstBanner.adapter = adapterbaner
 
 
 
@@ -89,26 +115,34 @@ class FragmentNavHome : Fragment() {
 //        id = activity?.intent?.getStringExtra(TAG_ID)
 
 
-        txtemailkonsumen = getView()?.findViewById(com.Rapid.id.R.id.txtemailkonsumen) as TextView
+        txtemailkonsumen = getView()?.findViewById(R.id.txtemailkonsumen) as TextView
         txtemailkonsumen.setText(Rak.grab("emailkonsumen") as? String)
 //        txtemailkonsumen.setText(arguments?.getString("emailkons"))
 //        txtemailkonsumen.setText(sharedPreferences?.getString(TAG_EMAIL,emails))
 //        txtemailkonsumen.setText(Preferences.getLoggedInEmail(context))
 
-        txtnamakonsumen = getView()?.findViewById(com.Rapid.id.R.id.txtnamakonsumen) as TextView
+        txtnamakonsumen = getView()?.findViewById(R.id.txtnamakonsumen) as TextView
 //        txtnamakonsumen.setText(arguments?.getString("namakons"))
         txtnamakonsumen.setText(Rak.grab("namakonsumen")as? String)
 //        txtnamakonsumen.setText(Preferences.getLoggedInNama(context))
 //        txtnamakonsumen.setText(id)
 
 
-        img_bangunrumah = getView()?.findViewById(com.Rapid.id.R.id.imgrenov) as ImageView
+        img_bangunrumah = getView()?.findViewById(R.id.imgrenov) as ImageView
 
         img_bangunrumah.setOnClickListener {
             val intentf = Intent(context,RenovKonsumenActivity::class.java)
             context?.startActivity(intentf)
 
         }
+
+        img_ac = view.findViewById(R.id.imgac)
+
+        img_ac.setOnClickListener {
+            val intentac = Intent(context,AcKonsumenActivity::class.java)
+            context?.startActivity(intentac)
+        }
+
 
 
 

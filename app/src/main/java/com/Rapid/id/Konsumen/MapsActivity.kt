@@ -16,7 +16,9 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
+import com.Rapid.id.Konsumen.RenovKonsumenActivity.Companion.KEY_MAP
 import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
 import com.Rapid.id.util.Constants
@@ -37,6 +39,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_maps.*
 import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,GoogleApiClient.ConnectionCallbacks,
@@ -66,7 +69,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
     internal var mGoogleApiClient: GoogleApiClient? = null
     internal lateinit var mLocationRequest: LocationRequest
 
-    private lateinit var mapResult: UserLocation
+     var mapResult: UserLocation? = null
 
     var PICK_UP : Int  = 0
     var DEST_LOC : Int = 1
@@ -109,10 +112,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,LocationListener,Go
         btn_pilih_lokasi = findViewById(R.id.btnGunakanLokasi)
 
         btn_pilih_lokasi.setOnClickListener {
-            val intent = Intent()
-            intent.putExtra(RenovKonsumenActivity.KEY_MAP, mapResult)
-            setResult(Activity.RESULT_OK, intent)
-            finish()
+
+
+            if (mapResult != null ) {
+                val intent = Intent()
+                intent.putExtra(KEY_MAP, mapResult)
+                setResult(Activity.RESULT_OK, intent)
+                finish()
+
+            }else{
+                Toast.makeText(applicationContext,"Tekan dan tahan area maps terlebih dahulu untuk memilih lokasi", Toast.LENGTH_LONG).show()
+
+            }
         }
 
         img_search = findViewById(R.id.imgSearch)

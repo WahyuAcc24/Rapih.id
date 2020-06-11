@@ -23,6 +23,7 @@ import com.Rapid.id.util.Preferences
 import com.Rapid.id.util.VolleyMultipartRequest
 import com.android.volley.*
 import com.android.volley.toolbox.Volley
+import io.isfaaghyth.rak.Rak
 import okhttp3.MultipartBody
 import org.json.JSONException
 import org.json.JSONObject
@@ -75,7 +76,7 @@ class OrderRenovActivity :AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_komfirmasi_pesanan_konsumen)
+        setContentView(R.layout.lay_konfirmasi_pesanan_konsumen)
 
         var requestQueue = Volley.newRequestQueue(this)
 
@@ -165,7 +166,7 @@ class OrderRenovActivity :AppCompatActivity() {
             val dp: String = txt_dp.text.toString()
             val ap: String = txt_uang.text.toString()
             val map: String = edt_maps_komf.getText().toString()
-            val email_kons: String = Preferences.getLoggedInEmail(baseContext)
+            val id_kons : String = Rak.grab("idkonsumen")
 
 
             val orderreq = object : VolleyMultipartRequest(Request.Method.POST,
@@ -212,7 +213,7 @@ class OrderRenovActivity :AppCompatActivity() {
                 @Throws(AuthFailureError::class)
                 override fun getParams(): Map<String, String> {
                     val params = HashMap<String, String>()
-                    params.put("email_konsumen", email_kons)
+                    params.put("id_konsumen", id_kons)
                     params.put("jenis_properti", jp)
                     params.put("waktu_pengerjaan", wp)
                     params.put("domisili_proyek", domisili)

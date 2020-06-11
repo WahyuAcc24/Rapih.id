@@ -33,6 +33,36 @@
 
     </string-array>
 
+    <string-array name="perbaikan_ac">
+
+        <item>Pilih Layanan Perbaikan AC</item>
+        <item>Ganti Kapasitor Ac 1/2 - 1PK Rp. 225.000(Part dan Jasa)</item>
+        <item>Ganti Kapasitor Ac 1 1/2 - 2PK Rp. 295.000(Part dan Jasa)</item>
+        <item>Las Sambungan Pipa Freon (Per titik) Rp. 95.000</item>
+        <item>Las Perbaikan Kebocoran Pipa Freon dan Isi Freon Rp. 495.000</item>
+
+    </string-array>
+
+
+    <string-array name="bongkar_ac">
+
+        <item>Pilih Layanan Bongkar/Pasang Ac</item>
+        <item>Bobok Tembok per meter Rp. 45.000</item>
+        <item>Pengecekan Rp. 90.000</item>
+        <item>Bongkar Ac Rp. 100.000</item>
+        <item>Bongkar Pasang Ac 1/2 - 1PK Rp. 245.000</item>
+        <item>Bongkar Pasang Ac 1 1/2 - 2PK Rp. 320.000</item>
+
+    </string-array>
+
+    <string-array name="cuci_ac">
+        <item>Pilih Cuci AC</item>
+        <item>1/2 - 1PK Rp. 65.000</item>
+        <item>1 1/2 - 2PK Rp. 70.000</item>
+    </string-array>
+
+
+
     <string-array name="domisili">
 
     <item>Pilih Domisili</item>

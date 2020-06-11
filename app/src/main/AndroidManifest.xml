@@ -69,6 +69,8 @@
         <activity android:name=".Konsumen.MapsActivity"/>
         <activity android:name=".Konsumen.OrderRenovActivity"/>
         <activity android:name=".Konsumen.OrderRenovRetroActivity"/>
+        <activity android:name=".Konsumen.AcKonsumenActivity"/>
+        <activity android:name=".Konsumen.OrderAcActivity"/>
 
 
 

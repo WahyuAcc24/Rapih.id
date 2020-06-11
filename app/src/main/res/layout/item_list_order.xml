@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/linearHistory"
+        android:background="@drawable/backgroundkonsumenn">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/logorapihbiru"
+            android:id="@+id/imgMuridOrder"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis_properti : "
+                android:layout_marginTop="5dp"
+                android:id="@+id/txtjp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail_pekerjaan : "
+                android:layout_marginTop="5dp"
+                android:id="@+id/txtdp"
+                android:layout_below="@+id/txtjp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Tanggal : "
+                android:id="@+id/txttgl"
+                android:layout_below="@+id/txtdp"
+                />
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -46,8 +46,6 @@ class HomeKonsumenActivity : AppCompatActivity() {
         addFragment(fragment)
 
 
-
-
     }
 
 

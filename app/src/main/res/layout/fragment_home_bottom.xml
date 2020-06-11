@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/backgroundkonsumenn"
     android:layout_height="match_parent"
     android:id="@+id/frame"
 
@@ -33,15 +32,20 @@
                 android:id="@+id/txtemailkonsumen"
 
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="namaku"
+                android:textColor="#1d26d4"
+                android:layout_alignParentRight="true"
+                android:id="@+id/txtnamakonsumen"/>
+
             <com.synnapps.carouselview.CarouselView
                 android:id="@+id/carouselView"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                app:radius="6dp"
-                app:slideInterval="3000"
-                app:strokeWidth="1dp"
 
 
                 />
@@ -55,132 +59,92 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:gravity="center"
+                android:baselineAligned="false"
                 android:layout_below="@+id/carouselView"
-                android:id="@+id/lnpesan"
+                android:layout_marginTop="10dp"
+                android:id="@+id/lnmenu"
+
+
                 >
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/imgPesan"
-                    android:src="@drawable/iconpesan"
-                    />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pesan Masuk"
-                        android:textColor="#1d26d4"
-                        android:textSize="20sp"
-                        android:layout_weight="5"
-                        android:layout_below="@+id/baner"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/txtpesan"
-                        />
+                    android:layout_weight="0.5"
 
+                    >
+
+                <ImageView
+                    android:id="@+id/imgrenov"
+                    android:layout_width="120dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/iconrenov"
+
+                    />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtinfopesan"
-                        android:text="infopesan"
-                        android:textColor="#1d26d4"
-                        android:textSize="20sp"
+                        android:text="Renovasi / \n Bangun Rumah"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="15sp"
+                        android:textColor="#000"
+                        android:gravity="center"
                         />
                 </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="0.5"
+                >
+
+                <ImageView
+                    android:id="@+id/imgac"
+                    android:layout_width="120dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/iconjasaac"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rapih AC"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    />
+
             </LinearLayout>
 
+            </LinearLayout>
 
-            <TextView
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="selamat datang"
-                android:textColor="#1d26d4"
-                android:textSize="20sp"
-                android:layout_marginTop="50dp"
-                android:layout_below="@+id/lnpesan"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/txtwelcome"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="namaku"
-                android:textColor="#1d26d4"
-                android:textSize="20sp"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/txtwelcome"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/txtnamakonsumen"/>
-
-
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:id="@+id/taglinehub"
-                android:src="@drawable/taglinehub"
-                android:layout_below="@+id/txtnamakonsumen"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/lnmenu"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:id="@+id/rvbanerbawah"
 
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:baselineAligned="false"
-                android:layout_below="@+id/taglinehub"
-                android:layout_marginTop="10dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_below="@id/rvbanerbawah"
+                />
 
 
-                >
-                <ImageView
-                    android:id="@+id/imgob"
-                    android:layout_width="80dp"
-                    android:layout_weight="1"
-                    android:layout_height="80dp"
-                    android:src="@drawable/iconob"
-
-
-                    />
-
-                <ImageView
-                    android:id="@+id/imgrenov"
-                    android:layout_width="80dp"
-                    android:layout_weight="1"
-                    android:layout_height="80dp"
-                    android:src="@drawable/iconrenov"
-
-                    />
-
-                <ImageView
-                    android:id="@+id/imgac"
-                    android:layout_width="80dp"
-                    android:layout_weight="1"
-                    android:layout_height="80dp"
-                    android:src="@drawable/iconac"
-
-                    />
-
-                <ImageView
-                    android:id="@+id/imgrumah"
-                    android:layout_width="80dp"
-                    android:layout_weight="1"
-                    android:layout_height="80dp"
-                    android:src="@drawable/iconhome"
-
-                    />
-            </LinearLayout>
-
-
-<!--            <fragment-->
+            <!--            <fragment-->
 <!--                android:id="@+id/nav_host_fragment"-->
 <!--                android:name="androidx.navigation.fragment.NavHostFragment"-->
 <!--                android:layout_width="match_parent"-->
@@ -191,6 +155,7 @@
 
 
         </RelativeLayout>
+
     </ScrollView>
 </RelativeLayout>
 </FrameLayout>

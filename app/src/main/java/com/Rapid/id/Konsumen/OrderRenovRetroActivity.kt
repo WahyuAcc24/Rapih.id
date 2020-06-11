@@ -14,18 +14,11 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat.startActivity
-import com.Rapid.id.AppController
-import com.Rapid.id.Model.DataPart
 import com.Rapid.id.Model.UserLocation
 import com.Rapid.id.R
 import com.Rapid.id.retrofitimage.ApiConfig
 import com.Rapid.id.retrofitimage.AppConfig
 import com.Rapid.id.util.PathUtil
-import com.Rapid.id.util.Preferences
-import com.Rapid.id.util.VolleyMultipartRequest
-import com.android.volley.*
 import com.android.volley.toolbox.Volley
 import io.isfaaghyth.rak.Rak
 
@@ -36,7 +29,6 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import java.io.*
-import java.util.*
 
 
 class OrderRenovRetroActivity :AppCompatActivity() {
@@ -91,7 +83,7 @@ class OrderRenovRetroActivity :AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_komfirmasi_pesanan_konsumen)
+        setContentView(R.layout.lay_konfirmasi_pesanan_konsumen)
 
         var requestQueue = Volley.newRequestQueue(this)
 
@@ -180,60 +172,60 @@ class OrderRenovRetroActivity :AppCompatActivity() {
     fun regisform(){
 
 
-        mApi?.orderReq(txt_email.getText().toString(),
-            txt_jp.getText().toString(),
-            txt_wp.getText().toString(),
-            txt_lokasi.getText().toString(),
-            edt_maps_komf.getText().toString(),
-            txt_da.getText().toString(),
-            txt_dp.getText().toString(),
-            txt_uang.getText().toString()
-
-        )
-        ?.enqueue (object : Callback<ResponseBody>{
-            override fun onResponse(
-                call: Call<ResponseBody>?,
-                response: retrofit2.Response<ResponseBody>?) {
-
-                    if (response?.isSuccessful!!){
-
-                        Log.i("DEBUG", "onResponse : Berhasil")
-                        Toast.makeText(applicationContext,"Berhasil Order",Toast.LENGTH_SHORT).show()
-
-                        progressDialog?.dismiss()
-                        val i = Intent(this@OrderRenovRetroActivity,HomeKonsumenActivity::class.java)
-                        startActivity(i)
-                        finish()
-
-                        try {
-                            val jsonRESULT: JSONObject = JSONObject(response.body().string())
-
-                            if (jsonRESULT.getString("error").equals("false")) {
-                                Toast.makeText(applicationContext,"Berhasil Order",Toast.LENGTH_SHORT).show()
-
-                            } else {
-                                val error_message: String = jsonRESULT.getString("error_msg")
-                                Toast.makeText(applicationContext,error_message, Toast.LENGTH_SHORT).show()
-                            }
-                        }catch (e : JSONException){
-                            e.printStackTrace()
-                        }catch (e : IOException){
-                            e.printStackTrace()
-                        }
-                    }else {
-                        Log.i("debug", "onResponse : Tidak Berhasil")
-                        progressDialog?.dismiss()
-                    }
-
-            }
-
-            override fun onFailure(call: Call<ResponseBody>?, t: Throwable?) {
-                Log.e("debug", "onFailure: ERROR > " + t?.message)
-                Toast.makeText(applicationContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show()
-                progressDialog?.dismiss()
-            }
-
-        })
+//        mApi?.orderReq(txt_email.getText().toString(),
+//            txt_jp.getText().toString(),
+//            txt_wp.getText().toString(),
+//            txt_lokasi.getText().toString(),
+//            edt_maps_komf.getText().toString(),
+//            txt_da.getText().toString(),
+//            txt_dp.getText().toString(),
+//            txt_uang.getText().toString()
+//
+//        )
+//        ?.enqueue (object : Callback<ResponseBody>{
+//            override fun onResponse(
+//                call: Call<ResponseBody>?,
+//                response: retrofit2.Response<ResponseBody>?) {
+//
+//                    if (response?.isSuccessful!!){
+//
+//                        Log.i("DEBUG", "onResponse : Berhasil")
+//                        Toast.makeText(applicationContext,"Berhasil Order",Toast.LENGTH_SHORT).show()
+//
+//                        progressDialog?.dismiss()
+//                        val i = Intent(this@OrderRenovRetroActivity,HomeKonsumenActivity::class.java)
+//                        startActivity(i)
+//                        finish()
+//
+//                        try {
+//                            val jsonRESULT: JSONObject = JSONObject(response.body().string())
+//
+//                            if (jsonRESULT.getString("error").equals("false")) {
+//                                Toast.makeText(applicationContext,"Berhasil Order",Toast.LENGTH_SHORT).show()
+//
+//                            } else {
+//                                val error_message: String = jsonRESULT.getString("error_msg")
+//                                Toast.makeText(applicationContext,error_message, Toast.LENGTH_SHORT).show()
+//                            }
+//                        }catch (e : JSONException){
+//                            e.printStackTrace()
+//                        }catch (e : IOException){
+//                            e.printStackTrace()
+//                        }
+//                    }else {
+//                        Log.i("debug", "onResponse : Tidak Berhasil")
+//                        progressDialog?.dismiss()
+//                    }
+//
+//            }
+//
+//            override fun onFailure(call: Call<ResponseBody>?, t: Throwable?) {
+//                Log.e("debug", "onFailure: ERROR > " + t?.message)
+//                Toast.makeText(applicationContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show()
+//                progressDialog?.dismiss()
+//            }
+//
+//        })
 
     }
 
