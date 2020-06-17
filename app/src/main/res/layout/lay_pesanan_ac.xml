@@ -130,6 +130,29 @@
 
             />
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ganti / Isi Freon"
+            android:textColor="#1d26d4"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinFreonAc"
+            android:layout_margin="20dp"
+            android:entries="@array/freon_ac"
+            android:outlineAmbientShadowColor="#1d26d4"
+            android:outlineSpotShadowColor="#1d26d4"
+
+            />
+
         <com.google.android.material.textfield.TextInputLayout
 
             android:layout_width="match_parent"
@@ -210,6 +233,7 @@
                 android:textColor="#1d26d4"
                 android:layout_marginTop="@dimen/floating_hint_margin"
                 android:hint="Jumlah AC"
+                android:inputType="number"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/edtjumlahac"

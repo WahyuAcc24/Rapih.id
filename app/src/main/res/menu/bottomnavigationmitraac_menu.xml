@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/home_menu_mitra_ac"
+        android:title="@string/beranda"
+        android:icon="@drawable/ic_home"/>
+
+
+    <item
+        android:id="@+id/bantuan_menu_mitra_ac"
+        android:title="@string/bantuan"
+        android:icon="@drawable/ic_help"/>
+
+    <item
+        android:id="@+id/pesanan_menu_mitra_ac"
+        android:title="@string/pesanan"
+        android:icon="@drawable/ic_pesanan"/>
+
+    <item
+        android:id="@+id/exit_menu_mitra_ac"
+        android:title="@string/keluar"
+        android:icon="@drawable/ic_exit"/>
+
+
+</menu>

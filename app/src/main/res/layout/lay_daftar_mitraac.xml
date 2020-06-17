@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_marginTop="30dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logorapihbiru"
+            android:layout_gravity="center_horizontal"
+
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/namamitraac"
+            android:textColorHint="#1d26d4"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Nama"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtnamaregmitraac"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/emailmitrac"
+            android:textColorHint="#1d26d4"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="textEmailAddress"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Email"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtemailRegmitraac"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/nohp"
+            android:textColorHint="#1d26d4"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#1d26d4"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:top="50dp"
+                android:inputType="number"
+                android:textColor="#1d26d4"
+                android:hint="No Hp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtnohpRegmitraac"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/password"
+            android:textColorHint="#1d26d4"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#1d26d4"
+            android:layout_below="@+id/emailmitrac"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:top="50dp"
+                android:inputType="textPassword"
+                android:textColor="#1d26d4"
+                android:hint="Password"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtPasswordRegmitraac"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:textColorHint="#1d26d4"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#1d26d4"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/ulangipassword"
+            android:layout_below="@+id/email"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:top="50dp"
+                android:inputType="textPassword"
+                android:textColor="#1d26d4"
+                android:hint="Ulangi Password"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtPasswordRegUlangmitraac"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:id="@+id/imgUsermitraac"
+            android:src="@drawable/logorapihbiru"
+            android:background="#ffff"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_login"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Pilih Foto"
+            android:id="@+id/btnPilihfotomitraac"
+            android:textColor="#fff"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_login"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Daftar"
+            android:id="@+id/btnDaftarmitraac"
+            android:textColor="#fff"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah punya akun? "
+                android:textColor="#1d26d4"
+                android:textSize="20sp"
+                android:id="@+id/txtinfo"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masuk"
+                android:id="@+id/txtMasukmitraac"
+                android:textColor="@color/Biru"
+                android:textSize="15sp"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

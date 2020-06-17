@@ -47,6 +47,12 @@
         <item name="colorControlHighlight">@color/Hijau</item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#e1e1e1</item>
+        <item name="colorControlActivated">@color/Biru</item>
+    </style>
+
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

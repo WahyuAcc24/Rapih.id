@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.Rapid.id.ImageSlider.SliderView
+            <com.Rapih.id.ImageSlider.SliderView
                 android:id="@+id/sliderView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

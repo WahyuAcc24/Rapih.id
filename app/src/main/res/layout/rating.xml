@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Berikan penilaianmu."
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+
+        />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_marginTop="20dp"
+        android:stepSize="1.0"
+        android:rating="0"
+        android:theme="@style/RatingBar"
+        android:layout_gravity="center_horizontal" />
+
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/edtKomen"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:hint="Isi Komentarmu...."
+        />
+
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:id="@+id/btnRating"
+        android:background="@color/Hijau"
+        android:textColor="#000"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="OK"
+        android:textSize="20sp"
+        />
+    <Button
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:id="@+id/btnCancel"
+        android:background="@color/merah"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="Batal"
+        android:textSize="20sp"
+        />
+
+
+</LinearLayout>

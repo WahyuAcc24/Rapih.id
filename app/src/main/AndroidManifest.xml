@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.Rapid.id">
+    package="com.Rapih.id">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -24,7 +24,7 @@
         android:xlargeScreens="true" />
 
     <application
-        android:name=".AppController"
+        android:name="com.Rapih.id.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_rapih"
         android:label="@string/app_name"
@@ -47,30 +47,45 @@
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
 
-
-        <activity android:name=".SplashscreenActivity">
+        <activity android:name="com.Rapih.id.SplashscreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Konsumen.LoginKonsumenActivity" />
-        <activity android:name=".Konsumen.DaftarKonsumenActivity" />
-        <activity android:name=".MenuPilihanActivity" />
-        <activity android:name=".Konsumen.HomeKonsumenActivity" />
-        <activity android:name=".Mitra.LoginMitraActivity" />
-        <activity android:name=".Mitra.DaftarMitraActivity" />
-        <activity android:name=".Mitra.HomeMitraActivity" />
 
-        <activity android:name=".MenuPilihanMitraActivity"/>
-        <activity android:name=".MitraBadanUsaha.DaftarMitraBuActivity"/>
-        <activity android:name=".Konsumen.RenovKonsumenActivity"/>
-        <activity android:name=".Konsumen.MapsActivity"/>
-        <activity android:name=".Konsumen.OrderRenovActivity"/>
-        <activity android:name=".Konsumen.OrderRenovRetroActivity"/>
-        <activity android:name=".Konsumen.AcKonsumenActivity"/>
-        <activity android:name=".Konsumen.OrderAcActivity"/>
+        <service
+            android:name=".Firebase.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.Rapih.id.Konsumen.LoginKonsumenActivity" />
+        <activity android:name="com.Rapih.id.Konsumen.DaftarKonsumenActivity" />
+        <activity android:name="com.Rapih.id.MenuPilihanActivity" />
+        <activity android:name="com.Rapih.id.Konsumen.HomeKonsumenActivity" />
+        <activity android:name="com.Rapih.id.MitraAc.LoginMitraAcActivity" />
+        <activity android:name="com.Rapih.id.Mitra.DaftarMitraActivity" />
+        <activity android:name="com.Rapih.id.Mitra.HomeMitraActivity" />
+
+        <activity android:name="com.Rapih.id.MenuPilihanMitraActivity"/>
+        <activity android:name="com.Rapih.id.MitraBadanUsaha.DaftarMitraBuActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.RenovKonsumenActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.MapsActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.OrderRenovActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.OrderRenovRetroActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.AcKonsumenActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.OrderAcActivity"/>
+        <activity android:name=".MitraAc.DaftarMitraAcActivity"/>
+        <activity android:name=".MitraAc.HomeMitraAcActivity"/>
+        <activity android:name=".Konsumen.DetailOrderAcKonsumen"/>
+        <activity android:name=".MitraAc.DetailOrderMitraAc"/>
+        <activity android:name=".Konsumen.DetailOrderRenovKonsumen"/>
+
+
 
 
 
