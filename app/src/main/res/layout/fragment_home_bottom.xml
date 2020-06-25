@@ -31,6 +31,7 @@
                 android:text="email"
                 android:textColor="#1d26d4"
                 android:id="@+id/txtemailkonsumen"
+                android:layout_marginStart="10dp"
 
                 />
             <TextView
@@ -38,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="namaku"
                 android:textColor="#1d26d4"
+                android:layout_marginEnd="10dp"
                 android:layout_alignParentRight="true"
                 android:id="@+id/txtnamakonsumen"/>
 

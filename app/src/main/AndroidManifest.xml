@@ -77,13 +77,43 @@
         <activity android:name="com.Rapih.id.Konsumen.MapsActivity"/>
         <activity android:name="com.Rapih.id.Konsumen.OrderRenovActivity"/>
         <activity android:name="com.Rapih.id.Konsumen.OrderRenovRetroActivity"/>
-        <activity android:name="com.Rapih.id.Konsumen.AcKonsumenActivity"/>
-        <activity android:name="com.Rapih.id.Konsumen.OrderAcActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.MenuAc.AcKonsumenActivity"/>
+        <activity android:name="com.Rapih.id.Konsumen.MenuAc.OrderAcActivity"/>
         <activity android:name=".MitraAc.DaftarMitraAcActivity"/>
         <activity android:name=".MitraAc.HomeMitraAcActivity"/>
         <activity android:name=".Konsumen.DetailOrderAcKonsumen"/>
         <activity android:name=".MitraAc.DetailOrderMitraAc"/>
         <activity android:name=".Konsumen.DetailOrderRenovKonsumen"/>
+
+        <activity android:name=".Faq.FaqActivity"/>
+        <activity android:name=".Faq.FaqDuaActivity"/>
+        <activity android:name=".Faq.FaqTigaActivity"/>
+        <activity android:name=".Faq.FaqEmpatActivity"/>
+        <activity android:name=".Faq.FaqLimaActivity"/>
+        <activity android:name=".Faq.FaqEnamActivity"/>
+        <activity android:name=".Faq.FaqTujuhActivity"/>
+        <activity android:name=".Faq.FaqDelapanActivity"/>
+        <activity android:name=".Faq.FaqSembilanActivity"/>
+        <activity android:name=".Faq.FaqSepuluhActivity"/>
+        <activity android:name=".Faq.FaqSebelasActivity"/>
+        <activity android:name=".Faq.FaqDuaBelasActivity"/>
+        <activity android:name=".Faq.FaqTigaBelasActivity"/>
+        <activity android:name=".FaqPembayaran.FaqPembayaranActivity"/>
+        <activity android:name=".FaqPembayaran.FaqPembayaranduaActivity"/>
+        <activity android:name=".Faq.FaqEnamBelasActivity"/>
+        <activity android:name=".Faq.FaqTujuhBelasActivity"/>
+        <activity android:name=".Faq.FaqDelapanBelasActivity"/>
+        <activity android:name=".Faq.FaqSembilanBelasActivity"/>
+        <activity android:name=".Faq.FaqDuaPuluhActivity"/>
+        <activity android:name=".Konsumen.MenuAc.KapasitorAcActivity"/>
+        <activity android:name=".Konsumen.MenuAc.MenuLayananAc"/>
+        <activity android:name=".Konsumen.MenuAc.CekAcActivity"/>
+        <activity android:name=".Konsumen.MenuAc.CuciAcActivity"/>
+        <activity android:name=".Konsumen.MenuAc.GantiFreonActivity"/>
+        <activity android:name=".Konsumen.MenuAc.IsiUlangFreonActivity"/>
+        <activity android:name=".Konsumen.MenuAc.LasAcActivity"/>
+
+
 
 
 

@@ -17,7 +17,8 @@ import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.Rapih.id.Adapter.BannerAdapter
-import com.Rapih.id.Konsumen.AcKonsumenActivity
+import com.Rapih.id.Konsumen.MenuAc.KapasitorAcActivity
+import com.Rapih.id.Konsumen.MenuAc.MenuLayananAc
 import com.Rapih.id.Model.Banner
 import com.Rapih.id.R
 
@@ -125,7 +126,7 @@ class FragmentNavHome : Fragment() {
         img_ac = view.findViewById(R.id.imgac)
 
         img_ac.setOnClickListener {
-            val intentac = Intent(context,AcKonsumenActivity::class.java)
+            val intentac = Intent(context, MenuLayananAc::class.java)
             context?.startActivity(intentac)
         }
 

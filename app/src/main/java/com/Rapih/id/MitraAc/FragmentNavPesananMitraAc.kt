@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.Rapih.id.Adapter.HistoryAdapter
 import com.Rapih.id.Adapter.HistoryAdapterAc
 import com.Rapih.id.Adapter.ItemClickListener
@@ -51,6 +53,8 @@ class FragmentNavPesananMitraAc : Fragment(){
 
     private var gson : Gson? = null
 
+    lateinit var swipeRefreshLayout: SwipeRefreshLayout
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -70,6 +74,7 @@ class FragmentNavPesananMitraAc : Fragment(){
 
         pglistac = getView()?.findViewById(R.id.progressBarMitraAc) as ProgressBar
 
+        swipeRefreshLayout = view.findViewById(R.id.swipeordermitraac)
         requesQueue = Volley.newRequestQueue(context)
 
         var gsonBuilder : GsonBuilder = GsonBuilder()
@@ -81,6 +86,22 @@ class FragmentNavPesananMitraAc : Fragment(){
         orderac = ArrayList()
 
         ambilListOrder()
+
+        swipeRefreshLayout.setColorSchemeResources(R.color.birulain, R.color.Hijau, R.color.merah)
+        swipeRefreshLayout.setOnRefreshListener(object:SwipeRefreshLayout.OnRefreshListener {
+            override fun onRefresh() {
+                // Handler untuk menjalankan jeda selama 5 detik
+                Handler().postDelayed(object:Runnable {
+                    override fun run() {
+                        // Berhenti berputar/refreshing
+                        swipeRefreshLayout.setRefreshing(false)
+                        ambilListOrder()
+                        // fungsi-fungsi lain yang dijalankan saat refresh berhenti
+
+                    }
+                }, 5000)
+            }
+        })
 
     }
         companion object {
@@ -118,15 +139,15 @@ class FragmentNavPesananMitraAc : Fragment(){
         override fun onResponse(response:String) {
 
             var collectionType: Type = object:TypeToken<OrderMitraAcStatus<OrderKonsumenAc>>(){}.type
-            var order:OrderMitraAcStatus<OrderKonsumenAc> = Gson().fromJson(response, collectionType)
+            var order : OrderMitraAcStatus<OrderKonsumenAc>? = Gson().fromJson(response, collectionType) as? OrderMitraAcStatus<OrderKonsumenAc>
 
-            if (order.isStatus){
+            if (order!!.isStatus){
                 try {
                     pglistac = view?.findViewById(R.id.progressBarMitraAc) as ProgressBar
                     pglistac.setVisibility(View.GONE)
 
                     adapter = HistoryAdapterAc(order.dataKonsMitraAc)
-                    lstHistoriac.adapter = adapter
+
                     adapter!!.setListener(object: ItemClickListener<OrderKonsumenAc> {
                         override fun onClicked(OrderKonsumenAc: OrderKonsumenAc?, position: Int, view: View?) {
 
@@ -136,6 +157,7 @@ class FragmentNavPesananMitraAc : Fragment(){
 
                         }
                     })
+                    lstHistoriac.adapter = adapter
                 }catch (ignored : Exception){}
             }else{
                 pglistac.setVisibility(View.GONE)

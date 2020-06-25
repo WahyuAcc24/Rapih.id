@@ -68,12 +68,12 @@ public class HistoryAdapterAc extends RecyclerView.Adapter<HistoryAdapterAc.Hold
 
         public Holder(View itemView) {
             super(itemView);
-            item = (LinearLayout) itemView.findViewById(R.id.linearHistoryac);
+            item = itemView.findViewById(R.id.linearHistoryac);
 //            imgFoto = (ImageView) itemView.findViewById(R.id.img_foto);
-            txtJpAc = (TextView) itemView.findViewById(R.id.txtjpAc);
-            txtDpAc = (TextView) itemView.findViewById(R.id.txtdpAc);
-            txtTglAc = (TextView) itemView.findViewById(R.id.txttglac);
-            txtStatus = (TextView) itemView.findViewById(R.id.txtstatuskonsac);
+            txtJpAc = itemView.findViewById(R.id.txtjpAc);
+            txtDpAc = itemView.findViewById(R.id.txtdpAc);
+            txtTglAc = itemView.findViewById(R.id.txttglac);
+            txtStatus = itemView.findViewById(R.id.txtstatuskonsac);
 
         }
     }

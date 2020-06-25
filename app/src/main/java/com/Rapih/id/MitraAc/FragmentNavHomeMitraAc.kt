@@ -1,6 +1,5 @@
 package com.Rapih.id.MitraAc
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,19 +7,24 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.Rapih.id.Konsumen.RenovKonsumenActivity
-import com.synnapps.carouselview.CarouselView
-import com.synnapps.carouselview.ImageListener
 import io.isfaaghyth.rak.Rak
 import android.content.SharedPreferences
 import android.content.Context
+import android.content.DialogInterface
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.Rapih.id.Adapter.BannerAdapter
-import com.Rapih.id.Konsumen.AcKonsumenActivity
-import com.Rapih.id.Model.Banner
+import com.Rapih.id.Model.*
 import com.Rapih.id.R
-import kotlinx.android.synthetic.main.fragment_home_bottom.*
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.VolleyError
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
+import kotlin.collections.ArrayList
 
 
 class FragmentNavHomeMitraAc : Fragment() {
@@ -48,6 +52,18 @@ class FragmentNavHomeMitraAc : Fragment() {
     var data : List<Banner>? = null
 
 
+    var urlrate : String? = null
+    private var requesQueue : RequestQueue? = null
+
+    private var contexts: Context? = null
+
+    lateinit var txt_rating : TextView
+
+    var rate : List<OrderRateAc>? = null
+
+
+
+
 
 
 
@@ -68,9 +84,15 @@ class FragmentNavHomeMitraAc : Fragment() {
 //        var bundle: Bundle? = this.arguments
 
 
-        lstBanner =  getView()?.findViewById(R.id.rvbanerbawahmitraac) as RecyclerView
+        urlrate = "http://rapih.id/api/ratingmitra.php?id_mitra_ac=" + Rak.grab("idmitraac")
+        requesQueue = Volley.newRequestQueue(context)
+
+
+
+
+        lstBanner = getView()?.findViewById(R.id.rvbanerbawahmitraac) as RecyclerView
         lstBanner.setHasFixedSize(true)
-        var data : ArrayList<Banner> = ArrayList()
+        var data: ArrayList<Banner> = ArrayList()
 
         data.add(Banner(R.drawable.bannerbawah))
         data.add(Banner(R.drawable.bannerbawahdua))
@@ -79,11 +101,11 @@ class FragmentNavHomeMitraAc : Fragment() {
         data.add(Banner(R.drawable.bannerbawahlima))
         data.add(Banner(R.drawable.bannerbawahenam))
 
-        var lm : LinearLayoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+        var lm: LinearLayoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         lstBanner.setLayoutManager(lm)
-        adapterbaner = BannerAdapter(activity,data)
+        adapterbaner = BannerAdapter(activity, data)
         lstBanner.adapter = adapterbaner
-
 
 
 //        var sharedPreferences  = activity?.getSharedPreferences("pref", Context.MODE_PRIVATE)
@@ -105,6 +127,7 @@ class FragmentNavHomeMitraAc : Fragment() {
         txtnamamitraac.setText(Rak.grab("namamitraac")as? String)
 //        txtnamakonsumen.setText(Preferences.getLoggedInNama(context))
 //        txtnamakonsumen.setText(id)
+        txt_rating = view.findViewById(R.id.txtratingmitraac)
 
 
         img_mitraac = view.findViewById(R.id.imguserhome) as ImageView
@@ -113,12 +136,36 @@ class FragmentNavHomeMitraAc : Fragment() {
         img_rating = view.findViewById(R.id.imgrating)
 
 
+        val request = StringRequest(Request.Method.GET, urlrate, onPostsLoaded, object : Response.ErrorListener {
+            override fun onErrorResponse(error: VolleyError?) {
+
+                var inetErr: AlertDialog.Builder = AlertDialog.Builder(contexts!!)
+                inetErr.setTitle("Terjadi Kesalahan")
+                inetErr.setMessage("Periksa Kembali Koneksi Internet Anda")
+                inetErr.setNegativeButton("Muat Ulang",object : DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+
+                    }
+
+                })
+                inetErr.show()
+            }
+        })
+        requesQueue?.add(request)
+    }
+
+    val onPostsLoaded = object: Response.Listener<String> {
+        override fun onResponse(response: String) {
+
+            val ratemitraa:OrderRateAc = Gson().fromJson(response, OrderRateAc::class.java)
+            txt_rating.setText(ratemitraa.rating)
 
 
+        }
     }
 
 
-    companion object {
+        companion object {
         fun newInstance(): FragmentNavHomeMitraAc {
             val fragment = FragmentNavHomeMitraAc()
             val args = Bundle()

@@ -46,6 +46,25 @@
 
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kontak Kami"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rvKontak"
+        android:layout_marginTop="10dp"
+
+        />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"

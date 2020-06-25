@@ -1,4 +1,4 @@
-package com.Rapih.id.Konsumen
+package com.Rapih.id.Konsumen.MenuAc
 
 import android.app.Activity
 import android.app.DatePickerDialog
@@ -10,9 +10,10 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.Rapih.id.Konsumen.HomeKonsumenActivity
+import com.Rapih.id.Konsumen.MapsActivity
 import com.Rapih.id.Model.UserLocation
 import com.Rapih.id.R
-import com.android.volley.toolbox.Volley
 import io.isfaaghyth.rak.Rak
 import java.text.SimpleDateFormat
 import java.util.*
@@ -67,8 +68,6 @@ class AcKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lay_pesanan_ac)
 
-        var requestQueue = Volley.newRequestQueue(this)
-
         Rak.initialize(this)
 
         sp_jp = findViewById(R.id.spinProAc)
@@ -111,7 +110,9 @@ class AcKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedListene
                 intent.putExtra("lon", it.latLong["lon"])
                 intent.putExtra("address", it.address)
             }
-            startActivityForResult(intent, USER_MAP)
+            startActivityForResult(intent,
+                USER_MAP
+            )
         }
 
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
@@ -219,6 +220,7 @@ class AcKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedListene
 
         btn_req.setOnClickListener {
 
+
             val intent: Intent = Intent(this@AcKonsumenActivity, OrderAcActivity::class.java)
             intent.putExtra("jenis_properti_ac", sp_jp.selectedItem.toString())
             intent.putExtra("bongkar_ac", sp_bp_ac.selectedItem.toString())
@@ -249,10 +251,13 @@ class AcKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedListene
 
         if (arg0.id == R.id.spinServisAc) {
             selectValuePerbaikan = values_perbaikan[arg2]
-        }; if (arg0.id == R.id.spinBongkarAc) {
+
+        };if (arg0.id == R.id.spinBongkarAc) {
             selectValueBongkar = values_bongkar[arg2]
+
         };if (arg0.id == R.id.spinCuciAc) {
             selectValueCuciAc = values_cuciac[arg2]
+
 
         };if (arg0.id == R.id.spinFreonAc) {
             selectValueFreonAc = values_freon[arg2]
@@ -273,7 +278,13 @@ class AcKonsumenActivity : AppCompatActivity(),AdapterView.OnItemSelectedListene
 
     override fun afterTextChanged(s: Editable?) {
 
-        setTips()
+//        if(s != null && s.isEmpty()){
+
+            
+            setTips()
+
+
+
 
     }
 

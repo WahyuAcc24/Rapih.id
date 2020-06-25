@@ -1,4 +1,4 @@
-package com.Rapih.id.Konsumen
+package com.Rapih.id.Konsumen.MenuAc
 
 import android.app.ProgressDialog
 import android.content.Context
@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.Rapih.id.Konsumen.HomeKonsumenActivity
+import com.Rapih.id.Konsumen.MapsActivity
 import com.Rapih.id.Model.UserLocation
 import com.Rapih.id.R
 import com.Rapih.id.retrofitimage.ApiConfig
@@ -122,7 +124,9 @@ class OrderAcActivity : AppCompatActivity() {
                 intent.putExtra("lon", it.latLong["lon"])
                 intent.putExtra("address", it.address)
             }
-            startActivityForResult(intent, USER_MAP)
+            startActivityForResult(intent,
+                USER_MAP
+            )
 
         }
 
@@ -149,6 +153,23 @@ class OrderAcActivity : AppCompatActivity() {
 //            loading.show()
             progressDialog = ProgressDialog.show(context, null, "Harap Tunggu...", true, false)
 
+            val jp = txt_sp_jp.text.toString()
+
+            if (jp.trim().length > 0) {
+                if (conMgr.activeNetworkInfo != null
+                    && conMgr.activeNetworkInfo!!.isAvailable
+                    && conMgr.activeNetworkInfo!!.isConnected
+                ) {
+
+                } else {
+                    Toast.makeText(applicationContext, "tidak ada koneksi", Toast.LENGTH_LONG)
+                        .show()
+                }
+            } else {
+                Toast.makeText(applicationContext, "jenis properti tidak boleh kosong", Toast.LENGTH_LONG)
+                    .show()
+
+            }
             reqOrderAc()
 
 

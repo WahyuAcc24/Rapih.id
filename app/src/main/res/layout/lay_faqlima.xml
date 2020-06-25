@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginStart="10dp"
+        android:id="@+id/imgbackfaqlima"
+        />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/iconrapihabuabu"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A). Sahabat rapih.id bisa memilih service / jasa (spesialisasi) apa yang dibutuhkan di aplikasi rapih.id dengan cara meng klik di service / jasa. \n\n
+B). Setelah itu klik tombol “lanjut”. Silahkan pilih salah satu dari pilihan Perbaikan / Service atau Survey.\n\n
+C). Setelah itu Sahabat rapih.id harus mengisi “Form Pemesanan Pekerjaan sampai selesai seperti : lokasi / tambahkan alamat lengkap hingga selesai dan, silahkan mengisi kolom “Waktu Kunjungan” dan terakhir sahabat mengisi kolom “Uraian Pekerjaan” yang akan dilakukan.\n\n
+D). Setelah itu Sahabat rapih.id bisa melampirkan foto yang terkait pekerjaan yang akan dilakukan.\n\n
+E). Setelah tahapan diatas selesai dilakukan sahabat rapih.id bisa meng klik tombol “submit” dan menunggu respon dari kami maksimal 2 jam.\n\n
+F). Setelah itu profile Mitra (Kontraktor/Vendor) yang berminat pada pekerjaan yang Sahabat butuhkan akan muncul pada aplikasi rapih.id anda di kolom “feedback” dalam bentuk (Nama PIC, Lokasi, No Hp dan soft copy RAB/ Penawaran). Setelah itu Sahabat bisa memilih Mitra mana yang anda pilih untuk pekerjaan yang anda butuhkan.\n\n
+G). Setelah itu Mitra (Kontraktor/Vendor) kami yang telah Sahabat pillih akan melakukan proses Survey sesuai dengan waktu kunjungan yang sebelumnya sudah diajukan.\n\n
+H). Setelah proses Survey selesai dilakukan jika Sahabat rapih.id setuju dengan “RAB / Penawaran dari Mitra maksimal 2x24 jam pengerjaan bisa dilakukan.\n\n
+"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
+</LinearLayout>
+</ScrollView>

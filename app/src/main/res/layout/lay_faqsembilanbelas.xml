@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginStart="10dp"
+        android:id="@+id/imgbackfaqsembilanbelas"
+        />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/iconrapihabuabu"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bagaimana pengurusan perizinan lokasi Proyek ....
+"
+        android:textColor="@color/birulain"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kami menyarankan agar segala bentuk Perizinan Proyek bisa dipersiapkan oleh Konsumen sebelum Proyek berjalan/sebelum kedatangan Mitra (Pelaksana Proyek/Kontraktor) diarea kerja. Hal ini semata untuk menjaga efektifitas dan memaksimalkan waktu kerja Mitra kami.
+"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bagaimana jaminan keamanan di lokasi Proyek ....
+"
+        android:textColor="@color/birulain"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Untuk lokasi kerja/proyek yang ditinggal sepenuhnya oleh Konsumen baiknya lakukan beberapa hal dibawah ini :\n\n
+1). Buatlah List Checklist secara mendetail dari setiap item barang yang terdapat diarea kerja tanpa terkecuali.\n\n
+2). Setelah list checklist selesai dibuat ajak Mitra kami untuk melakukan checklist barang bersama diarea kerja dan jangan lupa ditandatangani oleh Konsumen dan Mitra, baiknya sertakan juga saksi saat checklist berlangsung.\n\n
+3). Berkoordinasi dengan lingkungan secara berkala saat proyek berjalan khususnya dengan Security/Hansip di area proyek, Ketua RT dan RW serta tetangga terdekat.
+"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        />
+
+</LinearLayout>
+</ScrollView>

@@ -96,6 +96,7 @@
                         android:textSize="15sp"
                         android:textColor="#000"
                         android:gravity="center"
+                        android:id="@+id/txtratingmitraac"
                         />
                 </LinearLayout>
 

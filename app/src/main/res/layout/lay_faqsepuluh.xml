@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:layout_marginStart="10dp"
+        android:id="@+id/imgbackfaqsepuluh"
+        />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/iconrapihabuabu"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anda dapat mengajukan lebih dari 1 pemesanan pekerjaan dengan cara ....
+"
+        android:textColor="@color/birulain"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jiika anda memiliki kebutuhan Layanan lebih dari satu jenis, Anda dapat melakukan pemesanan pekerjaan dengan cara memilih jenis layanan yang dibutuhkan dengan meng “Klik” icon layanan rapih.id pada halaman utama aplikasi. Setelah itu silahkan melakukan Pemesanan Pekerjaan sesuai kebutuhan anda hingga proses selesai dan, jika proses pemesanan pekerjaan telah selesai dilakukan anda dapat kembali ke halaman utama pada pilihan “Beranda” lalu pilih kembali jenis layanan lain yang anda butuhkan.
+"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        />
+
+</LinearLayout>
+</ScrollView>

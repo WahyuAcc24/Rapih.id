@@ -67,11 +67,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
 
         public Holder(View itemView) {
             super(itemView);
-            item = (LinearLayout) itemView.findViewById(R.id.linearHistory);
+            item = itemView.findViewById(R.id.linearHistory);
 //            imgFoto = (ImageView) itemView.findViewById(R.id.img_foto);
-            txtJp = (TextView) itemView.findViewById(R.id.txtjp);
-            txtDp = (TextView) itemView.findViewById(R.id.txtdp);
-            txtTgl = (TextView) itemView.findViewById(R.id.txttgl);
+            txtJp = itemView.findViewById(R.id.txtjp);
+            txtDp = itemView.findViewById(R.id.txtdp);
+            txtTgl = itemView.findViewById(R.id.txttgl);
 
         }
     }

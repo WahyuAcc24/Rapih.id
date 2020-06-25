@@ -14,20 +14,26 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat.startActivity
 import com.Rapih.id.AppController
-import com.Rapih.id.Model.DataPart
-import com.Rapih.id.Model.UserLocation
+import com.Rapih.id.Model.*
 import com.Rapih.id.R
 import com.Rapih.id.util.PathUtil
 import com.Rapih.id.util.Preferences
 import com.Rapih.id.util.VolleyMultipartRequest
 import com.android.volley.*
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import io.isfaaghyth.rak.Rak
+import kotlinx.android.synthetic.main.activity_maps.*
+import kotlinx.android.synthetic.main.lay_daftar_konsumen.*
 import okhttp3.MultipartBody
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.*
+import java.lang.reflect.Type
 import java.util.*
 
 
@@ -153,95 +159,133 @@ class OrderRenovActivity :AppCompatActivity() {
 
         btn_ap.setOnClickListener {
 
-            val loading = ProgressDialog(this)
-            loading.setCancelable(false)
-            loading.setMessage("Menambahkan Order...")
-            loading.show()
-
-
-            val jp : String = txt_jp.text.toString()
-            val wp : String = txt_wp.text.toString()
+            val jp: String = txt_jp.text.toString()
+            val wp: String = txt_wp.text.toString()
             val domisili: String = txt_lokasi.text.toString()
             val lp: String = txt_da.text.toString()
             val dp: String = txt_dp.text.toString()
             val ap: String = txt_uang.text.toString()
             val map: String = edt_maps_komf.getText().toString()
-            val id_kons : String = Rak.grab("idkonsumen")
-            val no_hp : String = Rak.grab("hpkonsumen")
+            val id_kons: String = Rak.grab("idkonsumen")
+            val no_hp: String = Rak.grab("hpkonsumen")
 
 
-            val orderreq = object : VolleyMultipartRequest(Request.Method.POST,
-                URL_order,
-                object : Response.Listener<NetworkResponse> {
-                    override fun onResponse(response: NetworkResponse) {
-                        Log.e(TAG, "Order Response: $response")
-
-                        try {
-
-                            Log.d(TAG, response.toString())
-                            loading.dismiss()
-
-
-                            val  obj : JSONObject = JSONObject (String (response.data))
-                            Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_SHORT).show()
-
-                            Toast.makeText(
-                                getApplicationContext(),
-                                "Berhasil Order",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                            Log.d("TAG", response.toString())
-                            val i = Intent (this@OrderRenovActivity,HomeKonsumenActivity::class.java)
-                            startActivity(i)
-
-                            finish()
-
-                        } catch (e: JSONException) {
-                            Log.e("haha", e.message)
-                            e.printStackTrace()
-                        }
-                    }
-                }, object : Response.ErrorListener {
-                    override fun onErrorResponse(volleyError: VolleyError) {
-                        loading.dismiss()
-                        Log.e("ada error",""+volleyError.message)
-                        Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG)
-                            .show()
-                    }
-                }) {
-
-                @Throws(AuthFailureError::class)
-                override fun getParams(): Map<String, String> {
-                    val params = HashMap<String, String>()
-                    params.put("id_konsumen", id_kons)
-                    params.put("no_hp", no_hp)
-                    params.put("jenis_properti", jp)
-                    params.put("waktu_pengerjaan", wp)
-                    params.put("domisili_proyek", domisili)
-                    params.put("lokasi_proyek", map)
-                    params.put("alamat_lengkap", lp)
-                    params.put("detail_pekerjaan", dp)
-                    params.put("anggaran_proyek", ap)
-                    return params
+            if (jp.length > 0 && domisili.length > 0) {
+                if (conMgr.activeNetworkInfo != null
+                    && conMgr.activeNetworkInfo!!.isAvailable
+                    && conMgr.activeNetworkInfo!!.isConnected
+                ) {
+                    cekOrderRenov(jp,wp,domisili,lp,dp,ap,map,id_kons,no_hp)
+                } else {
+                    Toast.makeText(applicationContext, "tidak ada koneksi", Toast.LENGTH_LONG)
+                        .show()
                 }
+            } else {
+                Toast.makeText(applicationContext, "Data Kurang Lengkap", Toast.LENGTH_LONG)
+                    .show()
 
-                @Throws(AuthFailureError::class)
-                override fun getByteData(): Map<String, DataPart> {
-                    val params = HashMap<String, DataPart>()
-                    val imagename = System.currentTimeMillis()
-
-                    params.put("gambar_properti", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapbluprint)))
-
-                    return params
-                }
             }
 
-            AppController.getInstance().addToRequestQueue(orderreq, tag_json_obj)
+
+        }
+    }
+    private fun cekOrderRenov(jp: String,wp: String,domisili: String,lp: String,dp: String,ap: String,map: String,id_kons: String,no_hp: String){
+
+        val loading = ProgressDialog(this)
+        loading.setCancelable(false)
+        loading.setMessage("Menambahkan Order...")
+        loading.show()
+
+
+
+        val orderreq = object : VolleyMultipartRequest(Request.Method.POST,
+            URL_order,
+            object : Response.Listener<NetworkResponse> {
+                override fun onResponse(response: NetworkResponse) {
+                    Log.e(TAG, "Order Response: $response")
+                    var collectionType: Type = object: TypeToken<OrderStatus<OrderKonsumen>>(){}.type
+                    var order : OrderStatus<OrderKonsumen>? = Gson().fromJson(response.toString(), collectionType) as? OrderStatus<OrderKonsumen>
+
+//                        val res = Gson().fromJson(response.toString(), OrderRenovActivity::class.java) as Konsumen?
+
+//                        if (res?.isStatus!!) {
+
+                    if (order!!.isStatus()) {
+//                    try {
+                        loading.dismiss()
+                        Log.d(TAG, response.toString())
+
+
+
+                        val obj: JSONObject = JSONObject(String(response.data))
+                        Toast.makeText(
+                            applicationContext,
+                            obj.getString("message"),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        Toast.makeText(
+                            getApplicationContext(),
+                            "Berhasil Order",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+
+                        Log.d("TAG", response.toString())
+                        val i = Intent(this@OrderRenovActivity, HomeKonsumenActivity::class.java)
+                        startActivity(i)
+
+                        finish()
+
+//                    } catch (e: JSONException) {
+//                        Log.e("haha", e.message)
+//                        e.printStackTrace()
+//                    }
+                        } else {
+                        loading.dismiss()
+                        Toast.makeText(getApplicationContext(), "kolom tidak boleh kosong", Toast.LENGTH_SHORT).show()
+
+                        }
+                }
+            }, object : Response.ErrorListener {
+                override fun onErrorResponse(volleyError: VolleyError) {
+                    loading.dismiss()
+                    Log.e("ada error",""+volleyError.message)
+                    Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG)
+                        .show()
+                }
+            }) {
+
+            @Throws(AuthFailureError::class)
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                params.put("id_konsumen", id_kons)
+                params.put("no_hp", no_hp)
+                params.put("jenis_properti", jp)
+                params.put("waktu_pengerjaan", wp)
+                params.put("domisili_proyek", domisili)
+                params.put("lokasi_proyek", map)
+                params.put("alamat_lengkap", lp)
+                params.put("detail_pekerjaan", dp)
+                params.put("anggaran_proyek", ap)
+                return params
+            }
+
+            @Throws(AuthFailureError::class)
+            override fun getByteData(): Map<String, DataPart> {
+                val params = HashMap<String, DataPart>()
+                val imagename = System.currentTimeMillis()
+
+                params.put("gambar_properti", DataPart("${imagename}.png", getFileDataFromDrawable(bitmapbluprint)))
+
+                return params
+            }
         }
 
-
+        AppController.getInstance().addToRequestQueue(orderreq, tag_json_obj)
     }
+
+
     override fun onBackPressed() {
         val intent = Intent(this, RenovKonsumenActivity::class.java)
         startActivity(intent)
@@ -262,6 +306,8 @@ class OrderRenovActivity :AppCompatActivity() {
         }
         startActivityForResult(intent, READ_REQUEST_CODE)
     }
+
+
 
 
 //    private fun takePhotoFromCamera(){
@@ -317,5 +363,14 @@ class OrderRenovActivity :AppCompatActivity() {
 
 
         }
+    }
+    fun sendEmail(){
+
+        val int : Intent = Intent(Intent.ACTION_SENDTO)
+        int.setType("text/plain")
+        int.putExtra(Intent.EXTRA_EMAIL, arrayOf<String>("ramadhanw07@gmail.com"))
+        int.putExtra(Intent.EXTRA_SUBJECT, "tes order renov")
+        int.putExtra(Intent.EXTRA_TEXT, "halo ada order renov")
+        startActivity(int)
     }
 }

@@ -67,8 +67,8 @@ class HomeMitraAcActivity : AppCompatActivity() {
             }
             R.id.bantuan_menu_mitra_ac -> {
 //                findNavController(R.id.nav_host_fragment).navigate(R.id.bantuan_bot)
-//                val fragment = FragmentNavBantuan()
-//                addFragment(fragment)
+                val fragment = FragmentNavBantuanMitraAc()
+                addFragment(fragment)
 
 //                showBottomSheet()
                 return@OnNavigationItemSelectedListener true

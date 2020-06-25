@@ -51,7 +51,7 @@ public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.Holder>{
         public Holder(View itemView) {
             super(itemView);
 //            imgFoto = (ImageView) itemView.findViewById(R.id.img_foto);
-            imgBnsatu = (ImageView) itemView.findViewById(R.id.bnsatu);
+            imgBnsatu = itemView.findViewById(R.id.bnsatu);
 //            imgBndua = (ImageView) itemView.findViewById(R.id.bndua);
 //            imgBntiga = (ImageView) itemView.findViewById(R.id.bntiga);
 //            imgBnempat = (ImageView) itemView.findViewById(R.id.bnempat);
