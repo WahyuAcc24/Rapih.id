@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/lntop"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:id="@+id/imgbackisifreonr22"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email"
+                android:layout_gravity="bottom"
+                android:id="@+id/txtemailacisifreonr22"
+                android:textColor="#1d26d4"
+                android:layout_marginStart="10dp"
+                android:layout_weight="10"
+                />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Properti *wajib dipilih"
+            android:textColor="#1d26d4"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+
+            />
+
+        <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinProR22Ac"
+        android:layout_margin="20dp"
+        android:entries="@array/properti"
+        android:outlineAmbientShadowColor="#1d26d4"
+        android:outlineSpotShadowColor="#1d26d4"
+
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Freon R22 1/2 - 1 PK"
+            android:textColor="#1d26d4"
+            android:layout_gravity="left"
+            android:layout_weight="20"
+            android:textSize="15sp"
+            android:layout_marginStart="5dp"
+
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jumlah Ac"
+        android:textColor="#1d26d4"
+        android:layout_gravity="right"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:layout_marginStart="5dp"
+
+
+        />
+
+
+
+
+</LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/rl"
+    >
+        <Spinner
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinIsiFreonAcR22"
+            android:layout_margin="10dp"
+            android:entries="@array/tambah_freon_r22_1pk"
+            android:outlineAmbientShadowColor="#1d26d4"
+            android:outlineSpotShadowColor="#1d26d4"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+
+        >
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/btnplusisir22"
+            android:text="+"
+            android:layout_gravity="center_vertical|center_horizontal"
+
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textColor="#000"
+            android:layout_marginTop="@dimen/floating_hint_margin"
+            android:inputType="number"
+            android:id="@+id/txtjumlahisifreonr22"
+            android:text="0"
+            android:layout_gravity="center_vertical|center_horizontal"
+
+            />
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/btnminusisir22"
+            android:text="-"
+            android:layout_gravity="center_vertical|center_horizontal"
+
+            />
+
+
+    </LinearLayout>
+</RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Freon R22 1 1/2 - 2 PK"
+            android:textColor="#1d26d4"
+            android:layout_weight="20"
+            android:layout_gravity="left"
+            android:textSize="15sp"
+            android:layout_marginStart="5dp"
+
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Ac"
+                android:textColor="#1d26d4"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:textSize="15sp"
+
+                />
+
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            >
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinIsiFreonAcR22_2pk"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:entries="@array/tambah_freon_r22_2pk"
+                android:outlineAmbientShadowColor="#1d26d4"
+                android:outlineSpotShadowColor="#1d26d4"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+
+                >
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/btnplusisiR22_2pk"
+                    android:text="+"
+                    android:layout_gravity="center_vertical|center_horizontal"
+
+                    />
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textColor="#000"
+                    android:layout_marginTop="@dimen/floating_hint_margin"
+                    android:inputType="number"
+                    android:id="@+id/txtjumlahisifreonr22_2pk"
+                    android:text="0"
+                    android:layout_gravity="center_vertical|center_horizontal"
+
+                    />
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/btnminusisir22_2pk"
+                    android:text="-"
+                    android:layout_gravity="center_vertical|center_horizontal"
+
+                    />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/edttgl"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Tanggal Pengerjaan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edttglisifreonac"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/edtdesac"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Deskripsi Pekerjaan"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/edtdescisifreonac"
+                android:layout_gravity="center_vertical|center_horizontal"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/maps"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:id="@+id/edtmapsisifreonac"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Pilih Lokasi"
+                android:textColor="#1d26d4"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Harga "
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="Rp."
+                android:id="@+id/txthargaisifreonac"
+                android:textColor="@color/merah"
+                android:layout_weight="1"
+
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnlanjutisifreon"
+            android:background="@drawable/button_login"
+            android:layout_marginTop="30dp"
+            android:textColor="#fff"
+            android:text="Lanjut"
+            android:layout_gravity="center"
+
+            />
+    </LinearLayout>
+</ScrollView>
+    <!--        <RelativeLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            >-->
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Las Sambungan Pipa Freon Rp.95.000 /titik"-->
+    <!--            android:textColor="#1d26d4"-->
+    <!--            android:layout_gravity="left"-->
+    <!--            android:layout_marginStart="5dp"-->
+    <!--            android:textSize="15sp"-->
+    <!--            android:paddingTop="8dp"-->
+    <!--            android:id="@+id/las1"-->
+
+    <!--            />-->
+
+    <!--            <CheckBox-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:id="@+id/ceklasac1"-->
+    <!--                android:layout_alignParentRight="true"-->
+    <!--                />-->
+
+    <!--        </RelativeLayout>-->
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        >-->
+    <!--            <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Las Perbaikan Pipa Freon bocor \ndan isi freon Rp.95.000 /titik"-->
+    <!--            android:textColor="#1d26d4"-->
+    <!--            android:layout_alignParentLeft="true"-->
+    <!--            android:layout_marginStart="5dp"-->
+    <!--            android:textSize="15sp"-->
+    <!--            android:id="@+id/las2"-->
+
+    <!--            />-->
+
+    <!--        <CheckBox-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:id="@+id/ceklasac2"-->
+    <!--            android:layout_alignParentRight="true"-->
+    <!--            />-->
+    <!--    </RelativeLayout>-->
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="20dp"-->
+
+    <!--        >-->
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Pengecekan Rp.90.000"-->
+    <!--            android:textColor="#1d26d4"-->
+    <!--            android:layout_alignParentLeft="true"-->
+    <!--            android:layout_marginStart="5dp"-->
+    <!--            android:textSize="15sp"-->
+    <!--            android:id="@+id/cek"-->
+    <!--            android:paddingTop="8dp"-->
+
+    <!--            />-->
+
+
+    <!--            <CheckBox-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:id="@+id/cekpengecekan"-->
+    <!--                android:layout_alignParentRight="true"-->
+    <!--                />-->
+
+    <!--    </RelativeLayout>-->

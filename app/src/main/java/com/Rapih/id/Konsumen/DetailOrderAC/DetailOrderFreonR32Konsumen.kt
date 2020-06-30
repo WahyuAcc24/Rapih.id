@@ -1,20 +1,16 @@
-package com.Rapih.id.Konsumen
+package com.Rapih.id.Konsumen.DetailOrderAC
 
 import android.app.ProgressDialog
-import android.content.Intent
-import android.content.Intent.getIntent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapih.id.AppController
-import com.Rapih.id.Konsumen.BottomNav.FragmentNavPesananAc
-import com.Rapih.id.MitraAc.DetailOrderMitraAc
 import com.Rapih.id.Model.OrderKonsumenAc
+import com.Rapih.id.Model.OrderKonsumenCekAc
 import com.Rapih.id.R
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -23,19 +19,17 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
-import kotlinx.android.synthetic.main.item_list_order_ac.*
-import kotlinx.android.synthetic.main.rating.*
 import kotlinx.android.synthetic.main.rating.view.*
 import java.util.HashMap
 
-class DetailOrderAcKonsumen : AppCompatActivity() {
+class DetailOrderFreonR22Konsumen : AppCompatActivity() {
 
 
-    lateinit var txt_pa : TextView
-    lateinit var txt_bpac : TextView
-    lateinit var txt_cuciac : TextView
-    lateinit var txt_freon : TextView
+    lateinit var txt_order_ac : TextView
+    lateinit var txt_order_ac2 : TextView
+    lateinit var txt_jp : TextView
     lateinit var txt_ja : TextView
+    lateinit var txt_ja2 : TextView
     lateinit var txt_lokasi : TextView
     lateinit var txt_tgl : TextView
     lateinit var txt_dp : TextView
@@ -52,33 +46,34 @@ class DetailOrderAcKonsumen : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderAcKonsumen::class.java!!.getSimpleName()
+    private val TAG = DetailOrderFreonR22Konsumen::class.java.getSimpleName()
 
-    val URL_rate = "http://rapih.id/api/updateorderkonsumen.php"
+    val URL_rate = "http://rapih.id/api/freon_r22/updateorderfreonr22konsumen.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_ac_konsumen)
+        setContentView(R.layout.lay_detail_order_freon_r22_konsumen)
 
 
-        txt_pa = findViewById(R.id.txtpadetailorderac)
-        txt_bpac = findViewById(R.id.txtbpacdetailorderac)
-        txt_cuciac = findViewById(R.id.txtcadetailorderac)
-        txt_freon = findViewById(R.id.txtfreondetailorderac)
-        txt_ja = findViewById(R.id.txtjadetailorderac)
+        txt_jp = findViewById(R.id.txtdetailjenispropertifreonr22)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkfreonr22)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkfreonr22)
+
+        txt_ja = findViewById(R.id.txtja1pkdetailorderfreonr22)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderfreonr22)
         txt_lokasi = findViewById(R.id.txtlokasidetailorderac)
-        txt_tgl = findViewById(R.id.txttgldetailorderac)
-        txt_dp = findViewById(R.id.txtdpdetailorderac)
-        txt_total = findViewById(R.id.txttotaldetailorderac)
-        txt_email = findViewById(R.id.txtemaildetailorderac)
-        img_back = findViewById(R.id.imgbackdetailorderac)
-        btn_ok = findViewById(R.id.btnokdetailorderac)
+        txt_tgl = findViewById(R.id.txttgldetailorderfreonr22)
+        txt_dp = findViewById(R.id.txtdpdetailorderfreonr22)
+        txt_total = findViewById(R.id.txttotaldetailorderfreonr22)
+        txt_email = findViewById(R.id.txtemaildetailorderfreonr22)
+        img_back = findViewById(R.id.imgbackdetailorderfreonr22)
+        btn_ok = findViewById(R.id.btnokdetailorderfreonr22)
 //        rb = findViewById(R.id.ratingBar)
 //        edt_komen = findViewById(R.id.edtKomen)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailorderac)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderfreonr22)
 
 
 
@@ -94,17 +89,18 @@ class DetailOrderAcKonsumen : AppCompatActivity() {
 
 
 
-            Log.e("tag", getIntent().getStringExtra("data"))
+        Log.e("tag", getIntent().getStringExtra("data"))
 
-         txt_pa.setText("Perbaikan Ac : " + orderkonsumenac.getPerbaikan_ac())
-         txt_bpac.setText("Bongkar Pasang Ac : " + orderkonsumenac.bongkar_pasang_ac)
-         txt_cuciac.setText("Cuci Ac : " + orderkonsumenac.layanan_cuci_ac)
-         txt_freon.setText("Freon : " + orderkonsumenac.freon)
-         txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac)
-         txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi_proyek)
-         txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal_pengerjaan)
+         txt_order_ac.setText("Jenis Order : " + orderkonsumenac.order_1pk)
+         txt_order_ac2.setText("Jenis Order : " + orderkonsumenac.order_2pk)
+
+         txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
+         txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_1pk)
+         txt_ja2.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_2pk)
+         txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
+         txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
          txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
-         txt_total.setText("Total Pembayaran : " + orderkonsumenac.total_pembayaran)
+         txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 
         if (orderkonsumenac.getStatus().equals("wait")) {

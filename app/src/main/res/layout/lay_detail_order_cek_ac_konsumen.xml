@@ -44,20 +44,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtpadetailorderac"
-        android:text="perbaikan ac"
-        android:textColor="#000"
-        android:textSize="15sp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtbpacdetailorderac"
-        android:text="bongkar pasang ac"
+        android:id="@+id/txtdetailorderac"
+        android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
         android:layout_marginTop="20dp"
@@ -67,19 +55,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtcadetailorderac"
-        android:text="cuci ac"
-        android:textColor="#000"
-        android:textSize="15sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtfreondetailorderac"
-        android:text="freon"
+        android:id="@+id/txtdetailjenisproperti"
+        android:text="jenis properti"
         android:textColor="#000"
         android:textSize="15sp"
         android:layout_marginTop="20dp"

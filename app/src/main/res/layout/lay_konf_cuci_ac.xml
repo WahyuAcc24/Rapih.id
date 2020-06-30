@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:id="@+id/lntop"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:id="@+id/imgbackackonfkaps"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email"
+                android:layout_gravity="bottom"
+                android:id="@+id/txtemailkonsumenacOrderkaps"
+                android:textColor="#1d26d4"
+                android:layout_marginStart="10dp"
+                android:layout_weight="10"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Konfirmasi Pesanan !"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/txtJdlPsn"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Properti :"
+            android:textColor="#1d26d4"
+            android:layout_marginTop="30dp"
+            android:textSize="15sp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+
+
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Waktu Pengerjaan :"
+        android:textColor="#1d26d4"
+        android:layout_marginTop="30dp"
+        android:textSize="15sp"
+        android:layout_weight="1"
+        android:textAlignment="center"
+
+        />
+
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtjenispropertikapsac"
+                android:textAlignment="center"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtWaktuPengerjaankapsac"
+                android:textAlignment="center"
+
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rincian Order :"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Ac:"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtkapsac1pk"
+                android:textAlignment="center"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtjmlhcekkapsac1pk"
+                android:textAlignment="center"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rincian Order :"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Ac:"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:textAlignment="center"
+
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtkapsac2pk"
+                android:textAlignment="center"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtjmlhkapsac2pk"
+                android:textAlignment="center"
+
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:text="Detail Pekerjaan :"
+            android:textAlignment="center"
+            android:textColor="#1d26d4"
+            android:textSize="15sp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="text"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="5dp"
+            android:textSize="15sp"
+            android:id="@+id/txtDetailPekerjaankapsac"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Harga Pengerjaan Ac"
+                android:textColor="#1d26d4"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:textAlignment="center"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp."
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.5"
+                android:id="@+id/txthargakapsac"
+                android:textAlignment="center"
+
+
+                />
+
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/TextLabel"
+            android:id="@+id/mapsacTIL"
+            android:textColorHint="#1d26d4"
+            android:layout_marginTop="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/floating_hint_margin"
+            android:layout_gravity="center_vertical|center_horizontal"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
+
+            <EditText
+
+                android:id="@+id/edtmapslokasikapsac"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginTop="@dimen/floating_hint_margin"
+                android:hint="Lokasi Anda"
+                android:textColor="#1d26d4"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAjukanPesananKapsAc"
+            android:background="@drawable/button_login"
+            android:layout_marginTop="40dp"
+            android:text="Ajukan Pemesanan"
+            android:textColor="#fff"
+
+            />
+
+
+    </LinearLayout>
+</ScrollView>

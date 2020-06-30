@@ -8,18 +8,17 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.Rapih.id.Model.OrderKonsumenAc;
 import com.Rapih.id.Model.OrderKonsumenCekAc;
 import com.Rapih.id.R;
 
 import java.util.List;
 
-public class HistoryAdapterCuciAc extends RecyclerView.Adapter<HistoryAdapterCuciAc.Holder>{
+public class HistoryAdapterAc extends RecyclerView.Adapter<HistoryAdapterAc.Holder>{
 
-    private List<OrderKonsumenAc> historiac;
-    private ItemClickListener<OrderKonsumenAc> listenerac;
+    private List<OrderKonsumenCekAc> historiac;
+    private ItemClickListener<OrderKonsumenCekAc> listenerac;
 
-    public HistoryAdapterCuciAc(List<OrderKonsumenAc> historiac) {
+    public HistoryAdapterAc(List<OrderKonsumenCekAc> historiac) {
         this.historiac = historiac;
     }
 

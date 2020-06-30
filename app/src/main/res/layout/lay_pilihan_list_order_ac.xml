@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:id="@+id/lntop"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:id="@+id/imgbackpilmenuac"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email"
+            android:layout_gravity="bottom"
+            android:id="@+id/txtemailpilmenuac"
+            android:textColor="#1d26d4"
+            android:layout_marginStart="10dp"
+            android:layout_weight="10"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/lntop"
+        android:id="@+id/lnmenupilac"
+        android:layout_marginTop="20dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/lntop"
+        android:layout_weight="1"
+
+        >
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/imgkapsac"
+            android:src="@drawable/kapasitorac"
+            android:layout_gravity="center"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ganti Kapasitor"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/lntop"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/imgcekac"
+                android:src="@drawable/menucekac"
+                android:layout_gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pengecekan Ac"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/lnmenupilac"
+        android:id="@+id/lnmenupilac2"
+        android:layout_marginTop="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/imgfreonac"
+                android:src="@drawable/freonacc"
+                android:layout_gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ganti Freon Ac"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/imgcuciac"
+                android:src="@drawable/iconcuciac"
+                android:layout_gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cuci Ac"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/lnmenupilac2"
+        android:id="@+id/lnmenupilac3"
+        android:layout_marginTop="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/imglasac"
+                android:src="@drawable/lasac"
+                android:layout_gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Las Ac"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_gravity="center_horizontal"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/imgtmbhfreonac"
+                android:src="@drawable/isifreon"
+                android:layout_gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Isi Ulang Freon Ac"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>

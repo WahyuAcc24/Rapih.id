@@ -2,7 +2,7 @@ package com.Rapih.id.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class OrderKonsumenCekAc {
+public class OrderKonsumenAc {
 
 
 

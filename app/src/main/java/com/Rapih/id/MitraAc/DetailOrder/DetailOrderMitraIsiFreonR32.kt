@@ -1,21 +1,16 @@
-package com.Rapih.id.MitraAc
+package com.Rapih.id.MitraAc.DetailOrder
 
 import android.app.ProgressDialog
 import android.content.DialogInterface
-import android.content.Intent
-import android.content.Intent.getIntent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapih.id.AppController
-import com.Rapih.id.Konsumen.BottomNav.FragmentNavPesananAc
-import com.Rapih.id.Model.MitraAc
 import com.Rapih.id.Model.OrderKonsumenAc
+import com.Rapih.id.Model.OrderKonsumenCekAc
 import com.Rapih.id.R
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -24,18 +19,15 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
-import kotlinx.android.synthetic.main.item_list_order_ac.*
-import org.json.JSONException
-import java.util.HashMap
 
-class DetailOrderMitraAc : AppCompatActivity() {
+class DetailOrderMitraIsiFreonR22 : AppCompatActivity() {
 
 
-    lateinit var txt_pa : TextView
-    lateinit var txt_bpac : TextView
-    lateinit var txt_cuciac : TextView
-    lateinit var txt_freon : TextView
+    lateinit var txt_order_ac : TextView
+    lateinit var txt_order_ac2 : TextView
+    lateinit var txt_jp : TextView
     lateinit var txt_ja : TextView
+    lateinit var txt_ja2 : TextView
     lateinit var txt_lokasi : TextView
     lateinit var txt_tgl : TextView
     lateinit var txt_dp : TextView
@@ -51,32 +43,31 @@ class DetailOrderMitraAc : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderMitraAc::class.java!!.getSimpleName()
+    private val TAG = DetailOrderMitraIsiFreonR22::class.java.getSimpleName()
 
-    val URL_konf = "http://rapih.id/api/updateordermitraac.php"
-    val URL_kelar = "http://rapih.id/api/updatekonfordermitraac.php"
+    val URL_konf = "http://rapih.id/api/isi_freon_r22/updateorderisifreonr22mitra.php"
+    val URL_kelar = "http://rapih.id/api/isi_freon_r22/konforderisifreonr22mitra.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_mitra_ac)
+        setContentView(R.layout.lay_detail_order_isi_freon_r22_mitra)
 
+        txt_jp = findViewById(R.id.txtdetailjenispropertiisifreonr22mitra)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkisifreonr22mitra)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkisifreonr22mitra)
+        txt_ja = findViewById(R.id.txtja1pkdetailorderisifreonr22mitra)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderisifreonr22mitra)
+        txt_lokasi = findViewById(R.id.txtlokasidetailorderisifreonr22mitra)
+        txt_tgl = findViewById(R.id.txttgldetailorderisifreonr22mitra)
+        txt_dp = findViewById(R.id.txtdpdetailorderisifreonr22mitra)
+        txt_total = findViewById(R.id.txttotaldetailorderisifreonr22mitra)
+        txt_email = findViewById(R.id.txtemaildetailorderisifreonr22mitra)
+        img_back = findViewById(R.id.imgbackdetailorderisifreonr22mitra)
+        btn_ok = findViewById(R.id.btnokdetailorderisifreonr22mitra)
 
-        txt_pa = findViewById(R.id.txtpadetailordermitraac)
-        txt_bpac = findViewById(R.id.txtbpacdetailordermitraac)
-        txt_cuciac = findViewById(R.id.txtcadetailordermitraac)
-        txt_freon = findViewById(R.id.txtfreondetailordermitraac)
-        txt_ja = findViewById(R.id.txtjadetailordermitraac)
-        txt_lokasi = findViewById(R.id.txtlokasidetailordermitraac)
-        txt_tgl = findViewById(R.id.txttgldetailordermitraac)
-        txt_dp = findViewById(R.id.txtdpdetailordermitraac)
-        txt_total = findViewById(R.id.txttotaldetailordermitraac)
-        txt_email = findViewById(R.id.txtemaildetailordermitraac)
-        img_back = findViewById(R.id.imgbackdetailordermitraac)
-        btn_ok = findViewById(R.id.btnokdetailordermitraac)
-
-        txt_nohp = findViewById(R.id.txtnohpdetailordermitraac)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderisifreonr22mitra)
 
 
         txt_email.setText(Rak.grab("emailmitraac") as String)
@@ -92,18 +83,19 @@ class DetailOrderMitraAc : AppCompatActivity() {
 
             Log.e("tag", getIntent().getStringExtra("datamitraac"))
 
-         txt_pa.setText("Perbaikan Ac : " + orderkonsumenac.getPerbaikan_ac())
-         txt_bpac.setText("Bongkar Pasang Ac : " + orderkonsumenac.bongkar_pasang_ac)
-         txt_cuciac.setText("Cuci Ac : " + orderkonsumenac.layanan_cuci_ac)
-         txt_freon.setText("Freon : " + orderkonsumenac.freon)
-         txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac)
-         txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi_proyek)
-         txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal_pengerjaan)
-         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
-         txt_total.setText("Total Pembayaran : " + orderkonsumenac.total_pembayaran)
-         txt_nohp.setText("No hp : " + orderkonsumenac.no_hp)
+        txt_order_ac.setText("Jenis Order : " + orderkonsumenac.order_1pk)
+        txt_order_ac2.setText("Jenis Order : " + orderkonsumenac.order_2pk)
 
+        txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
+        txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_1pk)
+        txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
+        txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
+        txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
+        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+        txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
+//
+//
         if (orderkonsumenac.getStatus().equals("wait")){
             btn_ok.setText("Konfirmasi pesanan")
             btn_ok.setBackgroundColor(Color.GREEN)
@@ -163,7 +155,7 @@ class DetailOrderMitraAc : AppCompatActivity() {
                     .setPositiveButton("iya", object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, which: Int) {
 
-                        val loading = ProgressDialog(this@DetailOrderMitraAc)
+                        val loading = ProgressDialog(this@DetailOrderMitraIsiFreonR22)
                         loading.setCancelable(false)
                         loading.setMessage("proses penyelesaian order...")
                         loading.show()
