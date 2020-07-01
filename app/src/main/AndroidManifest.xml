@@ -81,8 +81,8 @@
         <activity android:name="com.Rapih.id.Konsumen.MenuAc.OrderAcActivity"/>
         <activity android:name=".MitraAc.DaftarMitraAcActivity"/>
         <activity android:name=".MitraAc.HomeMitraAcActivity"/>
-        <activity android:name=".Konsumen.DetailOrderAcKonsumen"/>
-        <activity android:name=".MitraAc.DetailOrderMitraAc"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderCekAcKonsumen"/>
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraCekAc"/>
         <activity android:name=".Konsumen.DetailOrderRenovKonsumen"/>
 
         <activity android:name=".Faq.FaqActivity"/>
@@ -109,13 +109,56 @@
         <activity android:name=".Konsumen.MenuAc.MenuLayananAc"/>
         <activity android:name=".Konsumen.MenuAc.CekAcActivity"/>
         <activity android:name=".Konsumen.MenuAc.CuciAcActivity"/>
-        <activity android:name=".Konsumen.MenuAc.GantiFreonActivity"/>
-        <activity android:name=".Konsumen.MenuAc.IsiUlangFreonActivity"/>
+        <activity android:name=".Konsumen.MenuAc.GantiFreonR22Activity"/>
+        <activity android:name=".Konsumen.MenuAc.GantiFreonR32Activity"/>
+
+        <activity android:name=".Konsumen.MenuAc.IsiUlangFreonR32Activity"/>
+        <activity android:name=".Konsumen.MenuAc.IsiUlangFreonR22Activity"/>
         <activity android:name=".Konsumen.MenuAc.LasAcActivity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderCekAcActivity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderCuciAcActivity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderFreonR22Activity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderFreonR32Activity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderIsiFreonR22Activity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderIsiFreonR32Activity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderKapasitorAcActivity"/>
+        <activity android:name=".Konsumen.MenuAc.OrderLasAcActivity"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderCekAc"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderCuciAc"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderKapsAc"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderLasAc"/>
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraCekAc"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderFreonR22Ac"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderFreonR32Ac"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderTambahFreonR22Ac"/>
+        <activity android:name=".Konsumen.ListOrderAc.ListOrderTambahFreonR32Ac"/>
 
 
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraCuciAc"/>
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraFreonR22"/>
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraFreonR32"/>
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraIsiFreonR22"/>
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraIsiFreonR32"/>
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraKapasitorAc"/>
+        <activity android:name=".MitraAc.ListOrder.ListOrderMitraLasAc"/>
 
-
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraCuciAc"/>
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraFreonR22"/>
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraFreonR32"/>
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraIsiFreonR22"/>
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraIsiFreonR32"/>
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraKapasitorAc"/>
+        <activity android:name=".MitraAc.DetailOrder.DetailOrderMitraLasAc"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderCuciAcKonsumen"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderKapsAcKonsumen"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderLasAcKonsumen"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderFreonR22Konsumen"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderFreonR32Konsumen"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderIsiFreonR22Konsumen"/>
+        <activity android:name=".Konsumen.DetailOrderAC.DetailOrderIsiFreonR32Konsumen"/>
+        <activity android:name=".MitraBadanUsaha.HomeMitraBuActivity"/>
+        <activity android:name=".MitraBadanUsaha.DetailOrderRenovMitra"/>
+            <activity android:name=".MitraBadanUsaha.LoginMitraBuActivity"/>
 
 
 

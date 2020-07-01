@@ -25,7 +25,7 @@
             android:src="@drawable/ic_back"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:id="@+id/imgbackdetailorderac"
+            android:id="@+id/imgbackdetailorderkapsac"
             />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="email"
             android:layout_gravity="bottom"
-            android:id="@+id/txtemaildetailorderac"
+            android:id="@+id/txtemaildetailorderkapsac"
             android:textColor="#1d26d4"
             android:layout_marginStart="10dp"
             android:layout_weight="10"
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder1pkac"
+        android:id="@+id/txtdetailorder1pkkapsac"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -55,7 +55,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja1pkdetailorderac"
+        android:id="@+id/txtja1pkdetailorderkapsac"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -66,7 +66,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder2pkac"
+        android:id="@+id/txtdetailorder2pkkapsac"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -78,7 +78,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja2pkdetailorderac"
+        android:id="@+id/txtja2pkdetailorderkapsac"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -90,7 +90,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailjenisproperti"
+        android:id="@+id/txtdetailjenispropertikapsac"
         android:text="jenis properti"
         android:textColor="#000"
         android:textSize="15sp"
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtlokasidetailorderac"
+        android:id="@+id/txtlokasidetailorderkapsac"
         android:text="lokasi anda"
         android:textColor="#000"
         android:textSize="15sp"
@@ -113,7 +113,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttgldetailorderac"
+        android:id="@+id/txttgldetailorderkapsac"
         android:text="tanggal"
         android:textColor="#000"
         android:textSize="15sp"
@@ -124,7 +124,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdpdetailorderac"
+        android:id="@+id/txtdpdetailorderkapsac"
         android:text="deskripsi pekerjaan"
         android:textColor="#000"
         android:textSize="15sp"
@@ -135,7 +135,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttotaldetailorderac"
+        android:id="@+id/txttotaldetailorderkapsac"
         android:text="total harga"
         android:textColor="#000"
         android:textSize="15sp"
@@ -147,7 +147,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtnohpdetailorderac"
+        android:id="@+id/txtnohpdetailorderkapsac"
         android:text="No hp"
         android:textColor="#000"
         android:textSize="15sp"
@@ -160,7 +160,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/btnokdetailorderac"
+        android:id="@+id/btnokdetailorderkapsac"
         android:background="@drawable/button_login"
         android:text="ok"
         android:textColor="#fff"

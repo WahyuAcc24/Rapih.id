@@ -5,8 +5,14 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.Rapih.id.Konsumen.BottomNav.FragmentNavPesananAc
+import com.Rapih.id.Konsumen.BottomNav.FragmentNavPesananRenov
 import com.Rapih.id.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import io.isfaaghyth.rak.Rak
+import kotlinx.android.synthetic.main.bottom_sheet_freon.view.*
+import kotlinx.android.synthetic.main.bottom_sheet_pesanan.view.*
+import kotlinx.android.synthetic.main.bottom_sheet_reload_freon.view.*
 
 class MenuLayananAc : AppCompatActivity() {
 
@@ -21,9 +27,27 @@ class MenuLayananAc : AppCompatActivity() {
     lateinit var txt_email : TextView
 
 
+    var bottomSheetDialog: BottomSheetDialog? = null
+
+    var bottomSheetDialog2: BottomSheetDialog? = null
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lay_pilihan_menu_ac)
+
+        bottomSheetDialog = BottomSheetDialog(this)
+
+        bottomSheetDialog2 = BottomSheetDialog(this)
+
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_freon, null)
+
+        val view2 = layoutInflater.inflate(R.layout.bottom_sheet_reload_freon, null)
+
+
+        bottomSheetDialog?.setContentView(view)
+        bottomSheetDialog2?.setContentView(view2)
 
         img_back_menu_ac = findViewById(R.id.imgbackpilmenuac)
         img_kaps_ac = findViewById(R.id.imgkapsac)
@@ -37,6 +61,38 @@ class MenuLayananAc : AppCompatActivity() {
 
 
         txt_email.setText(Rak.grab("emailkonsumen") as? String)
+
+
+        view.textViewFreonR22.setOnClickListener {
+            val intent = Intent(this,GantiFreonR22Activity::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
+
+        }
+
+        view.textViewFreonR32.setOnClickListener {
+            val intent = Intent(this,GantiFreonR32Activity::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
+
+        }
+
+
+        view2.textViewFreonR22r.setOnClickListener {
+            val intent = Intent(this,IsiUlangFreonR22Activity::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
+
+        }
+
+        view2.textViewFreonR32r.setOnClickListener {
+            val intent = Intent(this,IsiUlangFreonR32Activity::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
+
+        }
+
+
 
 
         img_back_menu_ac.setOnClickListener {
@@ -56,15 +112,13 @@ class MenuLayananAc : AppCompatActivity() {
         }
 
         img_freon_ac.setOnClickListener {
-            val intent = Intent(this,GantiFreonActivity::class.java)
-            startActivity(intent)
-            finish()
+            bottomSheetDialog?.show()
         }
+
         img_isi_freon.setOnClickListener {
-            val intent = Intent(this,IsiUlangFreonActivity::class.java)
-            startActivity(intent)
-            finish()
+            bottomSheetDialog2?.show()
         }
+
         img_las_ac.setOnClickListener {
             val intent = Intent(this,LasAcActivity::class.java)
             startActivity(intent)

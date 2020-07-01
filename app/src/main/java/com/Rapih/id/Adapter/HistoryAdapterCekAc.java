@@ -13,12 +13,12 @@ import com.Rapih.id.R;
 
 import java.util.List;
 
-public class HistoryAdapterAc extends RecyclerView.Adapter<HistoryAdapterAc.Holder>{
+public class HistoryAdapterCekAc extends RecyclerView.Adapter<HistoryAdapterCekAc.Holder>{
 
     private List<OrderKonsumenCekAc> historiac;
     private ItemClickListener<OrderKonsumenCekAc> listenerac;
 
-    public HistoryAdapterAc(List<OrderKonsumenCekAc> historiac) {
+    public HistoryAdapterCekAc(List<OrderKonsumenCekAc> historiac) {
         this.historiac = historiac;
     }
 

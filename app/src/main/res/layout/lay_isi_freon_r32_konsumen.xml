@@ -25,7 +25,7 @@
                 android:src="@drawable/ic_back"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:id="@+id/imgbackisifreonr22"
+                android:id="@+id/imgbackisifreonr32"
                 />
 
             <TextView
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="email"
                 android:layout_gravity="bottom"
-                android:id="@+id/txtemailacisifreonr22"
+                android:id="@+id/txtemailacisifreonr32"
                 android:textColor="#1d26d4"
                 android:layout_marginStart="10dp"
                 android:layout_weight="10"
@@ -56,7 +56,7 @@
         <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinProR22Ac"
+        android:id="@+id/spinProIsiR32Ac"
         android:layout_margin="20dp"
         android:entries="@array/properti"
         android:outlineAmbientShadowColor="#1d26d4"
@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Freon R22 1/2 - 1 PK"
+            android:text="Freon R32 1/2 - 1 PK"
             android:textColor="#1d26d4"
             android:layout_gravity="left"
             android:layout_weight="20"
@@ -106,9 +106,9 @@
         <Spinner
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinIsiFreonAcR22"
+            android:id="@+id/spinIsiFreonAcR32"
             android:layout_margin="10dp"
-            android:entries="@array/tambah_freon_r22_1pk"
+            android:entries="@array/tambah_freon_r32_1pk"
             android:outlineAmbientShadowColor="#1d26d4"
             android:outlineSpotShadowColor="#1d26d4"
             android:layout_alignParentLeft="true"
@@ -126,7 +126,7 @@
         <Button
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/btnplusisir22"
+            android:id="@+id/btnplusisir32"
             android:text="+"
             android:layout_gravity="center_vertical|center_horizontal"
 
@@ -138,7 +138,7 @@
             android:textColor="#000"
             android:layout_marginTop="@dimen/floating_hint_margin"
             android:inputType="number"
-            android:id="@+id/txtjumlahisifreonr22"
+            android:id="@+id/txtjumlahisifreonr32"
             android:text="0"
             android:layout_gravity="center_vertical|center_horizontal"
 
@@ -146,7 +146,7 @@
         <Button
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:id="@+id/btnminusisir22"
+            android:id="@+id/btnminusisir32"
             android:text="-"
             android:layout_gravity="center_vertical|center_horizontal"
 
@@ -164,7 +164,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Freon R22 1 1/2 - 2 PK"
+            android:text="Freon R32 1 1/2 - 2 PK"
             android:textColor="#1d26d4"
             android:layout_weight="20"
             android:layout_gravity="left"
@@ -194,10 +194,10 @@
             <Spinner
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/spinIsiFreonAcR22_2pk"
+                android:id="@+id/spinIsiFreonAcR32_2pk"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:entries="@array/tambah_freon_r22_2pk"
+                android:entries="@array/tambah_freon_r32_2pk"
                 android:outlineAmbientShadowColor="#1d26d4"
                 android:outlineSpotShadowColor="#1d26d4"
                 android:layout_alignParentLeft="true"
@@ -216,7 +216,7 @@
                 <Button
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/btnplusisiR22_2pk"
+                    android:id="@+id/btnplusisiR32_2pk"
                     android:text="+"
                     android:layout_gravity="center_vertical|center_horizontal"
 
@@ -228,7 +228,7 @@
                     android:textColor="#000"
                     android:layout_marginTop="@dimen/floating_hint_margin"
                     android:inputType="number"
-                    android:id="@+id/txtjumlahisifreonr22_2pk"
+                    android:id="@+id/txtjumlahisifreonr32_2pk"
                     android:text="0"
                     android:layout_gravity="center_vertical|center_horizontal"
 
@@ -236,7 +236,7 @@
                 <Button
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/btnminusisir22_2pk"
+                    android:id="@+id/btnminusisir32_2pk"
                     android:text="-"
                     android:layout_gravity="center_vertical|center_horizontal"
 
@@ -269,10 +269,10 @@
                 android:layout_height="60dp"
                 android:textColor="#1d26d4"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Tanggal Pengerjaan"
+                android:hint="Tanggal Pengerjaan *wajib diisi"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:id="@+id/edttglisifreonac"
+                android:id="@+id/edttglisifreon32ac"
                 android:layout_gravity="center_vertical|center_horizontal"
 
                 />
@@ -298,10 +298,10 @@
                 android:layout_height="60dp"
                 android:textColor="#1d26d4"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Deskripsi Pekerjaan"
+                android:hint="Deskripsi Pekerjaan *wajib diisi"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:id="@+id/edtdescisifreonac"
+                android:id="@+id/edtdescisifreon32ac"
                 android:layout_gravity="center_vertical|center_horizontal"
 
                 />
@@ -327,14 +327,14 @@
 
             <EditText
 
-                android:id="@+id/edtmapsisifreonac"
+                android:id="@+id/edtmapsisifreon32ac"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Pilih Lokasi"
+                android:hint="Pilih Lokasi *wajib diisi"
                 android:textColor="#1d26d4"
 
                 />
@@ -364,7 +364,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
                 android:text="Rp."
-                android:id="@+id/txthargaisifreonac"
+                android:id="@+id/txthargaisifreon32ac"
                 android:textColor="@color/merah"
                 android:layout_weight="1"
 
@@ -375,7 +375,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnlanjutisifreon"
+            android:id="@+id/btnlanjutisifreon32"
             android:background="@drawable/button_login"
             android:layout_marginTop="30dp"
             android:textColor="#fff"

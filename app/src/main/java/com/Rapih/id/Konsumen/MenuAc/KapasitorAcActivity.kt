@@ -25,69 +25,66 @@ class KapasitorAcActivity : AppCompatActivity(),AdapterView.OnItemSelectedListen
         const val KEY_MAP = "lokasi_user"
     }
 
-    lateinit var img_back: ImageView
-    lateinit var txt_email: TextView
-    lateinit var sp_jp: Spinner
-    lateinit var sp_kap: Spinner
-    lateinit var sp_kap2: Spinner
+    private lateinit var img_back: ImageView
+    private lateinit var txt_email: TextView
+    private lateinit var sp_jp: Spinner
+    private lateinit var sp_kap: Spinner
+    private lateinit var sp_kap2: Spinner
 
-//    lateinit var cb_1: CheckBox
-//    lateinit var cb_2: CheckBox
-//    lateinit var cb_3: CheckBox
-    lateinit var txt_jmlh: TextView
-    lateinit var txt_jmlh2: TextView
+    private lateinit var txt_jmlh: TextView
+    private lateinit var txt_jmlh2: TextView
 
 
-    lateinit var btn_req: Button
-    lateinit var edt_tgl: EditText
-    lateinit var txt_total: TextView
-    lateinit var edt_maps_ac: EditText
-    lateinit var edt_dp: EditText
+    private lateinit var btn_req: Button
+    private lateinit var edt_tgl: EditText
+    private lateinit var txt_total: TextView
+    private lateinit var edt_maps_ac: EditText
+    private lateinit var edt_dp: EditText
 
-    lateinit var btn_plus: Button
-    lateinit var btn_minus: Button
+    private lateinit var btn_plus: Button
+    private lateinit var btn_minus: Button
 
-    lateinit var btn_plus2: Button
-    lateinit var btn_minus2: Button
+    private lateinit var btn_plus2: Button
+    private lateinit var btn_minus2: Button
 
 
 
 
 
-    var selectValue1pk: Int = 0
-    var selectValue2pk: Int = 0
+    private var selectValue1pk: Int = 0
+    private var selectValue2pk: Int = 0
 
 
 
 
 
-    var r: Int = 0
-    var r2: Int = 0
-    var r3: Int = 0
+    private var r: Int = 0
+    private var r2: Int = 0
+    private var r3: Int = 0
 
 
 
-    var quantity: Int = 0
-    var quantity2: Int = 0
+    private var quantity: Int = 0
+    private var quantity2: Int = 0
 
 
 
-    var values_kapasitor = intArrayOf(0,225000)
-    var values_kapasitor2 = intArrayOf(0,295000)
+    private var values_kapasitor = intArrayOf(0,225000)
+    private var values_kapasitor2 = intArrayOf(0,295000)
 
 
-    var jumlah_ac: Int = 0
-    var jumlah_ac2: Int = 0
+    private var jumlah_ac: Int = 0
+    private var jumlah_ac2: Int = 0
 
 
 
 
-    var nama_cb : String = ""
+    private var nama_cb : String = ""
 
 
     private var dateFormatter: SimpleDateFormat? = null
 
-    var cal = Calendar.getInstance()
+    private var cal = Calendar.getInstance()
 
     private var userLocation: UserLocation? = null
 
@@ -234,13 +231,26 @@ class KapasitorAcActivity : AppCompatActivity(),AdapterView.OnItemSelectedListen
         sp_kap2.getBackground()
             .setColorFilter(getResources().getColor(R.color.birulain), PorterDuff.Mode.SRC_ATOP)
 
-
-
-
-
         txt_jmlh.addTextChangedListener(this)
         txt_jmlh2.addTextChangedListener(this)
 
+
+        btn_req.setOnClickListener {
+
+
+            val intent: Intent = Intent(this@KapasitorAcActivity, OrderKapasitorAcActivity::class.java)
+            intent.putExtra("jenis_properti_kaps_ac", sp_jp.selectedItem.toString())
+            intent.putExtra("kaps_ac_1pk", sp_kap.selectedItem.toString())
+            intent.putExtra("kaps_ac_2pk", sp_kap2.selectedItem.toString())
+            intent.putExtra("jumlah_ac_1pk", txt_jmlh.text.toString())
+            intent.putExtra("jumlah_ac_2pk", txt_jmlh2.text.toString())
+            intent.putExtra("user_location_ac", userLocation)
+            intent.putExtra("tanggal", edt_tgl.text.toString())
+            intent.putExtra("deskripsi_ac", edt_dp.text.toString())
+            intent.putExtra("total_harga", txt_total.text.toString())
+            startActivity(intent)
+
+        }
 
 
     }

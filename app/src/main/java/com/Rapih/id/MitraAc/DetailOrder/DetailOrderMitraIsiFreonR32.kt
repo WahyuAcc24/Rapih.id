@@ -20,7 +20,7 @@ import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
 
-class DetailOrderMitraIsiFreonR22 : AppCompatActivity() {
+class DetailOrderMitraIsiFreonR32 : AppCompatActivity() {
 
 
     lateinit var txt_order_ac : TextView
@@ -43,31 +43,31 @@ class DetailOrderMitraIsiFreonR22 : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderMitraIsiFreonR22::class.java.getSimpleName()
+    private val TAG = DetailOrderMitraIsiFreonR32::class.java.getSimpleName()
 
-    val URL_konf = "http://rapih.id/api/isi_freon_r22/updateorderisifreonr22mitra.php"
-    val URL_kelar = "http://rapih.id/api/isi_freon_r22/konforderisifreonr22mitra.php"
+    val URL_konf = "http://rapih.id/api/isi_freon_r32/updateorderisifreonr32mitra.php"
+    val URL_kelar = "http://rapih.id/api/isi_freon_r32/konforderisifreonr32mitra.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_isi_freon_r22_mitra)
+        setContentView(R.layout.lay_detail_order_isi_freon_r32_mitra)
 
-        txt_jp = findViewById(R.id.txtdetailjenispropertiisifreonr22mitra)
-        txt_order_ac = findViewById(R.id.txtdetailorder1pkisifreonr22mitra)
-        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkisifreonr22mitra)
-        txt_ja = findViewById(R.id.txtja1pkdetailorderisifreonr22mitra)
-        txt_ja2 = findViewById(R.id.txtja2pkdetailorderisifreonr22mitra)
-        txt_lokasi = findViewById(R.id.txtlokasidetailorderisifreonr22mitra)
-        txt_tgl = findViewById(R.id.txttgldetailorderisifreonr22mitra)
-        txt_dp = findViewById(R.id.txtdpdetailorderisifreonr22mitra)
-        txt_total = findViewById(R.id.txttotaldetailorderisifreonr22mitra)
-        txt_email = findViewById(R.id.txtemaildetailorderisifreonr22mitra)
-        img_back = findViewById(R.id.imgbackdetailorderisifreonr22mitra)
-        btn_ok = findViewById(R.id.btnokdetailorderisifreonr22mitra)
+        txt_jp = findViewById(R.id.txtdetailjenispropertiisifreonr32mitra)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkisifreonr32mitra)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkisifreonr32mitra)
+        txt_ja = findViewById(R.id.txtja1pkdetailorderisifreonr32mitra)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderisifreonr32mitra)
+        txt_lokasi = findViewById(R.id.txtlokasidetailorderisifreonr32mitra)
+        txt_tgl = findViewById(R.id.txttgldetailorderisifreonr32mitra)
+        txt_dp = findViewById(R.id.txtdpdetailorderisifreonr32mitra)
+        txt_total = findViewById(R.id.txttotaldetailorderisifreonr32mitra)
+        txt_email = findViewById(R.id.txtemaildetailorderisifreonr32mitra)
+        img_back = findViewById(R.id.imgbackdetailorderisifreonr32mitra)
+        btn_ok = findViewById(R.id.btnokdetailorderisifreonr32mitra)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailorderisifreonr22mitra)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderisifreonr32mitra)
 
 
         txt_email.setText(Rak.grab("emailmitraac") as String)
@@ -91,7 +91,7 @@ class DetailOrderMitraIsiFreonR22 : AppCompatActivity() {
         txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
         txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
         txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
         txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 //
@@ -155,7 +155,7 @@ class DetailOrderMitraIsiFreonR22 : AppCompatActivity() {
                     .setPositiveButton("iya", object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, which: Int) {
 
-                        val loading = ProgressDialog(this@DetailOrderMitraIsiFreonR22)
+                        val loading = ProgressDialog(this@DetailOrderMitraIsiFreonR32)
                         loading.setCancelable(false)
                         loading.setMessage("proses penyelesaian order...")
                         loading.show()

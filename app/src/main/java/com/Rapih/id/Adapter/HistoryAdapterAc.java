@@ -9,17 +9,16 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.Rapih.id.Model.OrderKonsumenAc;
-import com.Rapih.id.Model.OrderKonsumenCekAc;
 import com.Rapih.id.R;
 
 import java.util.List;
 
-public class HistoryAdapterCuciAc extends RecyclerView.Adapter<HistoryAdapterCuciAc.Holder>{
+public class HistoryAdapterAc extends RecyclerView.Adapter<HistoryAdapterAc.Holder>{
 
     private List<OrderKonsumenAc> historiac;
     private ItemClickListener<OrderKonsumenAc> listenerac;
 
-    public HistoryAdapterCuciAc(List<OrderKonsumenAc> historiac) {
+    public HistoryAdapterAc(List<OrderKonsumenAc> historiac) {
         this.historiac = historiac;
     }
 
@@ -36,7 +35,7 @@ public class HistoryAdapterCuciAc extends RecyclerView.Adapter<HistoryAdapterCuc
     public void onBindViewHolder(final Holder holder, final int position) {
         holder.txtJpAc.setText(historiac.get(position).getJenis_properti());
         holder.txtTglAc.setText(historiac.get(position).getTanggal());
-        holder.txtDpAc.setText(historiac.get(position).getDeskripsi_pekerjaan());
+        holder.txtDpAc.setText(historiac.get(position).getDetail_pekerjaan());
         holder.txtStatus.setText(historiac.get(position).getStatus());
 
 

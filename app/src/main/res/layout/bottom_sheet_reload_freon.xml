@@ -12,34 +12,34 @@
 
 
     <TextView
-        android:id="@+id/textViewHome"
+        android:id="@+id/textViewFreonR22r"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:padding="16dp"
         android:gravity="center_vertical"
         android:drawablePadding="16dp"
-        android:drawableLeft="@drawable/iconfreonkecil"
-        android:drawableStart="@drawable/iconfreonkecil"
+        android:drawableLeft="@drawable/iconkecilfreonreload"
+        android:drawableStart="@drawable/iconkecilfreonreload"
         android:text="Freon Type R22"
         android:textSize="16sp"
         tools:ignore="MissingConstraints" />
 
 
     <TextView
-        android:id="@+id/textViewAc"
+        android:id="@+id/textViewFreonR32r"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:padding="16dp"
         android:gravity="center_vertical"
         android:drawablePadding="16dp"
-        android:drawableLeft="@drawable/iconfreonkecil"
-        android:drawableStart="@drawable/iconfreonkecil"
+        android:drawableLeft="@drawable/iconkecilfreonreload"
+        android:drawableStart="@drawable/iconkecilfreonreload"
         android:text="Freon Type R32"
         android:textSize="16sp"
         tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@id/textViewHome"
+        app:layout_constraintTop_toBottomOf="@id/textViewFreonR22r"
         />
 
 

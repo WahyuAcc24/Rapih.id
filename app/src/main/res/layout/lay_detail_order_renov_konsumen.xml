@@ -142,7 +142,15 @@
 
         />
 
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btnokdetailorderrenov"
+        android:background="@drawable/button_login"
+        android:text="ok"
+        android:textColor="#fff"
+        android:layout_marginTop="30dp"
+        />
 
 </LinearLayout>
 </ScrollView>

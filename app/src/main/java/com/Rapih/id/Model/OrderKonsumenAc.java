@@ -2,7 +2,7 @@ package com.Rapih.id.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class OrderKonsumenCekAc {
+public class OrderKonsumenAc {
 
 
 
@@ -16,16 +16,20 @@ public class OrderKonsumenCekAc {
     private String no_hp;
     @SerializedName("jenis_properti")
     private String jenis_properti;
-    @SerializedName("order_ac")
-    private String order_ac;
-    @SerializedName("jumlah_ac")
-    private String jumlah_ac;
+    @SerializedName("order_1pk")
+    private String order_1pk;
+    @SerializedName("jumlah_ac_1pk")
+    private String jumlah_ac_1pk;
+    @SerializedName("order_2pk")
+    private String order_2pk;
+    @SerializedName("jumlah_ac_2pk")
+    private String jumlah_ac_2pk;
     @SerializedName("lokasi")
     private String lokasi;
     @SerializedName("tanggal")
     private String tanggal;
-    @SerializedName("deskripsi_pekerjaan")
-    private String deskripsi_pekerjaan;
+    @SerializedName("detail_pekerjaan")
+    private String detail_pekerjaan;
     @SerializedName("harga")
     private String harga;
     @SerializedName("status")
@@ -71,20 +75,36 @@ public class OrderKonsumenCekAc {
         this.jenis_properti = jenis_properti;
     }
 
-    public String getOrder_ac() {
-        return order_ac;
+    public String getOrder_1pk() {
+        return order_1pk;
     }
 
-    public void setOrder_ac(String order_ac) {
-        this.order_ac = order_ac;
+    public void setOrder_1pk(String order_1pk) {
+        this.order_1pk = order_1pk;
     }
 
-    public String getJumlah_ac() {
-        return jumlah_ac;
+    public String getJumlah_ac_1pk() {
+        return jumlah_ac_1pk;
     }
 
-    public void setJumlah_ac(String jumlah_ac) {
-        this.jumlah_ac = jumlah_ac;
+    public void setJumlah_ac_1pk(String jumlah_ac_1pk) {
+        this.jumlah_ac_1pk = jumlah_ac_1pk;
+    }
+
+    public String getOrder_2pk() {
+        return order_2pk;
+    }
+
+    public void setOrder_2pk(String order_2pk) {
+        this.order_2pk = order_2pk;
+    }
+
+    public String getJumlah_ac_2pk() {
+        return jumlah_ac_2pk;
+    }
+
+    public void setJumlah_ac_2pk(String jumlah_ac_2pk) {
+        this.jumlah_ac_2pk = jumlah_ac_2pk;
     }
 
     public String getLokasi() {
@@ -103,12 +123,12 @@ public class OrderKonsumenCekAc {
         this.tanggal = tanggal;
     }
 
-    public String getDeskripsi_pekerjaan() {
-        return deskripsi_pekerjaan;
+    public String getDetail_pekerjaan() {
+        return detail_pekerjaan;
     }
 
-    public void setDeskripsi_pekerjaan(String deskripsi_pekerjaan) {
-        this.deskripsi_pekerjaan = deskripsi_pekerjaan;
+    public void setDetail_pekerjaan(String detail_pekerjaan) {
+        this.detail_pekerjaan = detail_pekerjaan;
     }
 
     public String getHarga() {

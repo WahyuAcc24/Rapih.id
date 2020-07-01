@@ -34,6 +34,7 @@ class DetailOrderRenovKonsumen : AppCompatActivity() {
     lateinit var txt_dp : TextView
     lateinit var txt_total : TextView
     lateinit var txt_nohp : TextView
+    lateinit var btn_ok : Button
 
 
 
@@ -44,8 +45,9 @@ class DetailOrderRenovKonsumen : AppCompatActivity() {
 //    lateinit var edt_komen : EditText
 
 
-    private val TAG = DetailOrderRenovKonsumen::class.java!!.getSimpleName()
+    private val TAG = DetailOrderRenovKonsumen::class.java.getSimpleName()
 
+    val URL_rate = "http://rapih.id/api/updateorderkonsumen.php"
 
 
 
@@ -64,6 +66,7 @@ class DetailOrderRenovKonsumen : AppCompatActivity() {
         txt_dp = findViewById(R.id.txtdpdetailorderrenov)
         txt_email = findViewById(R.id.txtemaildetailorderrenov)
         img_back = findViewById(R.id.imgbackdetailorderrenov)
+        btn_ok = findViewById(R.id.btnokdetailorderrenov)
 //        rb = findViewById(R.id.ratingBar)
 //        edt_komen = findViewById(R.id.edtKomen)
 
@@ -93,6 +96,110 @@ class DetailOrderRenovKonsumen : AppCompatActivity() {
          txt_lokasi.setText("Detail Pekerjaan : " + orderkonsumenrenov.detail_pekerjaan)
          txt_tgl.setText("Anggaran Proyek : " + orderkonsumenrenov.anggaran_proyek)
          txt_dp.setText("detail pekerjaan : " + orderkonsumenrenov.detail_pekerjaan)
+
+        if (orderkonsumenrenov.getStatus().equals("wait")) {
+            btn_ok.setText("Menunggu Konfirmasi Teknisi")
+            btn_ok.setBackgroundColor(Color.GRAY)
+            btn_ok.setTextColor(Color.WHITE)
+            btn_ok.isEnabled = false
+
+        }else if (orderkonsumenrenov.getStatus().equals("konf")){
+            btn_ok.setText("Teknisi akan menghubungimu")
+            btn_ok.setBackgroundColor(Color.RED)
+            btn_ok.setTextColor(Color.WHITE)
+            btn_ok.isEnabled = false
+
+
+        } else if (orderkonsumenrenov.status.equals("done")){
+            btn_ok.setText("Beri Ulasan")
+            btn_ok.setBackgroundColor(Color.GREEN)
+            btn_ok.setTextColor(Color.WHITE)
+            btn_ok.isEnabled = true
+            btn_ok.setOnClickListener {
+                val dialog : AlertDialog = AlertDialog.Builder(this).create()
+                val mDialogView = LayoutInflater.from(this).inflate(R.layout.rating, null)
+                val mBuilder = AlertDialog.Builder(this)
+                    .setView(mDialogView)
+                    .setTitle("Beri Ulasan")
+
+                val mAlertDialog = mBuilder.show()
+
+
+
+                mDialogView.btnRating.setOnClickListener {
+
+                    mAlertDialog.dismiss()
+                    val loading = ProgressDialog(this)
+                    loading.setCancelable(false)
+                    loading.setMessage("Mohon Menunggu...")
+                    loading.show()
+
+                    val konsumen =
+                        Gson().fromJson(getIntent().getStringExtra("datarenov"), OrderKonsumen::class.java)
+
+                    val id : String = konsumen.id
+                    val id_konsumen: String = konsumen.id_konsumen.toString()
+                    val id_mitra: String = konsumen.id_mitra.toString()
+                    var komen: String = mDialogView.edtKomen.text.toString()
+                    var rating = mDialogView.ratingBar.getRating().toString()
+
+
+                    val stringRequest = object : StringRequest(
+                        Request.Method.POST, URL_rate,
+                        Response.Listener<String> { response ->
+
+                            Log.e(TAG, "penyelesaian order Response: $response")
+
+                            loading.dismiss()
+                            Toast.makeText(
+                                getApplicationContext(),
+                                "order telah selesai",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            onBackPressed()
+
+                        },
+                        object : Response.ErrorListener {
+                            override fun onErrorResponse(volleyError: VolleyError) {
+                                loading.dismiss()
+                                Toast.makeText(
+                                    applicationContext,
+                                    volleyError.message,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        })
+                    {
+                        @Throws(AuthFailureError::class)
+                        override fun getParams(): Map<String, String> {
+                            val params = HashMap<String, String>()
+                            params.put("id",id)
+                            params.put("id_konsumen", id_konsumen)
+                            params.put("id_mitra", id_mitra)
+                            params.put("rating", rating)
+                            params.put("komentar",komen)
+                            return params
+                        }
+                    }
+
+                    //adding request to queue
+                    AppController.getInstance().addToRequestQueue(stringRequest)
+
+
+                }
+                mDialogView.btnCancel.setOnClickListener {
+                    mAlertDialog.dismiss()
+                }
+
+                mAlertDialog.show()
+            }
+
+        }else if (orderkonsumenrenov.status.equals("selesai")){
+            btn_ok.setText("Orderan Selesai")
+            btn_ok.setBackgroundColor(Color.GRAY)
+            btn_ok.isEnabled = false
+
+        }
 
 
     }

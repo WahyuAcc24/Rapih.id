@@ -84,7 +84,7 @@
                 android:layout_height="60dp"
                 android:textColor="#1d26d4"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Deskripsi Pekerjaan"
+                android:hint="Deskripsi Pekerjaan *wajib diisi "
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/edtdeskripsikerjaan"
@@ -113,7 +113,7 @@
                 android:layout_height="60dp"
                 android:textColor="#1d26d4"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Estimasi Proyek Dimulai"
+                android:hint="Estimasi Proyek Dimulai *wajib diisi"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/edttglproyek"
@@ -152,7 +152,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Estimasi Anggaran Proyek"
+                android:hint="Estimasi Anggaran Proyek *wajib diisi"
                 android:textColor="#1d26d4"
 
                 />
@@ -187,7 +187,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Pilih Lokasi Proyek"
+                android:hint="Pilih Lokasi Proyek *wajib diisi"
                 android:textColor="#1d26d4"
 
                 />
@@ -227,7 +227,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Deskripsi alamat"
+                android:hint="Deskripsi alamat *wajib diisi"
                 android:textColor="#1d26d4"
 
                 />

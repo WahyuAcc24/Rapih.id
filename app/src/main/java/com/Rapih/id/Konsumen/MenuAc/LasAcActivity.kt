@@ -26,53 +26,53 @@ class LasAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, T
         const val KEY_MAP = "lokasi_user"
     }
 
-    lateinit var sp_jp: Spinner
-    lateinit var sp_las : Spinner
-    lateinit var sp_las2 : Spinner
-    lateinit var txt_jmlh3: TextView
-    lateinit var txt_jmlh4: TextView
-    lateinit var txt_email: TextView
+    private lateinit var sp_jp: Spinner
+    private lateinit var sp_las : Spinner
+    private lateinit var sp_las2 : Spinner
+    private lateinit var txt_jmlh3: TextView
+    private lateinit var txt_jmlh4: TextView
+    private lateinit var txt_email: TextView
 
 
-    lateinit var btn_plus3: Button
-    lateinit var btn_minus3: Button
+    private lateinit var btn_plus3: Button
+    private lateinit var btn_minus3: Button
 
-    lateinit var btn_plus4: Button
-    lateinit var btn_minus4: Button
-    lateinit var img_back: ImageView
+    private lateinit var btn_plus4: Button
+    private lateinit var btn_minus4: Button
+    private lateinit var img_back: ImageView
 
-    lateinit var edt_maps_ac: EditText
-    lateinit var edt_dp: EditText
+    private lateinit var edt_maps_ac: EditText
+    private lateinit var edt_dp: EditText
 
-    lateinit var edt_tgl: EditText
-    lateinit var txt_total: TextView
+    private lateinit var edt_tgl: EditText
+    private lateinit var txt_total: TextView
 
-    lateinit var btn_req: Button
-
-
-    var selectValueLas: Int = 0
-    var selectValueLas2: Int = 0
-
-    var r4: Int = 0
-    var r5: Int = 0
-    var r6: Int = 0
-
-    var quantity3: Int = 0
-    var quantity4: Int = 0
+    private lateinit var btn_req: Button
 
 
-    var values_las = intArrayOf(0,95000)
-    var values_las2 = intArrayOf(0,495000)
+    private var selectValueLas: Int = 0
+    private var selectValueLas2: Int = 0
 
-    var jumlah_ac3: Int = 0
-    var jumlah_ac4: Int = 0
+    private var r4: Int = 0
+    private var r5: Int = 0
+    private var r6: Int = 0
 
-    var las: Int = 0
-    var las2: Int = 0
+    private var quantity3: Int = 0
+    private var quantity4: Int = 0
+
+
+    private var values_las = intArrayOf(0,95000)
+    private var values_las2 = intArrayOf(0,495000)
+
+    private var jumlah_ac3: Int = 0
+    private var jumlah_ac4: Int = 0
+
+    private var las: Int = 0
+    private var las2: Int = 0
 
     private var dateFormatter: SimpleDateFormat? = null
 
-    var cal = Calendar.getInstance()
+    private var cal = Calendar.getInstance()
 
     private var userLocation: UserLocation? = null
 
@@ -197,6 +197,26 @@ class LasAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, T
         sp_las2.setOnItemSelectedListener(this)
         sp_las2.getBackground()
             .setColorFilter(getResources().getColor(R.color.birulain), PorterDuff.Mode.SRC_ATOP)
+
+        btn_req.setOnClickListener {
+
+
+            val intent: Intent = Intent(this@LasAcActivity, OrderLasAcActivity::class.java)
+            intent.putExtra("jenis_properti_las_ac", sp_jp.selectedItem.toString())
+            intent.putExtra("las_ac_1pk", sp_las.selectedItem.toString())
+            intent.putExtra("las_ac_2pk", sp_las2.selectedItem.toString())
+            intent.putExtra("jumlah_ac_1pk", txt_jmlh3.text.toString())
+            intent.putExtra("jumlah_ac_2pk", txt_jmlh4.text.toString())
+            intent.putExtra("user_location_ac", userLocation)
+            intent.putExtra("tanggal", edt_tgl.text.toString())
+            intent.putExtra("deskripsi_ac", edt_dp.text.toString())
+            intent.putExtra("total_harga", txt_total.text.toString())
+            startActivity(intent)
+
+        }
+
+
+
 
     }
     private fun tambah3() {

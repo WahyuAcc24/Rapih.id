@@ -25,7 +25,7 @@
             android:src="@drawable/ic_back"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:id="@+id/imgbackdetailordercuciac"
+            android:id="@+id/imgbackdetailordercuciacmitra"
             />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="email"
             android:layout_gravity="bottom"
-            android:id="@+id/txtemaildetailordercuciac"
+            android:id="@+id/txtemaildetailordercuciacmitra"
             android:textColor="#1d26d4"
             android:layout_marginStart="10dp"
             android:layout_weight="10"
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder1pkcuciac"
+        android:id="@+id/txtdetailorder1pkcuciacmitra"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -55,7 +55,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja1pkdetailordercuciac"
+        android:id="@+id/txtja1pkdetailordercuciacmitra"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -66,7 +66,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder2pkcuciac"
+        android:id="@+id/txtdetailorder2pkcuciacmitra"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -78,7 +78,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja2pkdetailordercuciac"
+        android:id="@+id/txtja2pkdetailordercuciacmitra"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -90,7 +90,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailjenisproperticuciac"
+        android:id="@+id/txtdetailjenisproperticuciacmitra"
         android:text="jenis properti"
         android:textColor="#000"
         android:textSize="15sp"
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtlokasidetailordercuciac"
+        android:id="@+id/txtlokasidetailordercuciacmitra"
         android:text="lokasi anda"
         android:textColor="#000"
         android:textSize="15sp"
@@ -113,7 +113,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttgldetailordercuciac"
+        android:id="@+id/txttgldetailordercuciacmitra"
         android:text="tanggal"
         android:textColor="#000"
         android:textSize="15sp"
@@ -124,7 +124,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdpdetailordercuciac"
+        android:id="@+id/txtdpdetailordercuciacmitra"
         android:text="deskripsi pekerjaan"
         android:textColor="#000"
         android:textSize="15sp"
@@ -135,7 +135,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttotaldetailordercuciac"
+        android:id="@+id/txttotaldetailordercuciacmitra"
         android:text="total harga"
         android:textColor="#000"
         android:textSize="15sp"
@@ -147,7 +147,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtnohpdetailordercuciac"
+        android:id="@+id/txtnohpdetailordercuciacmitra"
         android:text="No hp"
         android:textColor="#000"
         android:textSize="15sp"
@@ -160,7 +160,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/btnokdetailordercuciac"
+        android:id="@+id/btnokdetailordercuciacmitra"
         android:background="@drawable/button_login"
         android:text="ok"
         android:textColor="#fff"

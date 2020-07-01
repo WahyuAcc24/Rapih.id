@@ -37,6 +37,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
         holder.txtJp.setText(historis.get(position).getJenis_properti());
         holder.txtTgl.setText(historis.get(position).getWaktu_pengerjaan());
         holder.txtDp.setText(historis.get(position).getDetail_pekerjaan());
+        holder.txtStatus.setText(historis.get(position).getStatus());
+
 
 
         holder.item.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +64,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
     class Holder extends RecyclerView.ViewHolder {
 
         private ImageView imgFoto;
-        private TextView txtJp,  txtDp, txtTgl;
+        private TextView txtJp,  txtDp, txtTgl, txtStatus;
         private LinearLayout item;
 
         public Holder(View itemView) {
@@ -72,6 +74,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
             txtJp = itemView.findViewById(R.id.txtjp);
             txtDp = itemView.findViewById(R.id.txtdp);
             txtTgl = itemView.findViewById(R.id.txttgl);
+            txtStatus = itemView.findViewById(R.id.txtstatuskonsrenov);
 
         }
     }

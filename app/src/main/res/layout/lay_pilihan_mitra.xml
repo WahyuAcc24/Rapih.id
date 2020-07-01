@@ -11,7 +11,10 @@
         android:layout_height="300dp"
         android:src="@drawable/rapih_icon"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="40dp"
+        android:id="@+id/imglogoorang"
         />
 
     <TextView
@@ -24,6 +27,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/txtinfo1"
+        android:layout_below="@+id/imglogoorang"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -38,41 +42,81 @@
         android:id="@+id/txtinfo2"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtinfo2"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+        <ImageView
+            android:id="@+id/imgmitrabu"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/iconmitrabu"
+            android:layout_gravity="center_horizontal"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mitra Badan Usaha"
+            android:textColor="#000"
+            android:layout_gravity="center_horizontal"
+            />
+        </LinearLayout>
 
 <LinearLayout
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_below="@+id/txtinfo2"
-    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:layout_weight="1"
     >
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:id="@+id/imgmitrasingle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        <ImageView
+            android:id="@+id/imgmitraac"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/iconmitraac"
 
-        android:src="@drawable/iconmitrasingle"
-        />
+            android:layout_gravity="center_horizontal"
 
-    <ImageView
-        android:id="@+id/imgmitrabu"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/iconmitrabu"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mitra Ac"
+            android:textColor="#000"
+            android:layout_gravity="center_horizontal"
+            />
 
-        />
-    <ImageView
-        android:id="@+id/imgmitraac"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/iconmitraac"
-
-        />
 
 </LinearLayout>
+    </LinearLayout>
+
+
+
+<!--    <ImageView-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:id="@+id/imgmitrasingle"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="30dp"-->
+
+<!--        android:src="@drawable/iconmitrasingle"-->
+<!--        />-->
+
+
+
 </RelativeLayout>

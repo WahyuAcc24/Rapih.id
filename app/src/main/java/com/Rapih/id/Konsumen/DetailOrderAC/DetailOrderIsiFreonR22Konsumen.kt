@@ -22,7 +22,7 @@ import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.rating.view.*
 import java.util.HashMap
 
-class DetailOrderFreonR22Konsumen : AppCompatActivity() {
+class DetailOrderIsiFreonR22Konsumen : AppCompatActivity() {
 
 
     lateinit var txt_order_ac : TextView
@@ -46,34 +46,34 @@ class DetailOrderFreonR22Konsumen : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderFreonR22Konsumen::class.java.getSimpleName()
+    private val TAG = DetailOrderIsiFreonR22Konsumen::class.java.getSimpleName()
 
-    val URL_rate = "http://rapih.id/api/freon_r22/updateorderfreonr22konsumen.php"
+    val URL_rate = "http://rapih.id/api/isi_freon_r22/updateorderisifreonr22konsumen.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_freon_r22_konsumen)
+        setContentView(R.layout.lay_detail_order_isi_freon_r22_konsumen)
 
 
-        txt_jp = findViewById(R.id.txtdetailjenispropertifreonr22)
-        txt_order_ac = findViewById(R.id.txtdetailorder1pkfreonr22)
-        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkfreonr22)
+        txt_jp = findViewById(R.id.txtdetailjenispropertiisifreonr22)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkisifreonr22)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkisifreonr22)
 
-        txt_ja = findViewById(R.id.txtja1pkdetailorderfreonr22)
-        txt_ja2 = findViewById(R.id.txtja2pkdetailorderfreonr22)
-        txt_lokasi = findViewById(R.id.txtlokasidetailorderac)
-        txt_tgl = findViewById(R.id.txttgldetailorderfreonr22)
-        txt_dp = findViewById(R.id.txtdpdetailorderfreonr22)
-        txt_total = findViewById(R.id.txttotaldetailorderfreonr22)
-        txt_email = findViewById(R.id.txtemaildetailorderfreonr22)
-        img_back = findViewById(R.id.imgbackdetailorderfreonr22)
-        btn_ok = findViewById(R.id.btnokdetailorderfreonr22)
+        txt_ja = findViewById(R.id.txtja1pkdetailorderisifreonr22)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderisifreonr22)
+        txt_lokasi = findViewById(R.id.txtlokasidetailorderisifreonr22)
+        txt_tgl = findViewById(R.id.txttgldetailorderisifreonr22)
+        txt_dp = findViewById(R.id.txtdpdetailorderisifreonr22)
+        txt_total = findViewById(R.id.txttotaldetailorderisifreonr22)
+        txt_email = findViewById(R.id.txtemaildetailorderisifreonr22)
+        img_back = findViewById(R.id.imgbackdetailorderisifreonr22)
+        btn_ok = findViewById(R.id.btnokdetailorderisifreonr22)
 //        rb = findViewById(R.id.ratingBar)
 //        edt_komen = findViewById(R.id.edtKomen)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailorderfreonr22)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderisifreonr22)
 
 
 
@@ -99,7 +99,7 @@ class DetailOrderFreonR22Konsumen : AppCompatActivity() {
          txt_ja2.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_2pk)
          txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
          txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
          txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 

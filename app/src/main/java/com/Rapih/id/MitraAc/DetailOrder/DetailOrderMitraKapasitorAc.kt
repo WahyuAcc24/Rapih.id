@@ -20,7 +20,7 @@ import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
 
-class DetailOrderMitraLasAc : AppCompatActivity() {
+class DetailOrderMitraKapasitorAc : AppCompatActivity() {
 
 
     lateinit var txt_order_ac : TextView
@@ -43,31 +43,31 @@ class DetailOrderMitraLasAc : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderMitraLasAc::class.java.getSimpleName()
+    private val TAG = DetailOrderMitraKapasitorAc::class.java.getSimpleName()
 
-    val URL_konf = "http://rapih.id/api/las_ac/updateorderlasacmitra.php"
-    val URL_kelar = "http://rapih.id/api/las_ac/konforderlasacmitra.php"
+    val URL_konf = "http://rapih.id/api/kapasitor_ac/updateorderkapsacmitra.php"
+    val URL_kelar = "http://rapih.id/api/kapasitor_ac/konforderkapsacmitra.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_las_ac_mitra)
+        setContentView(R.layout.lay_detail_order_kaps_ac_mitra)
 
-        txt_jp = findViewById(R.id.txtdetailjenispropertilasacmitra)
-        txt_order_ac = findViewById(R.id.txtdetailorder1pklasacmitra)
-        txt_order_ac2 = findViewById(R.id.txtdetailorder2pklasacmitra)
-        txt_ja = findViewById(R.id.txtja1pkdetailorderlasacmitra)
-        txt_ja2 = findViewById(R.id.txtja2pkdetailorderlasacmitra)
-        txt_lokasi = findViewById(R.id.txtlokasidetailorderlasacmitra)
-        txt_tgl = findViewById(R.id.txttgldetailorderlasacmitra)
-        txt_dp = findViewById(R.id.txtdpdetailorderlasacmitra)
-        txt_total = findViewById(R.id.txttotaldetailorderlasacmitra)
-        txt_email = findViewById(R.id.txtemaildetailorderlasacmitra)
-        img_back = findViewById(R.id.imgbackdetailorderlasacmitra)
-        btn_ok = findViewById(R.id.btnokdetailorderlasacmitra)
+        txt_jp = findViewById(R.id.txtdetailjenispropertikapsacmitra)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkkapsacmitra)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkkapsacmitra)
+        txt_ja = findViewById(R.id.txtja1pkdetailorderkapsacmitra)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderkapsacmitra)
+        txt_lokasi = findViewById(R.id.txtlokasidetailorderkapsacmitra)
+        txt_tgl = findViewById(R.id.txttgldetailorderkapsacmitra)
+        txt_dp = findViewById(R.id.txtdpdetailorderkapsacmitra)
+        txt_total = findViewById(R.id.txttotaldetailorderkapsacmitra)
+        txt_email = findViewById(R.id.txtemaildetailorderkapsacmitra)
+        img_back = findViewById(R.id.imgbackdetailorderkapsacmitra)
+        btn_ok = findViewById(R.id.btnokdetailorderkapsacmitra)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailorderlasacmitra)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderkapsacmitra)
 
 
         txt_email.setText(Rak.grab("emailmitraac") as String)
@@ -91,7 +91,7 @@ class DetailOrderMitraLasAc : AppCompatActivity() {
         txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
         txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
         txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
         txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 //
@@ -155,7 +155,7 @@ class DetailOrderMitraLasAc : AppCompatActivity() {
                     .setPositiveButton("iya", object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, which: Int) {
 
-                        val loading = ProgressDialog(this@DetailOrderMitraLasAc)
+                        val loading = ProgressDialog(this@DetailOrderMitraKapasitorAc)
                         loading.setCancelable(false)
                         loading.setMessage("proses penyelesaian order...")
                         loading.show()

@@ -1,4 +1,4 @@
-package com.Rapih.id.Konsumen.DetailOrder
+package com.Rapih.id.Konsumen.DetailOrderAC
 
 import android.app.ProgressDialog
 import android.graphics.Color
@@ -9,7 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapih.id.AppController
-import com.Rapih.id.Model.OrderKonsumenAc
+import com.Rapih.id.Model.OrderKonsumenCekAc
 import com.Rapih.id.R
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -51,7 +51,7 @@ class DetailOrderCekAcKonsumen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_ac_konsumen)
+        setContentView(R.layout.lay_detail_order_cek_ac_konsumen)
 
 
         txt_jp = findViewById(R.id.txtdetailjenisproperti)
@@ -79,7 +79,7 @@ class DetailOrderCekAcKonsumen : AppCompatActivity() {
         }
 
 
-        val orderkonsumenac = Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenAc::class.java)
+        val orderkonsumenac = Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenCekAc::class.java)
 
 
 
@@ -132,7 +132,7 @@ class DetailOrderCekAcKonsumen : AppCompatActivity() {
                     loading.show()
 
                     val konsumenac =
-                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenAc::class.java)
+                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenCekAc::class.java)
 
                     val id : String = konsumenac.id
                     val id_konsumen_ac: String = konsumenac.id_konsumen_ac.toString()

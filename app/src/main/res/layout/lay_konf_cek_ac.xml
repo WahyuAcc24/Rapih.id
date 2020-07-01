@@ -19,21 +19,21 @@
             android:layout_marginTop="10dp"
             android:id="@+id/lntop"
             >
+
             <ImageView
+                android:id="@+id/imgbackkonfcekac"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_back"
+                android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:id="@+id/imgbackackonf"
-                />
+                android:src="@drawable/ic_back" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="email"
                 android:layout_gravity="bottom"
-                android:id="@+id/txtemailkonsumenacOrderac"
+                android:id="@+id/txtemailkonsumenacOrdercekac"
                 android:textColor="#1d26d4"
                 android:layout_marginStart="10dp"
                 android:layout_weight="10"
@@ -91,7 +91,7 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.1"
-                android:id="@+id/txtjenispropertiac"
+                android:id="@+id/txtjenisproperticekac"
                 android:textAlignment="center"
 
                 />
@@ -103,139 +103,84 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.1"
-                android:id="@+id/txtWaktuPengerjaanac"
+                android:id="@+id/txtWaktuPengerjaancekac"
                 android:textAlignment="center"
 
                 />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="30dp"
-            >
+
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rincinan Order"
+                android:text="Rincian Order :"
                 android:textColor="#1d26d4"
-                android:textSize="15sp"
-                android:layout_gravity="left"
-
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="perbaikan ac"
-                android:textColor="@color/colorAccent"
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
-                android:layout_weight="0.5"
-                android:id="@+id/txtperbaikanac"
+                android:layout_weight="1"
                 android:textAlignment="center"
-                android:layout_gravity="center"
-
-
-                />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bongkar pasang"
-                android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
-                android:textSize="15sp"
-                android:layout_weight="0.5"
-                android:id="@+id/txtbpac"
-                android:textAlignment="center"
-                android:layout_gravity="center"
-
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cuci ac"
-                android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
-                android:textSize="15sp"
-                android:layout_weight="0.5"
-                android:id="@+id/txtcuciac"
-                android:textAlignment="center"
-                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
 
 
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="freon"
+                android:text="text"
                 android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
                 android:textSize="15sp"
-                android:layout_weight="0.5"
-                android:id="@+id/txtfreon"
+                android:layout_marginTop="30dp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtcekac"
                 android:textAlignment="center"
-                android:layout_gravity="center"
-
-
+                android:layout_gravity="center_horizontal"
                 />
 
-
-
-
-
-
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+
             >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jumlah AC"
+                android:text="Jumlah Ac:"
                 android:textColor="#1d26d4"
-                android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:textAlignment="center"
+                android:layout_marginStart="5dp"
 
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="jml ac"
+                android:text="text"
                 android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
                 android:textSize="15sp"
-                android:layout_weight="0.5"
-                android:id="@+id/txtjmlac"
+                android:layout_weight="0.1"
+                android:id="@+id/txtjmlhcekac"
                 android:textAlignment="center"
 
-
                 />
-
-
-
         </LinearLayout>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:layout_weight="1"
             android:text="Detail Pekerjaan :"
             android:textAlignment="center"
             android:textColor="#1d26d4"
             android:textSize="15sp"
+            android:layout_marginStart="5dp"
 
             />
 
@@ -246,7 +191,7 @@
             android:textColor="@color/colorAccent"
             android:layout_marginTop="5dp"
             android:textSize="15sp"
-            android:id="@+id/txtDetailPekerjaanac"
+            android:id="@+id/txtDetailPekerjaancekac"
             android:layout_weight="1"
             android:textAlignment="center"
             android:layout_gravity="center"
@@ -267,6 +212,7 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:textAlignment="center"
+                android:layout_marginStart="5dp"
 
                 />
             <TextView
@@ -277,7 +223,7 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.5"
-                android:id="@+id/txthargaac"
+                android:id="@+id/txthargakonfcekac"
                 android:textAlignment="center"
 
 
@@ -304,7 +250,7 @@
 
             <EditText
 
-                android:id="@+id/edtmapslokasiac"
+                android:id="@+id/edtmapslokasicekac"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_centerHorizontal="true"
@@ -322,7 +268,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnAjukanPesananAc"
+            android:id="@+id/btnAjukanPesananCekAc"
             android:background="@drawable/button_login"
             android:layout_marginTop="40dp"
             android:text="Ajukan Pemesanan"

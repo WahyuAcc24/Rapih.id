@@ -71,9 +71,9 @@ class FragmentNavPesananRenov : Fragment(){
 
         Log.d("TAG", url)
 
-        lstHistori = getView()?.findViewById(R.id.rvListOrder) as RecyclerView
+        lstHistori = getView()?.findViewById(R.id.rvListOrderRenov) as RecyclerView
 
-        pglist = getView()?.findViewById(R.id.progressBar) as ProgressBar
+        pglist = getView()?.findViewById(R.id.progressBarRenov) as ProgressBar
 
         swLayout = view.findViewById(R.id.swipehistoryrenov)
 
@@ -142,11 +142,11 @@ class FragmentNavPesananRenov : Fragment(){
         override fun onResponse(response:String) {
             Log.e("TAG", response)
             var collectionType: Type = object:TypeToken<OrderStatus<OrderKonsumen>>(){}.type
-            var order : OrderStatus<OrderKonsumen>? = Gson().fromJson(response, collectionType) as? OrderStatus<OrderKonsumen>
+            var order : OrderStatus<OrderKonsumen> = Gson().fromJson(response, collectionType) as OrderStatus<OrderKonsumen>
 
-            if (order!!.isStatus){
+            if (order.isStatus){
                 try {
-                    pglist = view?.findViewById(R.id.progressBar) as ProgressBar
+                    pglist = view?.findViewById(R.id.progressBarRenov) as ProgressBar
                     pglist.setVisibility(View.GONE)
 
                     adapter = HistoryAdapter(order.dataKons)

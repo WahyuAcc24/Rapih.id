@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:id="@+id/framemitrabu"
+
+    >
+
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="false"
+        android:layout_centerInParent="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email"
+                android:textColor="#1d26d4"
+                android:id="@+id/txtemailmitrabu"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="namaku"
+                android:textColor="#1d26d4"
+                android:layout_alignParentRight="true"
+                android:id="@+id/txtnamamitrabu"/>
+
+<!--            <include-->
+<!--                layout="@layout/lay_jumbotron"-->
+<!--                android:id= "@+id/baner"-->
+
+<!--                />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/carouselView"
+                android:layout_marginTop="10dp"
+                android:id="@+id/lnmenu"
+
+
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:layout_marginTop="50dp"
+
+                    >
+
+                <ImageView
+                    android:id="@+id/imguserhome"
+                    android:layout_width="80dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/imgusermitrahome"
+
+                    />
+                    <ImageView
+                        android:id="@+id/imgrating"
+                        android:layout_width="50dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/iconratingmitra"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.0"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="15sp"
+                        android:textColor="#000"
+                        android:gravity="center"
+                        android:id="@+id/txtratingmitrabu"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/lnmenu"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:id="@+id/rvbanerbawahmitrabu"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_below="@id/rvbanerbawahmitrabu"
+                />
+
+
+
+
+            <!--            <fragment-->
+<!--                android:id="@+id/nav_host_fragment"-->
+<!--                android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:defaultNavHost="true"-->
+<!--                app:navGraph="@navigation/mobile_navigation" />-->
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+</FrameLayout>
+

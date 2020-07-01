@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:id="@+id/lntop"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:id="@+id/imgbackdetailorderrenovmitra"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email"
+            android:layout_gravity="bottom"
+            android:id="@+id/txtemaildetailorderrenovmitra"
+            android:textColor="#1d26d4"
+            android:layout_marginStart="10dp"
+            android:layout_weight="10"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtpadetailorderrenovmitra"
+        android:text="perbaikan ac"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtbpacdetailorderrenovmitra"
+        android:text="bongkar pasang ac"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtcadetailorderrenovmitra"
+        android:text="cuci ac"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtfreondetailorderrenovmitra"
+        android:text="freon"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtjadetailorderrenovmitra"
+        android:text="jumlah ac"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtlokasidetailorderrenovmitra"
+        android:text="lokasi anda"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txttgldetailorderrenovmitra"
+        android:text="tanggal"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtdpdetailorderrenovmitra"
+        android:text="deskripsi pekerjaan"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtnohpdetailorderrenovmitra"
+        android:text="No hp"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btnokdetailorderrenovmitra"
+        android:background="@drawable/button_login"
+        android:text="ok"
+        android:textColor="#fff"
+        android:layout_marginTop="30dp"
+        />
+
+</LinearLayout>
+</ScrollView>

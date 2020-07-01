@@ -20,7 +20,7 @@ import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
 
-class DetailOrderMitraFreonR22 : AppCompatActivity() {
+class DetailOrderMitraFreonR32 : AppCompatActivity() {
 
 
     lateinit var txt_order_ac : TextView
@@ -43,31 +43,31 @@ class DetailOrderMitraFreonR22 : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderMitraFreonR22::class.java.getSimpleName()
+    private val TAG = DetailOrderMitraFreonR32::class.java.getSimpleName()
 
-    val URL_konf = "http://rapih.id/api/freon_r22/updateorderfreonr22mitra.php"
-    val URL_kelar = "http://rapih.id/api/las_ac/konforderfreonr22mitra.php"
+    val URL_konf = "http://rapih.id/api/freon_r32/updateorderfreonr32mitra.php"
+    val URL_kelar = "http://rapih.id/api/freon_r32/konforderfreonr32mitra.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_freon_r22_mitra)
+        setContentView(R.layout.lay_detail_order_freon_r32_mitra)
 
-        txt_jp = findViewById(R.id.txtdetailjenispropertifreonr22mitra)
-        txt_order_ac = findViewById(R.id.txtdetailorder1pkfreonr22mitra)
-        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkfreonr22mitra)
-        txt_ja = findViewById(R.id.txtja1pkdetailorderfreonr22mitra)
-        txt_ja2 = findViewById(R.id.txtja2pkdetailorderfreonr22mitra)
-        txt_lokasi = findViewById(R.id.txtlokasidetailorderfreonr22mitra)
-        txt_tgl = findViewById(R.id.txttgldetailorderfreonr22mitra)
-        txt_dp = findViewById(R.id.txtdpdetailorderfreonr22mitra)
-        txt_total = findViewById(R.id.txttotaldetailorderfreonr22mitra)
-        txt_email = findViewById(R.id.txtemaildetailorderfreonr22mitra)
-        img_back = findViewById(R.id.imgbackdetailorderfreonr22mitra)
-        btn_ok = findViewById(R.id.btnokdetailorderfreonr22mitra)
+        txt_jp = findViewById(R.id.txtdetailjenispropertifreonr32mitra)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkfreonr32mitra)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkfreonr32mitra)
+        txt_ja = findViewById(R.id.txtja1pkdetailorderfreonr32mitra)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderfreonr32mitra)
+        txt_lokasi = findViewById(R.id.txtlokasidetailorderfreonr32mitra)
+        txt_tgl = findViewById(R.id.txttgldetailorderfreonr32mitra)
+        txt_dp = findViewById(R.id.txtdpdetailorderfreonr32mitra)
+        txt_total = findViewById(R.id.txttotaldetailorderfreonr32mitra)
+        txt_email = findViewById(R.id.txtemaildetailorderfreonr32mitra)
+        img_back = findViewById(R.id.imgbackdetailorderfreonr32mitra)
+        btn_ok = findViewById(R.id.btnokdetailorderfreonr32mitra)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailorderfreonr22mitra)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderfreonr32mitra)
 
 
         txt_email.setText(Rak.grab("emailmitraac") as String)
@@ -91,7 +91,7 @@ class DetailOrderMitraFreonR22 : AppCompatActivity() {
         txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
         txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
         txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
         txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 //
@@ -155,7 +155,7 @@ class DetailOrderMitraFreonR22 : AppCompatActivity() {
                     .setPositiveButton("iya", object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, which: Int) {
 
-                        val loading = ProgressDialog(this@DetailOrderMitraFreonR22)
+                        val loading = ProgressDialog(this@DetailOrderMitraFreonR32)
                         loading.setCancelable(false)
                         loading.setMessage("proses penyelesaian order...")
                         loading.show()

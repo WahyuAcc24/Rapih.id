@@ -24,53 +24,53 @@ class CuciAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, 
         const val KEY_MAP = "lokasi_user"
     }
 
-    lateinit var sp_jp: Spinner
-    lateinit var sp_ca : Spinner
-    lateinit var sp_caa : Spinner
-    lateinit var txt_jmlh: TextView
-    lateinit var txt_jmlh2: TextView
+    private lateinit var sp_jp: Spinner
+    private lateinit var sp_ca : Spinner
+    private lateinit var sp_caa : Spinner
+    private lateinit var txt_jmlh: TextView
+    private lateinit var txt_jmlh2: TextView
 
-    lateinit var txt_email: TextView
-
-
-    lateinit var btn_plus: Button
-    lateinit var btn_minus: Button
-
-    lateinit var btn_plus2: Button
-    lateinit var btn_minus2: Button
-    lateinit var img_back: ImageView
-
-    lateinit var edt_maps_ac: EditText
-    lateinit var edt_dp: EditText
-
-    lateinit var edt_tgl: EditText
-    lateinit var txt_total: TextView
-
-    lateinit var btn_req: Button
+    private lateinit var txt_email: TextView
 
 
-    var selectValueCuciAc: Int = 0
-    var selectValueCuciAc2: Int = 0
+    private lateinit var btn_plus: Button
+    private lateinit var btn_minus: Button
 
-    var r: Int = 0
-    var r2: Int = 0
-    var r3: Int = 0
+    private lateinit var btn_plus2: Button
+    private lateinit var btn_minus2: Button
+    private lateinit var img_back: ImageView
 
-    var quantity: Int = 0
-    var quantity2: Int = 0
+    private lateinit var edt_maps_ac: EditText
+    private lateinit var edt_dp: EditText
+
+    private lateinit var edt_tgl: EditText
+    private lateinit var txt_total: TextView
+
+    private lateinit var btn_req: Button
 
 
-    var values_cuci = intArrayOf(0,65000)
-    var values_cuci2 = intArrayOf(0,70000)
+    private var selectValueCuciAc: Int = 0
+    private var selectValueCuciAc2: Int = 0
 
-    var jumlah_ac: Int = 0
-    var jumlah_ac2: Int = 0
+    private var r: Int = 0
+    private var r2: Int = 0
+    private var r3: Int = 0
+
+    private var quantity: Int = 0
+    private var quantity2: Int = 0
+
+
+    private var values_cuci = intArrayOf(0,65000)
+    private var values_cuci2 = intArrayOf(0,70000)
+
+    private var jumlah_ac: Int = 0
+    private var jumlah_ac2: Int = 0
 
     
 
     private var dateFormatter: SimpleDateFormat? = null
 
-    var cal = Calendar.getInstance()
+    private var cal = Calendar.getInstance()
 
     private var userLocation: UserLocation? = null
 
@@ -126,6 +126,8 @@ class CuciAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, 
         }
         txt_jmlh.addTextChangedListener(this)
         txt_jmlh2.addTextChangedListener(this)
+
+
 
         edt_tgl.isFocusable = false
 
@@ -193,6 +195,25 @@ class CuciAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, 
         sp_caa.setOnItemSelectedListener(this)
         sp_caa.getBackground()
             .setColorFilter(getResources().getColor(R.color.birulain), PorterDuff.Mode.SRC_ATOP)
+
+
+        btn_req.setOnClickListener {
+
+
+            val intent: Intent = Intent(this@CuciAcActivity, OrderCuciAcActivity::class.java)
+            intent.putExtra("jenis_properti_cuci_ac", sp_jp.selectedItem.toString())
+            intent.putExtra("cuci_ac_1pk", sp_ca.selectedItem.toString())
+            intent.putExtra("cuci_ac_2pk", sp_caa.selectedItem.toString())
+            intent.putExtra("jumlah_ac_1pk", txt_jmlh.text.toString())
+            intent.putExtra("jumlah_ac_2pk", txt_jmlh2.text.toString())
+            intent.putExtra("user_location_ac", userLocation)
+            intent.putExtra("tanggal", edt_tgl.text.toString())
+            intent.putExtra("deskripsi_ac", edt_dp.text.toString())
+            intent.putExtra("total_harga", txt_total.text.toString())
+            startActivity(intent)
+
+        }
+
 
     }
     private fun tambah() {

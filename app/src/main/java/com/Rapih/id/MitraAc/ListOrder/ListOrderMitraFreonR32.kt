@@ -20,8 +20,9 @@ import com.Rapih.id.Konsumen.DetailOrderAC.DetailOrderCekAcKonsumen
 import com.Rapih.id.Konsumen.DetailOrderAC.DetailOrderCuciAcKonsumen
 import com.Rapih.id.MitraAc.DetailOrder.DetailOrderMitraCuciAc
 import com.Rapih.id.MitraAc.DetailOrder.DetailOrderMitraFreonR22
+import com.Rapih.id.MitraAc.DetailOrder.DetailOrderMitraFreonR32
 import com.Rapih.id.MitraAc.DetailOrder.DetailOrderMitraLasAc
-import com.Rapih.id.Model.OrderAcStatus
+import com.Rapih.id.Model.OrderMitraAcStatus
 import com.Rapih.id.Model.OrderKonsumenAc
 import com.Rapih.id.Model.OrderKonsumenCekAc
 import com.Rapih.id.R
@@ -37,7 +38,7 @@ import com.google.gson.reflect.TypeToken
 import io.isfaaghyth.rak.Rak
 import java.lang.reflect.Type
 
-class ListOrderMitraFreonR22 :AppCompatActivity(){
+class ListOrderMitraFreonR32 :AppCompatActivity(){
 
 
     private lateinit var lstHistoriac : RecyclerView
@@ -59,18 +60,18 @@ class ListOrderMitraFreonR22 :AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_freon_r22_mitra)
+        setContentView(R.layout.list_freon_r32_mitra)
 
         Rak.initialize(this)
 
-        urlac = "http://rapih.id/api/freon_r22/listorderfreonr22mitra.php"
+        urlac = "http://rapih.id/api/freon_r32/listorderfreonr32mitra.php"
         Log.d("TAG", urlac)
 
-        lstHistoriac = findViewById(R.id.rvListOrderFreonR22AcMitra) as RecyclerView
+        lstHistoriac = findViewById(R.id.rvListOrderFreonR32AcMitra) as RecyclerView
 
-        pglistac = findViewById(R.id.progressBarFreonR22AcMitra) as ProgressBar
+        pglistac = findViewById(R.id.progressBarFreonR32AcMitra) as ProgressBar
 
-        swipeRefreshLayout = findViewById(R.id.swipeorderfreonr22acmitra)
+        swipeRefreshLayout = findViewById(R.id.swipeorderfreonr32acmitra)
 
         requesQueue = Volley.newRequestQueue(this)
 
@@ -107,7 +108,7 @@ class ListOrderMitraFreonR22 :AppCompatActivity(){
         val request = StringRequest(Request.Method.GET, urlac, onPostsLoaded, object : Response.ErrorListener {
             override fun onErrorResponse(error: VolleyError?) {
 
-                var inetErr: AlertDialog.Builder = AlertDialog.Builder(this@ListOrderMitraFreonR22)
+                var inetErr: AlertDialog.Builder = AlertDialog.Builder(this@ListOrderMitraFreonR32)
                 inetErr.setTitle("Terjadi Kesalahan")
                 inetErr.setMessage("Periksa Kembali Koneksi Internet Anda")
                 inetErr.setNegativeButton("Muat Ulang",object : DialogInterface.OnClickListener{
@@ -126,21 +127,21 @@ class ListOrderMitraFreonR22 :AppCompatActivity(){
     val onPostsLoaded = object: Response.Listener<String> {
         override fun onResponse(response:String) {
             Log.e("TAG", response)
-            var collectionType: Type = object: TypeToken<OrderAcStatus<OrderKonsumenAc>>(){}.type
-            var order: OrderAcStatus<OrderKonsumenAc>? = Gson().fromJson(response, collectionType) as? OrderAcStatus<OrderKonsumenAc>
+            var collectionType: Type = object: TypeToken<OrderMitraAcStatus<OrderKonsumenAc>>(){}.type
+            var order: OrderMitraAcStatus<OrderKonsumenAc>? = Gson().fromJson(response, collectionType) as? OrderMitraAcStatus<OrderKonsumenAc>
 
             if (order!!.isStatus){
                 try {
-                    pglistac = findViewById(R.id.progressBarAc) as ProgressBar
+                    pglistac = findViewById(R.id.progressBarFreonR32AcMitra) as ProgressBar
                     pglistac.setVisibility(View.GONE)
 
-                    adapter = HistoryAdapterAc(order.dataKonsAc)
+                    adapter = HistoryAdapterAc(order.dataKonsMitraAc)
 
                     adapter!!.setListener(object: ItemClickListener<OrderKonsumenAc> {
                         override fun onClicked(OrderKonsumenAc: OrderKonsumenAc?, position: Int, view: View?) {
 
-                            val intent = Intent(this@ListOrderMitraFreonR22, DetailOrderMitraFreonR22::class.java)
-                            intent.putExtra("data",Gson().toJson(OrderKonsumenAc))
+                            val intent = Intent(this@ListOrderMitraFreonR32, DetailOrderMitraFreonR32::class.java)
+                            intent.putExtra("datamitraac",Gson().toJson(OrderKonsumenAc))
                             startActivity(intent)
 
                         }

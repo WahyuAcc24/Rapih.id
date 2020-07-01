@@ -22,7 +22,7 @@ import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.rating.view.*
 import java.util.HashMap
 
-class DetailOrderKapsAcKonsumen : AppCompatActivity() {
+class DetailOrderLasAcKonsumen : AppCompatActivity() {
 
 
     lateinit var txt_order_ac : TextView
@@ -46,34 +46,34 @@ class DetailOrderKapsAcKonsumen : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderKapsAcKonsumen::class.java.getSimpleName()
+    private val TAG = DetailOrderLasAcKonsumen::class.java.getSimpleName()
 
-    val URL_rate = "http://rapih.id/api/kapasitor_ac/updateorderkapasitorackonsumen.php"
+    val URL_rate = "http://rapih.id/api/las_ac/updateorderlasackonsumen.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_kaps_ac_konsumen)
+        setContentView(R.layout.lay_detail_order_las_ac_konsumen)
 
 
-        txt_jp = findViewById(R.id.txtdetailjenispropertikapsac)
-        txt_order_ac = findViewById(R.id.txtdetailorder1pkkapsac)
-        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkkapsac)
+        txt_jp = findViewById(R.id.txtdetailjenispropertilasac)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pklasac)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pklasac)
 
-        txt_ja = findViewById(R.id.txtja1pkdetailorderkapsac)
-        txt_ja2 = findViewById(R.id.txtja2pkdetailorderkapsac)
-        txt_lokasi = findViewById(R.id.txtlokasidetailorderac)
-        txt_tgl = findViewById(R.id.txttgldetailorderkapsac)
-        txt_dp = findViewById(R.id.txtdpdetailorderkapsac)
-        txt_total = findViewById(R.id.txttotaldetailorderkapsac)
-        txt_email = findViewById(R.id.txtemaildetailorderkapsac)
-        img_back = findViewById(R.id.imgbackdetailorderkapsac)
-        btn_ok = findViewById(R.id.btnokdetailorderkapsac)
+        txt_ja = findViewById(R.id.txtja1pkdetailorderlasac)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderlasac)
+        txt_lokasi = findViewById(R.id.txtlokasidetailorderlasac)
+        txt_tgl = findViewById(R.id.txttgldetailorderlasac)
+        txt_dp = findViewById(R.id.txtdpdetailorderlasac)
+        txt_total = findViewById(R.id.txttotaldetailorderlasac)
+        txt_email = findViewById(R.id.txtemaildetailorderlasac)
+        img_back = findViewById(R.id.imgbackdetailorderlasac)
+        btn_ok = findViewById(R.id.btnokdetailorderlasac)
 //        rb = findViewById(R.id.ratingBar)
 //        edt_komen = findViewById(R.id.edtKomen)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailorderkapsac)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderlasac)
 
 
 
@@ -99,7 +99,7 @@ class DetailOrderKapsAcKonsumen : AppCompatActivity() {
          txt_ja2.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_2pk)
          txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
          txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
          txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 
@@ -141,7 +141,7 @@ class DetailOrderKapsAcKonsumen : AppCompatActivity() {
                     loading.show()
 
                     val konsumenac =
-                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenCekAc::class.java)
+                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenAc::class.java)
 
                     val id : String = konsumenac.id
                     val id_konsumen_ac: String = konsumenac.id_konsumen_ac.toString()

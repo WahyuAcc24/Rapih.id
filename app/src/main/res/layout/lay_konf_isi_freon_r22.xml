@@ -25,7 +25,7 @@
                 android:src="@drawable/ic_back"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:id="@+id/imgbackackonffreonr22"
+                android:id="@+id/imgbackkonfisifreonr22"
                 />
 
             <TextView
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="email"
                 android:layout_gravity="bottom"
-                android:id="@+id/txtemailkonsumenacOrderfreonr22"
+                android:id="@+id/txtemailkonsumenacOrderisifreonr22"
                 android:textColor="#1d26d4"
                 android:layout_marginStart="10dp"
                 android:layout_weight="10"
@@ -91,7 +91,7 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.1"
-                android:id="@+id/txtjenispropertifreonr22"
+                android:id="@+id/txtjenispropertiisifreonr22"
                 android:textAlignment="center"
 
                 />
@@ -103,19 +103,14 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.1"
-                android:id="@+id/txtWaktuPengerjaanfreonr22"
+                android:id="@+id/txtWaktuPengerjaanisifreonr22"
                 android:textAlignment="center"
 
                 />
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,36 +120,39 @@
                 android:textSize="15sp"
                 android:layout_weight="1"
                 android:textAlignment="center"
+                android:layout_marginStart="5dp"
 
 
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtisifreonr22_1pk"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+
+                />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jumlah Ac:"
                 android:textColor="#1d26d4"
-                android:layout_marginTop="30dp"
                 android:textSize="15sp"
-                android:layout_weight="1"
                 android:textAlignment="center"
-
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="text"
-                android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
-                android:textSize="15sp"
-                android:layout_weight="0.1"
-                android:id="@+id/txtfreonr22_1pk"
-                android:textAlignment="center"
+                android:layout_marginStart="5dp"
 
                 />
             <TextView
@@ -162,21 +160,15 @@
                 android:layout_height="wrap_content"
                 android:text="text"
                 android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.1"
-                android:id="@+id/txtjmlhfreonr221pk"
+                android:id="@+id/txtjmlhisifreonr221pk"
                 android:textAlignment="center"
 
                 />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -186,36 +178,41 @@
                 android:textSize="15sp"
                 android:layout_weight="1"
                 android:textAlignment="center"
+                android:layout_marginStart="5dp"
 
 
                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="30dp"
+                android:textSize="15sp"
+                android:layout_weight="0.1"
+                android:id="@+id/txtisifreonr22_2pk"
+                android:textAlignment="center"
+                android:layout_gravity="center_horizontal"
+
+                />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jumlah Ac:"
                 android:textColor="#1d26d4"
-                android:layout_marginTop="30dp"
                 android:textSize="15sp"
-                android:layout_weight="1"
                 android:textAlignment="center"
-
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="text"
-                android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
-                android:textSize="15sp"
-                android:layout_weight="0.1"
-                android:id="@+id/txtfreonr22_2pk"
-                android:textAlignment="center"
+                android:layout_marginStart="5dp"
 
                 />
             <TextView
@@ -223,10 +220,9 @@
                 android:layout_height="wrap_content"
                 android:text="text"
                 android:textColor="@color/colorAccent"
-                android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.1"
-                android:id="@+id/txtjmlhfreonr22"
+                android:id="@+id/txtjmlhisifreonr22"
                 android:textAlignment="center"
 
                 />
@@ -241,6 +237,7 @@
             android:textAlignment="center"
             android:textColor="#1d26d4"
             android:textSize="15sp"
+            android:layout_marginStart="5dp"
 
             />
 
@@ -251,7 +248,7 @@
             android:textColor="@color/colorAccent"
             android:layout_marginTop="5dp"
             android:textSize="15sp"
-            android:id="@+id/txtDetailPekerjaanfreonr22"
+            android:id="@+id/txtDetailPekerjaanisifreonr22"
             android:layout_weight="1"
             android:textAlignment="center"
             android:layout_gravity="center"
@@ -272,6 +269,7 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:textAlignment="center"
+                android:layout_marginStart="5dp"
 
                 />
             <TextView
@@ -282,7 +280,7 @@
                 android:layout_marginTop="30dp"
                 android:textSize="15sp"
                 android:layout_weight="0.5"
-                android:id="@+id/txthargafreonr22"
+                android:id="@+id/txthargaisifreonr22"
                 android:textAlignment="center"
 
 
@@ -309,7 +307,7 @@
 
             <EditText
 
-                android:id="@+id/edtmapslokasifreonr22"
+                android:id="@+id/edtmapslokasiisifreonr22"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_centerHorizontal="true"
@@ -327,7 +325,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnAjukanPesananfreonr22"
+            android:id="@+id/btnAjukanPesananisifreonr22"
             android:background="@drawable/button_login"
             android:layout_marginTop="40dp"
             android:text="Ajukan Pemesanan"

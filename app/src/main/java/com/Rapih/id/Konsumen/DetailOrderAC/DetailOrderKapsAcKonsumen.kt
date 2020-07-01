@@ -10,7 +10,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapih.id.AppController
 import com.Rapih.id.Model.OrderKonsumenAc
-import com.Rapih.id.Model.OrderKonsumenCekAc
 import com.Rapih.id.R
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -22,7 +21,7 @@ import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.rating.view.*
 import java.util.HashMap
 
-class DetailOrderCuciAcKonsumen : AppCompatActivity() {
+class DetailOrderKapsAcKonsumen : AppCompatActivity() {
 
 
     lateinit var txt_order_ac : TextView
@@ -46,34 +45,34 @@ class DetailOrderCuciAcKonsumen : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderCuciAcKonsumen::class.java.getSimpleName()
+    private val TAG = DetailOrderKapsAcKonsumen::class.java.getSimpleName()
 
-    val URL_rate = "http://rapih.id/api/cuci_ac/updateordercuciackonsumen.php"
+    val URL_rate = "http://rapih.id/api/kapasitor_ac/updateorderkapasitorackonsumen.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_cuci_ac_konsumen)
+        setContentView(R.layout.lay_detail_order_kaps_ac_konsumen)
 
 
-        txt_jp = findViewById(R.id.txtdetailjenisproperticuciac)
-        txt_order_ac = findViewById(R.id.txtdetailorder1pkcuciac)
-        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkcuciac)
+        txt_jp = findViewById(R.id.txtdetailjenispropertikapsac)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkkapsac)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkkapsac)
 
-        txt_ja = findViewById(R.id.txtja1pkdetailordercuciac)
-        txt_ja2 = findViewById(R.id.txtja2pkdetailordercuciac)
-        txt_lokasi = findViewById(R.id.txtlokasidetailorderac)
-        txt_tgl = findViewById(R.id.txttgldetailordercuciac)
-        txt_dp = findViewById(R.id.txtdpdetailordercuciac)
-        txt_total = findViewById(R.id.txttotaldetailordercuciac)
-        txt_email = findViewById(R.id.txtemaildetailordercuciac)
-        img_back = findViewById(R.id.imgbackdetailordercuciac)
-        btn_ok = findViewById(R.id.btnokdetailordercuciac)
+        txt_ja = findViewById(R.id.txtja1pkdetailorderkapsac)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailorderkapsac)
+        txt_lokasi = findViewById(R.id.txtlokasidetailorderkapsac)
+        txt_tgl = findViewById(R.id.txttgldetailorderkapsac)
+        txt_dp = findViewById(R.id.txtdpdetailorderkapsac)
+        txt_total = findViewById(R.id.txttotaldetailorderkapsac)
+        txt_email = findViewById(R.id.txtemaildetailorderkapsac)
+        img_back = findViewById(R.id.imgbackdetailorderkapsac)
+        btn_ok = findViewById(R.id.btnokdetailorderkapsac)
 //        rb = findViewById(R.id.ratingBar)
 //        edt_komen = findViewById(R.id.edtKomen)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailordercuciac)
+        txt_nohp = findViewById(R.id.txtnohpdetailorderkapsac)
 
 
 
@@ -99,7 +98,7 @@ class DetailOrderCuciAcKonsumen : AppCompatActivity() {
          txt_ja2.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_2pk)
          txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
          txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
          txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 
@@ -141,7 +140,7 @@ class DetailOrderCuciAcKonsumen : AppCompatActivity() {
                     loading.show()
 
                     val konsumenac =
-                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenCekAc::class.java)
+                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenAc::class.java)
 
                     val id : String = konsumenac.id
                     val id_konsumen_ac: String = konsumenac.id_konsumen_ac.toString()

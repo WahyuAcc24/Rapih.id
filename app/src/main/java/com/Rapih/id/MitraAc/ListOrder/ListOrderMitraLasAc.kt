@@ -19,7 +19,8 @@ import com.Rapih.id.Adapter.ItemClickListener
 import com.Rapih.id.Konsumen.DetailOrderAC.DetailOrderCekAcKonsumen
 import com.Rapih.id.Konsumen.DetailOrderAC.DetailOrderCuciAcKonsumen
 import com.Rapih.id.MitraAc.DetailOrder.DetailOrderMitraCuciAc
-import com.Rapih.id.Model.OrderAcStatus
+import com.Rapih.id.MitraAc.DetailOrder.DetailOrderMitraLasAc
+import com.Rapih.id.Model.OrderMitraAcStatus
 import com.Rapih.id.Model.OrderKonsumenAc
 import com.Rapih.id.Model.OrderKonsumenCekAc
 import com.Rapih.id.R
@@ -35,7 +36,7 @@ import com.google.gson.reflect.TypeToken
 import io.isfaaghyth.rak.Rak
 import java.lang.reflect.Type
 
-class ListOrderMitraCuciAc :AppCompatActivity(){
+class ListOrderMitraLasAc :AppCompatActivity(){
 
 
     private lateinit var lstHistoriac : RecyclerView
@@ -57,18 +58,18 @@ class ListOrderMitraCuciAc :AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list_cuci_ac_mitra)
+        setContentView(R.layout.list_las_ac_mitra)
 
         Rak.initialize(this)
 
-        urlac = "http://rapih.id/api/cuci_ac/listordercuciacmitra.php"
+        urlac = "http://rapih.id/api/las_ac/listorderlasacmitra.php"
         Log.d("TAG", urlac)
 
-        lstHistoriac = findViewById(R.id.rvListOrderCuciAcMitra) as RecyclerView
+        lstHistoriac = findViewById(R.id.rvListOrderLasAcMitra) as RecyclerView
 
-        pglistac = findViewById(R.id.progressBarCuciAcMitra) as ProgressBar
+        pglistac = findViewById(R.id.progressBarLasAcMitra) as ProgressBar
 
-        swipeRefreshLayout = findViewById(R.id.swipeordercuciacmitra)
+        swipeRefreshLayout = findViewById(R.id.swipeorderlasacmitra)
 
         requesQueue = Volley.newRequestQueue(this)
 
@@ -105,7 +106,7 @@ class ListOrderMitraCuciAc :AppCompatActivity(){
         val request = StringRequest(Request.Method.GET, urlac, onPostsLoaded, object : Response.ErrorListener {
             override fun onErrorResponse(error: VolleyError?) {
 
-                var inetErr: AlertDialog.Builder = AlertDialog.Builder(this@ListOrderMitraCuciAc)
+                var inetErr: AlertDialog.Builder = AlertDialog.Builder(this@ListOrderMitraLasAc)
                 inetErr.setTitle("Terjadi Kesalahan")
                 inetErr.setMessage("Periksa Kembali Koneksi Internet Anda")
                 inetErr.setNegativeButton("Muat Ulang",object : DialogInterface.OnClickListener{
@@ -124,21 +125,21 @@ class ListOrderMitraCuciAc :AppCompatActivity(){
     val onPostsLoaded = object: Response.Listener<String> {
         override fun onResponse(response:String) {
             Log.e("TAG", response)
-            var collectionType: Type = object: TypeToken<OrderAcStatus<OrderKonsumenAc>>(){}.type
-            var order: OrderAcStatus<OrderKonsumenAc>? = Gson().fromJson(response, collectionType) as? OrderAcStatus<OrderKonsumenAc>
+            var collectionType: Type = object: TypeToken<OrderMitraAcStatus<OrderKonsumenAc>>(){}.type
+            var order: OrderMitraAcStatus<OrderKonsumenAc>? = Gson().fromJson(response, collectionType) as? OrderMitraAcStatus<OrderKonsumenAc>
 
             if (order!!.isStatus){
                 try {
-                    pglistac = findViewById(R.id.progressBarAc) as ProgressBar
+                    pglistac = findViewById(R.id.progressBarLasAcMitra) as ProgressBar
                     pglistac.setVisibility(View.GONE)
 
-                    adapter = HistoryAdapterAc(order.dataKonsAc)
+                    adapter = HistoryAdapterAc(order.dataKonsMitraAc)
 
                     adapter!!.setListener(object: ItemClickListener<OrderKonsumenAc> {
                         override fun onClicked(OrderKonsumenAc: OrderKonsumenAc?, position: Int, view: View?) {
 
-                            val intent = Intent(this@ListOrderMitraCuciAc, DetailOrderMitraCuciAc::class.java)
-                            intent.putExtra("data",Gson().toJson(OrderKonsumenAc))
+                            val intent = Intent(this@ListOrderMitraLasAc, DetailOrderMitraLasAc::class.java)
+                            intent.putExtra("datamitraac",Gson().toJson(OrderKonsumenAc))
                             startActivity(intent)
 
                         }

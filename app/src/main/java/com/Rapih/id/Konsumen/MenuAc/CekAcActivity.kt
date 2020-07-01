@@ -25,42 +25,42 @@ class CekAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, T
         const val KEY_MAP = "lokasi_user"
     }
 
-    lateinit var img_back: ImageView
-    lateinit var txt_email: TextView
+    private lateinit var img_back: ImageView
+    private lateinit var txt_email: TextView
 
 
-    lateinit var sp_cekac : Spinner
-    lateinit var sp_jp: Spinner
+    private lateinit var sp_cekac : Spinner
+    private lateinit var sp_jp: Spinner
 
-    lateinit var txt_jmlh5: TextView
+    private lateinit var txt_jmlh5: TextView
 
-    lateinit var btn_plus5: Button
-    lateinit var btn_minus5: Button
-    lateinit var btn_req: Button
-    lateinit var edt_tgl: EditText
-    lateinit var edt_maps_ac: EditText
-    lateinit var edt_dp: EditText
+    private lateinit var btn_plus5: Button
+    private lateinit var btn_minus5: Button
+    private lateinit var btn_req: Button
+    private lateinit var edt_tgl: EditText
+    private lateinit var edt_maps_ac: EditText
+    private lateinit var edt_dp: EditText
 
-    lateinit var txt_total: TextView
+    private lateinit var txt_total: TextView
 
-    var quantity5: Int = 0
+    private var quantity5: Int = 0
 
-    var selectValueCekAc: Int = 0
+    private var selectValueCekAc: Int = 0
 
-    var values_cek = intArrayOf(0,90000)
+    private var values_cek = intArrayOf(0,90000)
 
-    var jumlah_ac5: Int = 0
+    private var jumlah_ac5: Int = 0
 
-    var cekac: Int = 0
+    private var cekac: Int = 0
 
-    var r: Int = 0
-    var r2: Int = 0
+    private var r: Int = 0
+    private var r2: Int = 0
 
 
 
     private var dateFormatter: SimpleDateFormat? = null
 
-    var cal = Calendar.getInstance()
+    private var cal = Calendar.getInstance()
 
     private var userLocation: UserLocation? = null
 
@@ -110,6 +110,10 @@ class CekAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, T
 
 
         txt_jmlh5.addTextChangedListener(this)
+
+
+
+
 
         edt_tgl.isFocusable = false
 
@@ -169,7 +173,20 @@ class CekAcActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, T
         sp_cekac.getBackground()
             .setColorFilter(getResources().getColor(R.color.birulain), PorterDuff.Mode.SRC_ATOP)
 
+        btn_req.setOnClickListener {
 
+
+            val intent: Intent = Intent(this@CekAcActivity, OrderCekAcActivity::class.java)
+            intent.putExtra("jenis_properti_cek_ac", sp_jp.selectedItem.toString())
+            intent.putExtra("cek_ac", sp_cekac.selectedItem.toString())
+            intent.putExtra("jumlah_ac", txt_jmlh5.text.toString())
+            intent.putExtra("user_location_ac", userLocation)
+            intent.putExtra("tanggal", edt_tgl.text.toString())
+            intent.putExtra("deskripsi_ac", edt_dp.text.toString())
+            intent.putExtra("total_harga", txt_total.text.toString())
+            startActivity(intent)
+
+        }
 
 
     }

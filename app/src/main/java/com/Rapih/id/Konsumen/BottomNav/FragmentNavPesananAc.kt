@@ -1,70 +1,40 @@
 package com.Rapih.id.Konsumen.BottomNav
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.Rapih.id.Adapter.HistoryAdapter
-import com.Rapih.id.Adapter.HistoryAdapterAc
-import com.Rapih.id.Adapter.ItemClickListener
-import com.Rapih.id.Konsumen.DetailOrderAcKonsumen
-import com.Rapih.id.Model.OrderAcStatus
-import com.Rapih.id.Model.OrderKonsumen
-import com.Rapih.id.Model.OrderKonsumenAc
-import com.Rapih.id.Model.OrderStatus
+import com.Rapih.id.Konsumen.HomeKonsumenActivity
+import com.Rapih.id.Konsumen.ListOrderAc.*
 import com.Rapih.id.R
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.VolleyError
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import io.isfaaghyth.rak.Rak
-import java.lang.Exception
-import java.lang.reflect.Type
-import java.util.*
-import kotlin.collections.ArrayList
+import kotlinx.android.synthetic.main.bottom_sheet_freon.view.*
+import kotlinx.android.synthetic.main.bottom_sheet_reload_freon.view.*
 
 class FragmentNavPesananAc : Fragment(){
 
 
-    lateinit var lnHistory : LinearLayout
+    lateinit var imgkaps : ImageView
+    lateinit var imglas : ImageView
+    lateinit var imgcuciac : ImageView
+    lateinit var imgcekac : ImageView
+    lateinit var imgfreon : ImageView
+    lateinit var imgisifreon : ImageView
+    lateinit var imgback : ImageView
 
-    private lateinit var lstHistoriac : RecyclerView
+    var bottomSheetDialog: BottomSheetDialog? = null
 
-    var urlac : String? = null
+    var bottomSheetDialog2: BottomSheetDialog? = null
 
-    private lateinit var pglistac : ProgressBar
-
-    var orderac : List<OrderKonsumenAc>? = null
-    private var adapter : HistoryAdapterAc? = null
-
-    private var requesQueue : RequestQueue? = null
-
-    private var gson : Gson? = null
-
-    lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pesanan_ac_bottom, container, false)
+        return inflater.inflate(R.layout.lay_pilihan_list_order_ac, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,44 +42,93 @@ class FragmentNavPesananAc : Fragment(){
 
         Rak.initialize(context)
 
-        urlac = "http://rapih.id/api/listorderackonsumen.php?id_konsumen_ac= " + Rak.grab("idkonsumen")
+        bottomSheetDialog = BottomSheetDialog(view.context)
 
-        Log.d("TAG", urlac)
+        bottomSheetDialog2 = BottomSheetDialog(view.context)
 
-        lstHistoriac = getView()?.findViewById(R.id.rvListOrderAc) as RecyclerView
+        val view1 = layoutInflater.inflate(R.layout.bottom_sheet_freon, null)
 
-        pglistac = getView()?.findViewById(R.id.progressBarAc) as ProgressBar
+        val view2 = layoutInflater.inflate(R.layout.bottom_sheet_reload_freon, null)
 
-        swipeRefreshLayout = view.findViewById(R.id.swipeorderac)
+        bottomSheetDialog?.setContentView(view1)
+        bottomSheetDialog2?.setContentView(view2)
 
-        requesQueue = Volley.newRequestQueue(context)
+        view1.textViewFreonR22.setOnClickListener {
+            val intent = Intent(context, ListOrderFreonR22Ac::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
 
-        var gsonBuilder : GsonBuilder = GsonBuilder()
+        }
 
-        gson = gsonBuilder.create()
+        view1.textViewFreonR32.setOnClickListener {
+            val intent = Intent(context, ListOrderFreonR32Ac::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
 
-        lstHistoriac.setLayoutManager(LinearLayoutManager(context))
-
-        orderac = ArrayList()
-
-        ambilListOrder()
-        swipeRefreshLayout.setColorSchemeResources(R.color.birulain, R.color.Hijau, R.color.merah)
+        }
 
 
-        swipeRefreshLayout.setOnRefreshListener(object:SwipeRefreshLayout.OnRefreshListener {
-            override fun onRefresh() {
-                // Handler untuk menjalankan jeda selama 5 detik
-                Handler().postDelayed(object:Runnable {
-                    override fun run() {
-                        // Berhenti berputar/refreshing
-                        swipeRefreshLayout.setRefreshing(false)
-                        ambilListOrder()
-                        // fungsi-fungsi lain yang dijalankan saat refresh berhenti
+        view2.textViewFreonR22r.setOnClickListener {
+            val intent = Intent(context, ListOrderTambahFreonR22Ac::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
 
-                    }
-                }, 5000)
-            }
-        })
+        }
+
+        view2.textViewFreonR32r.setOnClickListener {
+            val intent = Intent(context, ListOrderTambahFreonR32Ac::class.java)
+            startActivity(intent)
+            bottomSheetDialog?.hide()
+
+        }
+
+
+        imgkaps = view.findViewById(R.id.imglistkapsac)
+        imglas = view.findViewById(R.id.imglistlasac)
+        imgcuciac = view.findViewById(R.id.imglistcuciac)
+        imgcekac = view.findViewById(R.id.imglistcekac)
+        imgfreon = view.findViewById(R.id.imglistfreonac)
+        imgisifreon = view.findViewById(R.id.imglisttmbhfreonac)
+        imgback = view.findViewById(R.id.imgbacklistmenuac)
+
+
+        imgback.setOnClickListener {
+            val intent = Intent(context,HomeKonsumenActivity::class.java)
+            startActivity(intent)
+        }
+
+        imgkaps.setOnClickListener {
+            val intent = Intent(context, ListOrderKapsAc::class.java)
+            startActivity(intent)
+        }
+
+        imglas.setOnClickListener {
+            val intent = Intent(context, ListOrderLasAc::class.java)
+            startActivity(intent)
+        }
+
+        imgcuciac.setOnClickListener {
+            val intent = Intent(context, ListOrderCuciAc::class.java)
+            startActivity(intent)
+        }
+
+        imgcekac.setOnClickListener {
+            val intent = Intent(context, ListOrderCekAc::class.java)
+            startActivity(intent)
+        }
+
+        imgfreon.setOnClickListener {
+           bottomSheetDialog?.show()
+        }
+
+        imgisifreon.setOnClickListener {
+            bottomSheetDialog2?.show()
+        }
+
+
+
+
+
 
     }
         companion object {
@@ -121,59 +140,5 @@ class FragmentNavPesananAc : Fragment(){
         }
     }
 
-
-    fun ambilListOrder() {
-
-        val request = StringRequest(Request.Method.GET, urlac, onPostsLoaded, object : Response.ErrorListener {
-                override fun onErrorResponse(error: VolleyError?) {
-
-                   var inetErr:AlertDialog.Builder = AlertDialog.Builder(context)
-                    inetErr.setTitle("Terjadi Kesalahan")
-                    inetErr.setMessage("Periksa Kembali Koneksi Internet Anda")
-                    inetErr.setNegativeButton("Muat Ulang",object : DialogInterface.OnClickListener{
-                        override fun onClick(dialog: DialogInterface?, which: Int) {
-                            ambilListOrder()
-
-                        }
-
-                    })
-                    inetErr.show()
-                }
-            })
-        requesQueue?.add(request)
-    }
-
-    val onPostsLoaded = object: Response.Listener<String> {
-        override fun onResponse(response:String) {
-            Log.e("TAG", response)
-            var collectionType: Type = object:TypeToken<OrderAcStatus<OrderKonsumenAc>>(){}.type
-            var order:OrderAcStatus<OrderKonsumenAc>? = Gson().fromJson(response, collectionType) as? OrderAcStatus<OrderKonsumenAc>
-
-            if (order!!.isStatus){
-                try {
-                    pglistac = view?.findViewById(R.id.progressBarAc) as ProgressBar
-                    pglistac.setVisibility(View.GONE)
-
-                    adapter = HistoryAdapterAc(order.dataKonsAc)
-
-                    adapter!!.setListener(object: ItemClickListener<OrderKonsumenAc> {
-                        override fun onClicked(OrderKonsumenAc: OrderKonsumenAc?, position: Int, view: View?) {
-
-                            val intent = Intent(context, DetailOrderAcKonsumen::class.java)
-                            intent.putExtra("data",Gson().toJson(OrderKonsumenAc))
-                            startActivity(intent)
-
-                        }
-                    })
-                    lstHistoriac.adapter = adapter
-                }catch (ignored : Exception){
-
-                }
-            }else{
-                pglistac.setVisibility(View.GONE)
-                Toast.makeText(context,"Tidak Ada Data", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 
 }

@@ -47,7 +47,18 @@
                 android:layout_below="@+id/txtdp"
                 />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="status"
+                android:layout_below="@+id/txttgl"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp"
+                android:background="@color/merah"
+                android:textColor="#fff"
+                android:id="@+id/txtstatuskonsrenov"
 
+                />
 
         </RelativeLayout>
 

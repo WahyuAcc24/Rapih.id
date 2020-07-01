@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapih.id.AppController
+import com.Rapih.id.Model.OrderKonsumenAc
 import com.Rapih.id.Model.OrderKonsumenCekAc
 import com.Rapih.id.R
 import com.android.volley.AuthFailureError
@@ -19,12 +20,14 @@ import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import io.isfaaghyth.rak.Rak
 
-class DetailOrderMitraCekAc : AppCompatActivity() {
+class DetailOrderMitraCuciAc : AppCompatActivity() {
 
 
-    lateinit var txt_cekac : TextView
+    lateinit var txt_order_ac : TextView
+    lateinit var txt_order_ac2 : TextView
     lateinit var txt_jp : TextView
     lateinit var txt_ja : TextView
+    lateinit var txt_ja2 : TextView
     lateinit var txt_lokasi : TextView
     lateinit var txt_tgl : TextView
     lateinit var txt_dp : TextView
@@ -40,29 +43,31 @@ class DetailOrderMitraCekAc : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderMitraCekAc::class.java.getSimpleName()
+    private val TAG = DetailOrderMitraCuciAc::class.java.getSimpleName()
 
-    val URL_konf = "http://rapih.id/api/cek_ac/updateordercekacmitra.php"
-    val URL_kelar = "http://rapih.id/api/cek_ac/konfordercekacmitra.php"
+    val URL_konf = "http://rapih.id/api/cuci_ac/updateordercuciacmitra.php"
+    val URL_kelar = "http://rapih.id/api/cuci_ac/konfordercuciacmitra.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_cek_ac_mitra)
+        setContentView(R.layout.lay_detail_order_cuci_ac_mitra)
 
-        txt_jp = findViewById(R.id.txtdetailjenispropertimitra)
-        txt_cekac = findViewById(R.id.txtdetailordermitraac)
-        txt_ja = findViewById(R.id.txtjadetailordermitraac)
-        txt_lokasi = findViewById(R.id.txtlokasidetailordermitraac)
-        txt_tgl = findViewById(R.id.txttgldetailordermitraac)
-        txt_dp = findViewById(R.id.txtdpdetailordermitraac)
-        txt_total = findViewById(R.id.txttotaldetailordermitraac)
-        txt_email = findViewById(R.id.txtemaildetailordermitraac)
-        img_back = findViewById(R.id.imgbackdetailordermitraac)
-        btn_ok = findViewById(R.id.btnokdetailordermitraac)
+        txt_jp = findViewById(R.id.txtdetailjenisproperticuciacmitra)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkcuciacmitra)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkcuciacmitra)
+        txt_ja = findViewById(R.id.txtja1pkdetailordercuciacmitra)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailordercuciacmitra)
+        txt_lokasi = findViewById(R.id.txtlokasidetailordercuciacmitra)
+        txt_tgl = findViewById(R.id.txttgldetailordercuciacmitra)
+        txt_dp = findViewById(R.id.txtdpdetailordercuciacmitra)
+        txt_total = findViewById(R.id.txttotaldetailordercuciacmitra)
+        txt_email = findViewById(R.id.txtemaildetailordercuciacmitra)
+        img_back = findViewById(R.id.imgbackdetailordercuciacmitra)
+        btn_ok = findViewById(R.id.btnokdetailordercuciacmitra)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailordermitraac)
+        txt_nohp = findViewById(R.id.txtnohpdetailordercuciacmitra)
 
 
         txt_email.setText(Rak.grab("emailmitraac") as String)
@@ -72,18 +77,21 @@ class DetailOrderMitraCekAc : AppCompatActivity() {
         }
 
 
-        val orderkonsumenac = Gson().fromJson(getIntent().getStringExtra("datamitraac"), OrderKonsumenCekAc::class.java)
+        val orderkonsumenac = Gson().fromJson(getIntent().getStringExtra("datamitraac"), OrderKonsumenAc::class.java)
 
 
 
             Log.e("tag", getIntent().getStringExtra("datamitraac"))
 
-        txt_cekac.setText("Jenis Order : " + orderkonsumenac.order_ac)
+        txt_order_ac.setText("Jenis Order : " + orderkonsumenac.order_1pk)
+        txt_order_ac2.setText("Jenis Order : " + orderkonsumenac.order_2pk)
+
         txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
-        txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac)
+        txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_1pk)
+        txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
         txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
         txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+        txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
         txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 //
@@ -147,7 +155,7 @@ class DetailOrderMitraCekAc : AppCompatActivity() {
                     .setPositiveButton("iya", object : DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, which: Int) {
 
-                        val loading = ProgressDialog(this@DetailOrderMitraCekAc)
+                        val loading = ProgressDialog(this@DetailOrderMitraCuciAc)
                         loading.setCancelable(false)
                         loading.setMessage("proses penyelesaian order...")
                         loading.show()

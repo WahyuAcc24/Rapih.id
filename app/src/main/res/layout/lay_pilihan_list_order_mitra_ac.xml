@@ -20,7 +20,7 @@
             android:src="@drawable/ic_back"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:id="@+id/imgbacklistmenuac"
+            android:id="@+id/imgbacklistmitramenuac"
             />
 
         <TextView
@@ -57,7 +57,7 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/imglistkapsac"
+            android:id="@+id/imglistmitrakapsac"
             android:src="@drawable/kapasitorac"
             android:layout_gravity="center"
 
@@ -85,7 +85,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imglistcekac"
+                android:id="@+id/imglistmitracekac"
                 android:src="@drawable/menucekac"
                 android:layout_gravity="center"
 
@@ -126,7 +126,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imglistfreonac"
+                android:id="@+id/imglistmitrafreonac"
                 android:src="@drawable/freonacc"
                 android:layout_gravity="center"
 
@@ -153,7 +153,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imglistcuciac"
+                android:id="@+id/imglistmitracuciac"
                 android:src="@drawable/iconcuciac"
                 android:layout_gravity="center"
 
@@ -194,7 +194,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imglistlasac"
+                android:id="@+id/imglistmitralasac"
                 android:src="@drawable/lasac"
                 android:layout_gravity="center"
 
@@ -220,7 +220,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imglisttmbhfreonac"
+                android:id="@+id/imglistmitratmbhfreonac"
                 android:src="@drawable/isifreon"
                 android:layout_gravity="center"
 
@@ -242,5 +242,10 @@
 
 
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/lnmenupilac3"
+        />
 </RelativeLayout>
 </ScrollView>

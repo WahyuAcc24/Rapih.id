@@ -29,7 +29,7 @@
 
     <string-array name="properti">
 
-        <item>pilih properti</item>
+        <item>Pilih Properti (wajib dipilih)</item>
         <item>Rumah</item>
         <item>Kost/Kontrakan</item>
         <item>Ruko</item>
@@ -48,27 +48,27 @@
     </string-array>
 
     <string-array name="las_freon">
-        <item>------</item>
+        <item>Tidak dipilih</item>
         <item>Las Sambungan Pipa Freon (Per titik) Rp. 95.000</item>
     </string-array>
 
     <string-array name="las_freon_bocor">
-        <item>------</item>
+        <item>Tidak dipilih</item>
         <item>Las Perbaikan Kebocoran Pipa Freon dan Isi Freon Rp. 495.000</item>
     </string-array>
 
     <string-array name="ganti_kapasitor">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Ganti Kapasitor Ac 1/2 - 1PK Rp. 225.000(Part dan Jasa)</item>
     </string-array>
 
     <string-array name="ganti_kapasitorr">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Ganti Kapasitor Ac 1 1/2 - 2PK Rp. 295.000(Part dan Jasa)</item>
     </string-array>
 
     <string-array name="cek_ac">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Pengecekan Rp. 90.000</item>
     </string-array>
 
@@ -84,12 +84,12 @@
     </string-array>
 
     <string-array name="bp_ac">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Bongkar Pasang Ac 1/2 - 1PK Rp. 245.000</item>
     </string-array>
 
     <string-array name="bp_acc">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Bongkar Pasang Ac 1 1/2 - 2PK Rp. 320.000</item>
     </string-array>
 
@@ -101,12 +101,12 @@
     </string-array>
 
     <string-array name="cuciac">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>1/2 - 1PK Rp. 65.000</item>
     </string-array>
 
     <string-array name="cuciacc">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>1 1/2 - 2PK Rp. 70.000</item>
     </string-array>
 
@@ -127,45 +127,45 @@
 
 
     <string-array name="tambah_freon_r22_1pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Tambah Freon R22 1/2 - 1PK Rp. 147.000</item>
     </string-array>
 
     <string-array name="tambah_freon_r22_2pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Tambah Freon R22 1 1/2 - 2PK Rp. 197.000</item>
     </string-array>
 
 
     <string-array name="tambah_freon_r32_1pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Tambah Freon R32 / R410 1/2 - 1PK Rp. 197.000</item>
     </string-array>
 
     <string-array name="tambah_freon_r32_2pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Tambah Freon R32 / R410 1 1/2 - 1PK Rp. 247.000</item>
     </string-array>
 
 
     <string-array name="ganti_freon_r22_1pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Ganti Freon R22 1/2 - 1PK Rp. 247.000</item>
     </string-array>
 
     <string-array name="ganti_freon_r22_2pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Ganti Freon R22 1 1/2 - 2PK Rp. 347.000</item>
     </string-array>
 
 
     <string-array name="ganti_freon_r32_1pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Ganti Freon R32 / R410 1/2 - 1PK Rp. 347.000</item>
     </string-array>
 
     <string-array name="ganti_freon_r32_2pk">
-        <item>--------</item>
+        <item>Tidak dipilih</item>
         <item>Ganti Freon R32 / R410 1 1/2 - 1PK Rp. 447.000</item>
     </string-array>
 
@@ -175,7 +175,7 @@
 
     <string-array name="domisili">
 
-    <item>Pilih Domisili</item>
+    <item>Pilih Domisili *wajib diisi</item>
     <item>Jakarta</item>
     <item>Bogor</item>
     <item>Depok</item>

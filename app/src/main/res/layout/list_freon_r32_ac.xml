@@ -4,24 +4,23 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Konsumen.BottomNav.FragmentNavPesananAc">
-
+>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/swipeorderac"
+        android:id="@+id/swipeorderfreonr32ac"
         >
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rvListOrderAc"
+            android:id="@+id/rvListOrderFreonR32Ac"
 
             />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBarAc"
+        android:id="@+id/progressBarFreonR32Ac"
         android:layout_centerInParent="true"
 
         />

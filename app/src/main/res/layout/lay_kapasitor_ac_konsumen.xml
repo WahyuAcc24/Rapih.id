@@ -269,7 +269,7 @@
                 android:layout_height="60dp"
                 android:textColor="#1d26d4"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Tanggal Pengerjaan"
+                android:hint="Tanggal Pengerjaan *wajib diisi"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/edttglkapsac"
@@ -298,7 +298,7 @@
                 android:layout_height="60dp"
                 android:textColor="#1d26d4"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Deskripsi Pekerjaan"
+                android:hint="Deskripsi Pekerjaan *wajib diisi"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/edtdesckapsac"
@@ -334,7 +334,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="@dimen/floating_hint_margin"
-                android:hint="Pilih Lokasi"
+                android:hint="Pilih Lokasi *wajib diisi"
                 android:textColor="#1d26d4"
 
                 />

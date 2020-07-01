@@ -20,15 +20,15 @@
             android:src="@drawable/ic_back"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:id="@+id/imgbackpilmenuac"
+            android:id="@+id/imgbacklistmenuac"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="email"
+            android:text="Menu List History Order Ac"
             android:layout_gravity="bottom"
-            android:id="@+id/txtemailpilmenuac"
+            android:id="@+id/txtemaillistmenuac"
             android:textColor="#1d26d4"
             android:layout_marginStart="10dp"
             android:layout_weight="10"
@@ -57,7 +57,7 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/imgkapsac"
+            android:id="@+id/imglistkapsac"
             android:src="@drawable/kapasitorac"
             android:layout_gravity="center"
 
@@ -85,7 +85,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imgcekac"
+                android:id="@+id/imglistcekac"
                 android:src="@drawable/menucekac"
                 android:layout_gravity="center"
 
@@ -126,7 +126,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imgfreonac"
+                android:id="@+id/imglistfreonac"
                 android:src="@drawable/freonacc"
                 android:layout_gravity="center"
 
@@ -153,7 +153,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imgcuciac"
+                android:id="@+id/imglistcuciac"
                 android:src="@drawable/iconcuciac"
                 android:layout_gravity="center"
 
@@ -194,7 +194,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imglasac"
+                android:id="@+id/imglistlasac"
                 android:src="@drawable/lasac"
                 android:layout_gravity="center"
 
@@ -220,7 +220,7 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:id="@+id/imgtmbhfreonac"
+                android:id="@+id/imglisttmbhfreonac"
                 android:src="@drawable/isifreon"
                 android:layout_gravity="center"
 
@@ -242,5 +242,11 @@
 
 
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/lnmenupilac3"
+        />
 </RelativeLayout>
+
 </ScrollView>

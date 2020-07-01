@@ -203,26 +203,13 @@ class OrderRenovActivity :AppCompatActivity() {
             object : Response.Listener<NetworkResponse> {
                 override fun onResponse(response: NetworkResponse) {
                     Log.e(TAG, "Order Response: $response")
-                    var collectionType: Type = object: TypeToken<OrderStatus<OrderKonsumen>>(){}.type
-                    var order : OrderStatus<OrderKonsumen>? = Gson().fromJson(response.toString(), collectionType) as? OrderStatus<OrderKonsumen>
 
-//                        val res = Gson().fromJson(response.toString(), OrderRenovActivity::class.java) as Konsumen?
 
-//                        if (res?.isStatus!!) {
+              try {
 
-                    if (order!!.isStatus()) {
-//                    try {
                         loading.dismiss()
                         Log.d(TAG, response.toString())
 
-
-
-                        val obj: JSONObject = JSONObject(String(response.data))
-                        Toast.makeText(
-                            applicationContext,
-                            obj.getString("message"),
-                            Toast.LENGTH_SHORT
-                        ).show()
 
                         Toast.makeText(
                             getApplicationContext(),
@@ -237,16 +224,12 @@ class OrderRenovActivity :AppCompatActivity() {
 
                         finish()
 
-//                    } catch (e: JSONException) {
-//                        Log.e("haha", e.message)
-//                        e.printStackTrace()
-//                    }
-                        } else {
-                        loading.dismiss()
-                        Toast.makeText(getApplicationContext(), "kolom tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                    } catch (e: JSONException) {
+                        Log.e("haha", e.message)
+                        e.printStackTrace()
+                    }
 
-                        }
-                }
+          }
             }, object : Response.ErrorListener {
                 override fun onErrorResponse(volleyError: VolleyError) {
                     loading.dismiss()
@@ -260,6 +243,7 @@ class OrderRenovActivity :AppCompatActivity() {
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
                 params.put("id_konsumen", id_kons)
+                params.put("id_mitra", "0")
                 params.put("no_hp", no_hp)
                 params.put("jenis_properti", jp)
                 params.put("waktu_pengerjaan", wp)
@@ -268,6 +252,7 @@ class OrderRenovActivity :AppCompatActivity() {
                 params.put("alamat_lengkap", lp)
                 params.put("detail_pekerjaan", dp)
                 params.put("anggaran_proyek", ap)
+                params.put("status", "wait")
                 return params
             }
 

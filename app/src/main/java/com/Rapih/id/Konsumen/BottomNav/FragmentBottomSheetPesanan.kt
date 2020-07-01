@@ -10,7 +10,7 @@ import com.Rapih.id.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.bottom_sheet_pesanan.*
 
-class FragmentBottomSheet : BottomSheetDialogFragment() {
+class FragmentBottomSheetPesanan : BottomSheetDialogFragment() {
 
     private var fragmentView: View? = null
 

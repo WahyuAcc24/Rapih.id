@@ -25,7 +25,7 @@
             android:src="@drawable/ic_back"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:id="@+id/imgbackdetailorderkapsac"
+            android:id="@+id/imgbackdetailorderlasac"
             />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="email"
             android:layout_gravity="bottom"
-            android:id="@+id/txtemaildetailorderkapsac"
+            android:id="@+id/txtemaildetailorderlasac"
             android:textColor="#1d26d4"
             android:layout_marginStart="10dp"
             android:layout_weight="10"
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder1pkkapsac"
+        android:id="@+id/txtdetailorder1pklasac"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -55,7 +55,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja1pkdetailorderkapsac"
+        android:id="@+id/txtja1pkdetailorderlasac"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -66,7 +66,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder2pkkapsac"
+        android:id="@+id/txtdetailorder2pklasac"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -78,7 +78,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja2pkdetailorderkapsac"
+        android:id="@+id/txtja2pkdetailorderlasac"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -90,7 +90,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailjenispropertikapsac"
+        android:id="@+id/txtdetailjenispropertilasac"
         android:text="jenis properti"
         android:textColor="#000"
         android:textSize="15sp"
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtlokasidetailorderkapsac"
+        android:id="@+id/txtlokasidetailorderlasac"
         android:text="lokasi anda"
         android:textColor="#000"
         android:textSize="15sp"
@@ -113,7 +113,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttgldetailorderkapsac"
+        android:id="@+id/txttgldetailorderlasac"
         android:text="tanggal"
         android:textColor="#000"
         android:textSize="15sp"
@@ -124,7 +124,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdpdetailorderkapsac"
+        android:id="@+id/txtdpdetailorderlasac"
         android:text="deskripsi pekerjaan"
         android:textColor="#000"
         android:textSize="15sp"
@@ -135,7 +135,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttotaldetailorderkapsac"
+        android:id="@+id/txttotaldetailorderlasac"
         android:text="total harga"
         android:textColor="#000"
         android:textSize="15sp"
@@ -147,7 +147,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtnohpdetailorderkapsac"
+        android:id="@+id/txtnohpdetailorderlasac"
         android:text="No hp"
         android:textColor="#000"
         android:textSize="15sp"
@@ -160,7 +160,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/btnokdetailorderkapsac"
+        android:id="@+id/btnokdetailorderlasac"
         android:background="@drawable/button_login"
         android:text="ok"
         android:textColor="#fff"

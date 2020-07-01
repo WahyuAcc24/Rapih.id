@@ -25,7 +25,7 @@
             android:src="@drawable/ic_back"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:id="@+id/imgbackdetailorderfreonr32"
+            android:id="@+id/imgbackdetailorderfreonr32mitra"
             />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="email"
             android:layout_gravity="bottom"
-            android:id="@+id/txtemaildetailorderfreonr32"
+            android:id="@+id/txtemaildetailorderfreonr32mitra"
             android:textColor="#1d26d4"
             android:layout_marginStart="10dp"
             android:layout_weight="10"
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder1pkfreonr32"
+        android:id="@+id/txtdetailorder1pkfreonr32mitra"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -55,7 +55,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja1pkdetailorderfreonr32"
+        android:id="@+id/txtja1pkdetailorderfreonr32mitra"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -66,7 +66,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailorder2pkfreonr32"
+        android:id="@+id/txtdetailorder2pkfreonr32mitra"
         android:text="order ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -78,7 +78,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtja2pkdetailorderfreonr32"
+        android:id="@+id/txtja2pkdetailorderfreonr32mitra"
         android:text="jumlah ac"
         android:textColor="#000"
         android:textSize="15sp"
@@ -90,7 +90,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdetailjenispropertifreonr32"
+        android:id="@+id/txtdetailjenispropertifreonr32mitra"
         android:text="jenis properti"
         android:textColor="#000"
         android:textSize="15sp"
@@ -102,7 +102,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtlokasidetailorderfreonr32"
+        android:id="@+id/txtlokasidetailorderfreonr32mitra"
         android:text="lokasi anda"
         android:textColor="#000"
         android:textSize="15sp"
@@ -113,7 +113,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttgldetailorderfreonr32"
+        android:id="@+id/txttgldetailorderfreonr32mitra"
         android:text="tanggal"
         android:textColor="#000"
         android:textSize="15sp"
@@ -124,7 +124,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtdpdetailorderfreonr32"
+        android:id="@+id/txtdpdetailorderfreonr32mitra"
         android:text="deskripsi pekerjaan"
         android:textColor="#000"
         android:textSize="15sp"
@@ -135,7 +135,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txttotaldetailorderfreonr32"
+        android:id="@+id/txttotaldetailorderfreonr32mitra"
         android:text="total harga"
         android:textColor="#000"
         android:textSize="15sp"
@@ -147,7 +147,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtnohpdetailorderfreonr32"
+        android:id="@+id/txtnohpdetailorderfreonr32mitra"
         android:text="No hp"
         android:textColor="#000"
         android:textSize="15sp"
@@ -160,7 +160,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/btnokdetailorderfreonr32"
+        android:id="@+id/btnokdetailorderfreonr32mitra"
         android:background="@drawable/button_login"
         android:text="ok"
         android:textColor="#fff"

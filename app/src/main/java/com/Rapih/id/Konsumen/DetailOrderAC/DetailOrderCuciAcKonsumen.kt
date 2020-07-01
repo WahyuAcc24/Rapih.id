@@ -9,7 +9,8 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.Rapih.id.AppController
-import com.Rapih.id.Model.OrderKonsumenCekAc
+import com.Rapih.id.Model.OrderKonsumenAc
+import com.Rapih.id.Model.OrderKonsumen
 import com.Rapih.id.R
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -21,12 +22,14 @@ import io.isfaaghyth.rak.Rak
 import kotlinx.android.synthetic.main.rating.view.*
 import java.util.HashMap
 
-class DetailOrderCekAcKonsumen : AppCompatActivity() {
+class DetailOrderCuciAcKonsumen : AppCompatActivity() {
 
 
-    lateinit var txt_cekac : TextView
+    lateinit var txt_order_ac : TextView
+    lateinit var txt_order_ac2 : TextView
     lateinit var txt_jp : TextView
     lateinit var txt_ja : TextView
+    lateinit var txt_ja2 : TextView
     lateinit var txt_lokasi : TextView
     lateinit var txt_tgl : TextView
     lateinit var txt_dp : TextView
@@ -43,31 +46,34 @@ class DetailOrderCekAcKonsumen : AppCompatActivity() {
 
     lateinit var btn_ok : Button
 
-    private val TAG = DetailOrderCekAcKonsumen::class.java.getSimpleName()
+    private val TAG = DetailOrderCuciAcKonsumen::class.java.getSimpleName()
 
-    val URL_rate = "http://rapih.id/api/cek_ac/updateordercekackonsumen.php"
+    val URL_rate = "http://rapih.id/api/cuci_ac/updateordercuciackonsumen.php"
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.lay_detail_order_cek_ac_konsumen)
+        setContentView(R.layout.lay_detail_order_cuci_ac_konsumen)
 
 
-        txt_jp = findViewById(R.id.txtdetailjenisproperti)
-        txt_cekac = findViewById(R.id.txtdetailorderac)
-        txt_ja = findViewById(R.id.txtjadetailorderac)
-        txt_lokasi = findViewById(R.id.txtlokasidetailorderac)
-        txt_tgl = findViewById(R.id.txttgldetailorderac)
-        txt_dp = findViewById(R.id.txtdpdetailorderac)
-        txt_total = findViewById(R.id.txttotaldetailorderac)
-        txt_email = findViewById(R.id.txtemaildetailorderac)
-        img_back = findViewById(R.id.imgbackdetailorderac)
-        btn_ok = findViewById(R.id.btnokdetailorderac)
+        txt_jp = findViewById(R.id.txtdetailjenisproperticuciac)
+        txt_order_ac = findViewById(R.id.txtdetailorder1pkcuciac)
+        txt_order_ac2 = findViewById(R.id.txtdetailorder2pkcuciac)
+
+        txt_ja = findViewById(R.id.txtja1pkdetailordercuciac)
+        txt_ja2 = findViewById(R.id.txtja2pkdetailordercuciac)
+        txt_lokasi = findViewById(R.id.txtlokasidetailordercuciac)
+        txt_tgl = findViewById(R.id.txttgldetailordercuciac)
+        txt_dp = findViewById(R.id.txtdpdetailordercuciac)
+        txt_total = findViewById(R.id.txttotaldetailordercuciac)
+        txt_email = findViewById(R.id.txtemaildetailordercuciac)
+        img_back = findViewById(R.id.imgbackdetailordercuciac)
+        btn_ok = findViewById(R.id.btnokdetailordercuciac)
 //        rb = findViewById(R.id.ratingBar)
 //        edt_komen = findViewById(R.id.edtKomen)
 
-        txt_nohp = findViewById(R.id.txtnohpdetailorderac)
+        txt_nohp = findViewById(R.id.txtnohpdetailordercuciac)
 
 
 
@@ -79,18 +85,21 @@ class DetailOrderCekAcKonsumen : AppCompatActivity() {
         }
 
 
-        val orderkonsumenac = Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenCekAc::class.java)
+        val orderkonsumenac = Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenAc::class.java)
 
 
 
-            Log.e("tag", getIntent().getStringExtra("data"))
+        Log.e("tag", getIntent().getStringExtra("data"))
 
-         txt_cekac.setText("Jenis Order : " + orderkonsumenac.order_ac)
+         txt_order_ac.setText("Jenis Order : " + orderkonsumenac.order_1pk)
+         txt_order_ac2.setText("Jenis Order : " + orderkonsumenac.order_2pk)
+
          txt_jp.setText("Jenis Properti : " + orderkonsumenac.jenis_properti)
-         txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac)
+         txt_ja.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_1pk)
+         txt_ja2.setText("Jumlah Ac : " + orderkonsumenac.jumlah_ac_2pk)
          txt_lokasi.setText("Lokasi Anda : " + orderkonsumenac.lokasi)
          txt_tgl.setText("tanggal : " + orderkonsumenac.tanggal)
-         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.deskripsi_pekerjaan)
+         txt_dp.setText("detail pekerjaan : " + orderkonsumenac.detail_pekerjaan)
          txt_total.setText("Total Pembayaran : " + orderkonsumenac.harga)
 
 
@@ -132,7 +141,7 @@ class DetailOrderCekAcKonsumen : AppCompatActivity() {
                     loading.show()
 
                     val konsumenac =
-                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenCekAc::class.java)
+                        Gson().fromJson(getIntent().getStringExtra("data"), OrderKonsumenAc::class.java)
 
                     val id : String = konsumenac.id
                     val id_konsumen_ac: String = konsumenac.id_konsumen_ac.toString()

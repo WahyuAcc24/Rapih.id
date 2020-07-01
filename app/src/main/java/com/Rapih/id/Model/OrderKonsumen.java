@@ -10,6 +10,8 @@ public class OrderKonsumen {
     private String id;
     @SerializedName("id_konsumen")
     private String id_konsumen;
+    @SerializedName("id_mitra")
+    private String id_mitra;
     @SerializedName("no_hp")
     private String no_hp;
     @SerializedName("jenis_properti")
@@ -125,5 +127,13 @@ public class OrderKonsumen {
 
     public void setGambar_properti(String gambar_properti) {
         this.gambar_properti = gambar_properti;
+    }
+
+    public String getId_mitra() {
+        return id_mitra;
+    }
+
+    public void setId_mitra(String id_mitra) {
+        this.id_mitra = id_mitra;
     }
 }

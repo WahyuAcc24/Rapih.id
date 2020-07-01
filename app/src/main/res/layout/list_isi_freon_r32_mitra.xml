@@ -8,19 +8,19 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/swipeorderisifreonr32ac"
+        android:id="@+id/swipeorderisifreonr32acmitra"
         >
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rvListOrderIsiFreonR32Ac"
+            android:id="@+id/rvListOrderIsiFreonR32AcMitra"
 
             />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBarIsiFreonR32Ac"
+        android:id="@+id/progressBarIsiFreonR32AcMitra"
         android:layout_centerInParent="true"
 
         />
