@@ -22,7 +22,7 @@
 
     <ImageView
         android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:id="@+id/tagline"
         android:src="@drawable/tagline"
         android:layout_gravity="center_horizontal"
@@ -30,12 +30,12 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/progressBarAnimation"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom|center_horizontal"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="14466-loader-loading-progress-progress-bar-done.json"
+        android:layout_marginTop="20dp"
+        app:lottie_fileName="loadingproses.json"
         app:lottie_loop="true" />
 
 

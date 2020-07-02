@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="300dp"
-        android:src="@drawable/rapih_icon"
+        android:src="@drawable/iconrapihabuabu"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_alignParentTop="true"
@@ -36,7 +36,7 @@
         android:textSize="20sp"
         android:layout_below="@+id/txtinfo1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textColor="#1d26d4"
         android:textAlignment="center"
         android:id="@+id/txtinfo2"
@@ -64,7 +64,7 @@
             android:id="@+id/imgmitrabu"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/iconmitrabu"
+            android:src="@drawable/iconmitrakecil"
             android:layout_gravity="center_horizontal"
 
             />
@@ -88,7 +88,7 @@
             android:id="@+id/imgmitraac"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/iconmitraac"
+            android:src="@drawable/iconmitrakecil"
 
             android:layout_gravity="center_horizontal"
 
